@@ -1,0 +1,33 @@
+.testimonialThumbs{
+    position: absolute;
+    top:35%;
+    left:32%;
+    height: 7vw;
+    width: 50%;
+}
+.testimonialThumbs .swiper-wrapper .swiper-slide{
+    height: 7vw;
+    width: 7vw;
+}
+.testimonialThumbsSlide{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+.testimonialThumbsSlide img{
+    height: 7vw;
+    width: 7vw;
+    border-radius: 50%;
+    cursor: pointer;
+
+}
+.testimonialThumbsSlide .swiper-wrapper .swiper-slide-thumb-active {
+    height: 10vw !important;
+    width: 10vw !important;
+    border: 1px solid red !important;
+}
+.testimonialThumbsSlide .swiper-wrapper .swiper-slide-thumb-active img{
+    height: 10vw !important;
+    width: 10vw !important;
+    border: 1px solid red !important;
+}

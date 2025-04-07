@@ -5,21 +5,71 @@ import 'swiper/css/navigation';
 import {  FreeMode, Navigation, Thumbs } from 'swiper/modules';
 import 'swiper/css/thumbs';
 import Image from 'next/image';
+import styles from "./testimonials.module.css"
 
 
-const TestimonialCard = ()=>{
+const data =[
+  {
+    img:"/assets/images/testimonial-1.png",
+    name:"Michael Carter",
+    designation:"Chief Technology Officer, Quantum Insurance",
+    title:"Revolutionized Our AI Workflow",
+    para:"UnifyAI seamlessly integrated into our existing infrastructure, cutting our AI deployment time by 60%. The flexibility to manage multiple AI models in one place has been a game-changer!"
+  },
+  {
+    img:"/assets/images/testimonial-2.png",
+    name:"Michael Carter",
+    designation:"Chief Technology Officer, Quantum Insurance",
+    title:"Revolutionized Our AI Workflow",
+    para:"UnifyAI seamlessly integrated into our existing infrastructure, cutting our AI deployment time by 60%. The flexibility to manage multiple AI models in one place has been a game-changer!"
+  },
+  {
+    img:"/assets/images/testimonial-3.png",
+    name:"Michael Carter",
+    designation:"Chief Technology Officer, Quantum Insurance",
+    title:"Revolutionized Our AI Workflow",
+    para:"UnifyAI seamlessly integrated into our existing infrastructure, cutting our AI deployment time by 60%. The flexibility to manage multiple AI models in one place has been a game-changer!"
+  },
+  {
+    img:"/assets/images/testimonial-4.png",
+    name:"Michael Carter",
+    designation:"Chief Technology Officer, Quantum Insurance",
+    title:"Revolutionized Our AI Workflow",
+    para:"UnifyAI seamlessly integrated into our existing infrastructure, cutting our AI deployment time by 60%. The flexibility to manage multiple AI models in one place has been a game-changer!"
+  },
+  {
+    img:"/assets/images/testimonial-5.png",
+    name:"Michael Carter",
+    designation:"Chief Technology Officer, Quantum Insurance",
+    title:"Revolutionized Our AI Workflow",
+    para:"UnifyAI seamlessly integrated into our existing infrastructure, cutting our AI deployment time by 60%. The flexibility to manage multiple AI models in one place has been a game-changer!"
+  },
+  {
+    img:"/assets/images/testimonial-6.png",
+   name:"Michael Carter",
+    designation:"Chief Technology Officer, Quantum Insurance",
+    title:"Revolutionized Our AI Workflow",
+    para:"UnifyAI seamlessly integrated into our existing infrastructure, cutting our AI deployment time by 60%. The flexibility to manage multiple AI models in one place has been a game-changer!"
+  },
+  {
+    img:"/assets/images/testimonial-7.png",
+    name:"Michael Carter",
+    designation:"Chief Technology Officer, Quantum Insurance",
+    title:"Revolutionized Our AI Workflow",
+    para:"UnifyAI seamlessly integrated into our existing infrastructure, cutting our AI deployment time by 60%. The flexibility to manage multiple AI models in one place has been a game-changer!"
+  },
+]
+const TestimonialCard = ({name,designation,title,para})=>{
     return(
         <>
-        <div className='w-full h-full flex flex-col items-center space-y-20 rounded-4xl p-15 border border-stone-700 text-center'>
+        <div className='w-full h-full flex flex-col items-center space-y-20 rounded-4xl p-15 border border-stone-700 text-center bg-white/5 pt-30'>
             <div className='space-y-5'>
-            <p className='text-[2.6vw] text-[#F16B0D]'>Michael Carter</p>
-            <p className='font-medium text-[1.145vw] text-[#CACACA]'>Chief Technology Officer, Quantum Insurance</p>
+            <p className='text-[2.6vw] text-[#F16B0D]'>{name}</p>
+            <p className='font-medium text-[1.145vw] text-[#CACACA]'>{designation}</p>
             </div>
             <div className='w-[65%] space-y-5 '>
-                <p className='text-[1.145vw] text-[#CACACA]'>"Revolutionized Our AI Workflow"</p>
-<p className='text-[1.145vw] text-[#CACACA]'>"UnifyAI seamlessly integrated into our existing infrastructure, cutting our 
-AI deployment time by 60%. The flexibility to manage multiple AI models in 
-one place has been a game-changer!"</p>
+                <p className='text-[1.145vw] text-[#CACACA]'>{title}</p>
+<p className='text-[1.145vw] text-[#CACACA]'>{para}</p>
             </div>
             
         </div>
@@ -51,57 +101,28 @@ const Testimonials = () => {
         </div>
         <div className='h-full text-white w-[60%] py-10'>
         <Swiper thumbs={{ swiper: thumbsSwiper }}
-        modules={[FreeMode, Thumbs]}  onSwiper={(swiper) => (swiperRef.current = swiper)} className="mySwiper">
-        <SwiperSlide><TestimonialCard/></SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
+        modules={[FreeMode, Thumbs]}  onSwiper={(swiper) => (swiperRef.current = swiper)} className="mySwiper testimonial-swiper">
+          {data.map((items,index)=>(
+             <SwiperSlide key={index}>
+              <TestimonialCard name={items.name} designation={items.designation} title={items.title} para={items.para}/>
+              </SwiperSlide>
+          ))}
       </Swiper>
       <Swiper
         onSwiper={setThumbsSwiper}
-        spaceBetween={10}
-        slidesPerView={4}
+        spaceBetween={-300}
+        slidesPerView={data.length}
         freeMode={true}
         watchSlidesProgress={true}
         modules={[FreeMode, Thumbs]}
-        className="mySwiper"
+        className={`mySwiper ${styles.testimonialThumbs}`}
         // onSwiper={(swiper) => (swiperRef.current = swiper)}
       >
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
-        </SwiperSlide>
+         {data.map((items,index)=>(
+             <SwiperSlide key={index} className={`${styles.testimonialThumbsSlide} h-full w-full`}>
+               <img src={items.img} />
+              </SwiperSlide>
+          ))}
       </Swiper>
 
        <div

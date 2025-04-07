@@ -26,7 +26,7 @@ const data= [
 
 const FAQs = () => {
   const itemClasses = {
-    base: "py-8 w-full border-b border-gray-600 px-4",
+    base: "py-5 w-full border-b border-gray-600 px-4",
     title: "font-medium text-[1.145vw] text-[#E8E8E8] ",
     trigger: "px-2 py-0 rounded-full h-14 flex items-center justify-between w-full",
     // indicator: "text-medium text-xl",
