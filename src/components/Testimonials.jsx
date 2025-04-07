@@ -156,6 +156,38 @@ const Testimonials = () => {
                               />
                             </div>
                           </div>
+
+       <div
+                            className={`px-[1.2vw] py-[1.2vw] absolute z-[5] bottom-[2%] right-[46%] mobile:bottom-[6%] mobile:top-auto mobile:right-auto mobile:left-[62%] translate-x-[-65%]  tablet:top-[93%] tablet:right-[35%] tablet:bottom-auto tablet:translate-y-[-70%] overflow-hidden mobile:p-[5vw] tablet:p-[2vw] rounded-full next-button  border border-stone-700/50 cursor-pointer  mobile:block group`}
+                            onClick={handleNext} 
+                          >
+                            <div className="w-[1.2vw] h-[1.2vw] relative z-[6] mobile:w-[4.5vw] mobile:h-[4.5vw] tablet:w-[2.5vw] tablet:h-[2.5vw]">
+                              <Image
+                                src="/assets/icons/arrow-right.svg"
+                                alt="arrow-right"
+                                height={20}
+                                width={20}
+                                className={` h-full w-full`}
+                                
+                              />
+                            </div>
+                          </div>
+                          <div
+                            className={`px-[1.2vw] py-[1.2vw] bottom-[2%] right-[52%] absolute z-[5] mobile:bottom-[6%] mobile:top-auto mobile:left-[37%] mobile:right-auto  translate-x-[-38%]  tablet:top-[93%] tablet:right-[48%] tablet:bottom-auto tablet:translate-y-[-70%] overflow-hidden  mobile:p-[5vw] tablet:p-[2vw] rounded-full prev-button cursor-pointer  mobile:block border border-stone-700/50`}
+                            onClick={handlePrev} 
+                          >
+                           
+                           <div className="w-[1.2vw] h-[1.2vw] relative z-[6] mobile:w-[4.5vw] mobile:h-[4.5vw] tablet:w-[2.5vw] tablet:h-[2.5vw]">
+                              <Image
+                                src="/assets/icons/arrow-left.svg"
+                                alt="arrow-right"
+                                height={20}
+                                width={20}
+                                className={` h-full w-full`}
+                                
+                              />
+                            </div>
+                          </div>
         </div>
     </div>
 
