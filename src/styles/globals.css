@@ -17,13 +17,15 @@
   --foreground: var(--foreground);
   --font-head: var(--font-display);
   --font-body: var(--font-body);
+  --color-white-200: var(--white-200);
+  --color-white-300: var(--white-300);
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-body);
-  font-size: 1.375rem;
+  font-size: 1.15vw;
   line-height: 1.2;
 }
 

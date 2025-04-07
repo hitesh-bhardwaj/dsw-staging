@@ -10,10 +10,14 @@
   },
   "dependencies": {
     "@heroui/accordion": "^2.2.14",
+    "@heroui/system": "^2.4.13",
+    "@heroui/theme": "^2.4.13",
+    "framer-motion": "^12.6.3",
+    "@heroui/accordion": "^2.2.14",
     "lenis": "^1.2.3",
     "next": "15.2.4",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "swiper": "^11.2.6"
   },
   "devDependencies": {

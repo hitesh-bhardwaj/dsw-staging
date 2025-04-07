@@ -9,7 +9,7 @@ const Header = () => {
         <div className="flex items-center justify-between py-6 px-12 w-screen">
           <div>
             <Image
-              src={"/assets/images/logo.png"}
+              src={"/dsw-logo.svg"}
               height={67}
               width={132}
               alt="dsw-logo"
