@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import {  FreeMode, Navigation, Thumbs } from 'swiper/modules';
 import 'swiper/css/thumbs';
+import Image from 'next/image';
 
 
 const TestimonialCard = ()=>{
@@ -27,6 +28,18 @@ one place has been a game-changer!"</p>
 }
 const Testimonials = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+   const swiperRef = useRef(null);  
+    const handleNext = () => {
+      if (swiperRef.current) {
+        swiperRef.current.slideNext();
+      }
+    };
+  
+    const handlePrev = () => {
+      if (swiperRef.current) {
+        swiperRef.current.slidePrev(); 
+      }
+    };
 
   return (
    <section className='h-full w-screen py-20 relative'>
@@ -37,8 +50,8 @@ const Testimonials = () => {
         </h2>
         </div>
         <div className='h-full text-white w-[60%] py-10'>
-        <Swiper navigation={true} thumbs={{ swiper: thumbsSwiper }}
-        modules={[FreeMode, Navigation, Thumbs]} className="mySwiper">
+        <Swiper thumbs={{ swiper: thumbsSwiper }}
+        modules={[FreeMode, Thumbs]}  onSwiper={(swiper) => (swiperRef.current = swiper)} className="mySwiper">
         <SwiperSlide><TestimonialCard/></SwiperSlide>
         <SwiperSlide>Slide 2</SwiperSlide>
         <SwiperSlide>Slide 3</SwiperSlide>
@@ -55,8 +68,9 @@ const Testimonials = () => {
         slidesPerView={4}
         freeMode={true}
         watchSlidesProgress={true}
-        modules={[FreeMode, Navigation, Thumbs]}
+        modules={[FreeMode, Thumbs]}
         className="mySwiper"
+        // onSwiper={(swiper) => (swiperRef.current = swiper)}
       >
         <SwiperSlide>
           <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
@@ -89,6 +103,38 @@ const Testimonials = () => {
           <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
         </SwiperSlide>
       </Swiper>
+
+       <div
+                            className={`px-[1.2vw] py-[1.2vw] absolute z-[5] bottom-[2%] right-[46%] mobile:bottom-[6%] mobile:top-auto mobile:right-auto mobile:left-[62%] translate-x-[-65%]  tablet:top-[93%] tablet:right-[35%] tablet:bottom-auto tablet:translate-y-[-70%] overflow-hidden mobile:p-[5vw] tablet:p-[2vw] rounded-full next-button  border border-stone-700/50 cursor-pointer  mobile:block group`}
+                            onClick={handleNext} 
+                          >
+                            <div className="w-[1.2vw] h-[1.2vw] relative z-[6] mobile:w-[4.5vw] mobile:h-[4.5vw] tablet:w-[2.5vw] tablet:h-[2.5vw]">
+                              <Image
+                                src="/assets/icons/arrow-right.svg"
+                                alt="arrow-right"
+                                height={20}
+                                width={20}
+                                className={` h-full w-full`}
+                                
+                              />
+                            </div>
+                          </div>
+                          <div
+                            className={`px-[1.2vw] py-[1.2vw] bottom-[2%] right-[52%] absolute z-[5] mobile:bottom-[6%] mobile:top-auto mobile:left-[37%] mobile:right-auto  translate-x-[-38%]  tablet:top-[93%] tablet:right-[48%] tablet:bottom-auto tablet:translate-y-[-70%] overflow-hidden  mobile:p-[5vw] tablet:p-[2vw] rounded-full prev-button cursor-pointer  mobile:block border border-stone-700/50`}
+                            onClick={handlePrev} 
+                          >
+                           
+                           <div className="w-[1.2vw] h-[1.2vw] relative z-[6] mobile:w-[4.5vw] mobile:h-[4.5vw] tablet:w-[2.5vw] tablet:h-[2.5vw]">
+                              <Image
+                                src="/assets/icons/arrow-left.svg"
+                                alt="arrow-right"
+                                height={20}
+                                width={20}
+                                className={` h-full w-full`}
+                                
+                              />
+                            </div>
+                          </div>
         </div>
     </div>
 
