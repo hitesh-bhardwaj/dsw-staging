@@ -3,7 +3,7 @@ import React from 'react'
 
 const Connects = () => {
   return (
-   <section className='h-full w-screen py-20'>
+   <section className='h-full w-screen py-20 px-15'>
     <div className='w-full h-full flex flex-col items-center justify-center'>
         <div className='text-center w-[40%] space-y-10'>
         <h3 className='text-[5.2vw] leading-[1.2]'>
