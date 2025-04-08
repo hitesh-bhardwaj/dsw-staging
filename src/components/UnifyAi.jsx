@@ -31,9 +31,7 @@ const UnifyAi = () => {
       <motion.div
         style={{
           scale,
-          y:translate,
-         
-          
+          y:translate,        
           top: "25%",
           left: "-20%",
           height: "50vh",

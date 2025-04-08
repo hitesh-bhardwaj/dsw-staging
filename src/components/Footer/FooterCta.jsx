@@ -1,9 +1,9 @@
 import Image from "next/image";
 import PrimaryButton from "../Button/PrimaryButton";
 import WhiteButton from "../Button/WhiteButton";
-// import Image1 from "../../../public/assets/images/footer/image-1.png";
 import Image1 from "../../../public/assets/images/footer/image-1.png";
 import Image2 from "../../../public/assets/images/footer/image-2.png";
+import { motion } from "motion/react";
 
 const FooterCTA = () => {
     return (
@@ -17,7 +17,13 @@ const FooterCTA = () => {
                 </div>
             </div>
             <div className="relative w-1/2 h-[50vw]">
-                <div className="absolute top-1/2 -translate-y-1/2 right-0 -z-10">
+                <motion.div 
+                    className="absolute top-1/2 -translate-y-1/2 right-0 -z-10"
+                    initial={{ opacity: 0, scale: 0 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1, ease: "easeInOut" }}
+                    viewport={{ once: true }}
+                    >
                     <svg className="w-[95%] ml-auto" width="778" height="778" viewBox="0 0 778 778" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="389.094" cy="388.916" r="388.781" stroke="url(#paint0_linear_232_8167)" stroke-opacity="0.5" stroke-width="0.25" />
                         <circle cx="389.094" cy="388.915" r="302.668" stroke="url(#paint1_linear_232_8167)" stroke-opacity="0.5" stroke-width="0.25" />
@@ -37,7 +43,7 @@ const FooterCTA = () => {
                             </linearGradient>
                         </defs>
                     </svg>
-                </div>
+                </motion.div>
                 <Image className="absolute w-[45%] top-[15%] left-[20%]" src={Image1} loading="lazy" placeholder="blur" />
                 <Image className="absolute w-[45%] bottom-[10%] left-[45%]" src={Image2} loading="lazy" placeholder="blur" />
             </div>

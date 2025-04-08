@@ -1,36 +1,44 @@
 import React from 'react'
 import { Accordion, AccordionItem } from "@heroui/accordion";
 
-const data= [
-    {
-        title:"What is UnifyAI?",
-        description:"UnifyAI is an enterprise AI platform that enables businesses to develop, deploy, and manage AI models seamlessly. It supports machine learning, Generative AI, and large language models (LLMs) while ensuring security, compliance, and scalability."
-    },
-    {
-        title:"Who can use UnifyAI?",
-        description:"UnifyAI is an enterprise AI platform that enables businesses to develop, deploy, and manage AI models seamlessly. It supports machine learning, Generative AI, and large language models (LLMs) while ensuring security, compliance, and scalability."
-    },
-    {
-        title:"How does UnifyAI integrate with existing systems?",
-        description:"UnifyAI is an enterprise AI platform that enables businesses to develop, deploy, and manage AI models seamlessly. It supports machine learning, Generative AI, and large language models (LLMs) while ensuring security, compliance, and scalability."
-    },
-    {
-        title:"Is UnifyAI secure?",
-        description:"UnifyAI is an enterprise AI platform that enables businesses to develop, deploy, and manage AI models seamlessly. It supports machine learning, Generative AI, and large language models (LLMs) while ensuring security, compliance, and scalability."
-    },
-    {
-        title:"What types of AI models does UnifyAI support?",
-        description:"UnifyAI is an enterprise AI platform that enables businesses to develop, deploy, and manage AI models seamlessly. It supports machine learning, Generative AI, and large language models (LLMs) while ensuring security, compliance, and scalability."
-    },
+const data = [
+  {
+    title: "What is UnifyAI?",
+    description: "UnifyAI is an enterprise AI platform that enables businesses to develop, deploy, and manage AI models seamlessly. It supports machine learning, Generative AI, and large language models (LLMs) while ensuring security, compliance, and scalability."
+  },
+  {
+    title: "Who can use UnifyAI?",
+    description: "UnifyAI is an enterprise AI platform that enables businesses to develop, deploy, and manage AI models seamlessly. It supports machine learning, Generative AI, and large language models (LLMs) while ensuring security, compliance, and scalability."
+  },
+  {
+    title: "How does UnifyAI integrate with existing systems?",
+    description: "UnifyAI is an enterprise AI platform that enables businesses to develop, deploy, and manage AI models seamlessly. It supports machine learning, Generative AI, and large language models (LLMs) while ensuring security, compliance, and scalability."
+  },
+  {
+    title: "Is UnifyAI secure?",
+    description: "UnifyAI is an enterprise AI platform that enables businesses to develop, deploy, and manage AI models seamlessly. It supports machine learning, Generative AI, and large language models (LLMs) while ensuring security, compliance, and scalability."
+  },
+  {
+    title: "What types of AI models does UnifyAI support?",
+    description: "UnifyAI is an enterprise AI platform that enables businesses to develop, deploy, and manage AI models seamlessly. It supports machine learning, Generative AI, and large language models (LLMs) while ensuring security, compliance, and scalability."
+  },
 ]
+
+const Icon = ({ isOpen }) => {
+  return (
+    <div className={`size-10 p-3 flex items-center justify-center relative text-3xl text-white border border-zinc-700 rounded-full ${isOpen ? "bg-gradient-to-r from-[#f16b0d] group to-[#e61216]" : ""} `}>
+      <span className='w-3/6 h-[2px] bg-current absolute' />
+      <span className={`w-3/6 h-[2px] bg-current rotate-90 absolute duration-300 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+    </div>
+  )
+}
 
 const FAQs = () => {
   const itemClasses = {
-    base: "py-5 w-full border-b border-gray-600 px-4",
+    base: "py-5 w-full px-4 border-b border-zinc-800",
     title: "font-medium text-[1.145vw] text-[#E8E8E8] ",
     trigger: "px-2 py-0 rounded-full h-14 flex items-center justify-between w-full",
-    // indicator: "text-medium text-xl",
-    content: "text-[1.145vw] px-2 text-[#CACACA]",
+    content: "text-[1.145vw] py-4 px-2 text-[#CACACA] w-5/6",
   };
 
   return (
@@ -40,22 +48,20 @@ const FAQs = () => {
       </div>
 
       <div className='w-[80%] ml-auto mr-auto py-20'>
-        <Accordion itemClasses={itemClasses}>
-        {data.map((item, index) => (
-  <AccordionItem
-    key={index}
-    aria-label={item.title}
-    title={item.title}
-    className='!w-full'
-    indicator={({ isOpen }) => (
-      <span className={`w-12 h-12 flex items-center justify-center text-3xl  border border-gray-700 rounded-full ${isOpen? "bg-gradient-to-r from-[#f16b0d] group to-[#e61216]" : ""}`}>
-        {isOpen ? "-" : "+"}
-      </span>
-    )} 
-  >
-    {item.description}
-  </AccordionItem>
-))}
+        <Accordion showDivider={false} itemClasses={itemClasses} defaultExpandedKeys={["0"]}>
+          {data.map((item, index) => (
+            <AccordionItem
+              key={index}
+              aria-label={item.title}
+              title={item.title}
+              className='!w-full'
+              indicator={({ isOpen }) => (
+                <Icon isOpen={isOpen} />
+              )}
+            >
+              {item.description}
+            </AccordionItem>
+          ))}
 
         </Accordion>
       </div>

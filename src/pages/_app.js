@@ -1,7 +1,9 @@
 import "@/styles/globals.css";
 import { Manrope } from "next/font/google";
 import localFont from 'next/font/local';
-import { ReactLenis } from 'lenis/react';
+import 'lenis/dist/lenis.css';
+import LenisSmoothScroll from "@/components/LenisSmoothScroll";
+// import { useEffect } from "react";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -28,15 +30,19 @@ const neumontreal = localFont({
   fallback: ['sans-serif']
 })
 
-
 export default function App({ Component, pageProps }) {
+
+  // useEffect(() => {
+  //   LenisSmoothScroll();
+  // })
+
   return (
     <>
-      <ReactLenis root>
-        <div className={`${manrope.variable} ${neumontreal.variable} text-xl`}>
+      <LenisSmoothScroll>
+        {/* <div className={`${manrope.variable} ${neumontreal.variable} text-xl`}> */}
           <Component {...pageProps} />
-        </div>
-      </ReactLenis>
+        {/* </div> */}
+      </LenisSmoothScroll>
     </>
   )
 }
