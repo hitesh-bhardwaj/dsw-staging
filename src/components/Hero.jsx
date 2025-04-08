@@ -3,6 +3,7 @@ import PrimaryButton from "./Button/PrimaryButton";
 import WhiteButton from "./Button/WhiteButton";
 import gsap from "gsap";
 import { motion } from "motion/react";
+import Gradient from "./Gradient";
 
 const Hero = () => {
   useEffect(() => {
@@ -14,9 +15,10 @@ const Hero = () => {
     });
   }, []);
   return (
-    <section className="h-screen w-screen relative" id="hero">
-      <div className="flex flex-col items-center justify-center p-10  w-full h-full">
-        <div className="w-[62%] text-center space-y-6 py-10">
+    <>
+    <section className="h-[75vw] w-screen relative" id="hero">
+      <div className="flex flex-col items-center justify-start  w-full h-full pt-[10vw]">
+        <div className="w-[62%] text-center space-y-6 pb-5 p-10">
           <h1 className="text-[5.2vw] font-head leading-[1.2]">
             AI-Powered Innovation with Data Science Wizards
           </h1>
@@ -27,7 +29,7 @@ const Hero = () => {
           </p>
           <div className="flex items-center justify-center gap-6  mt-10">
             <motion.div initial={{opacity:0}} animate={{opacity:1, transition:{duration:1}}}>
-            <PrimaryButton href={"#"} text={"Start Walkthrough"} />
+            <PrimaryButton href={"#"} text={"Start Walkthrough"}/>
 
             </motion.div>
 
@@ -35,9 +37,10 @@ const Hero = () => {
           </div>
           <div></div>
         </div>
+        
       </div>
 
-      <div className="w-screen h-screen absolute top-0 left-0 z-[-1] flex justify-around">
+      <div className="w-screen h-[38vw] absolute top-0 left-0 z-[-1] flex justify-around">
         <motion.div
           initial={{
             scaleY: 0,
@@ -84,7 +87,11 @@ const Hero = () => {
           className="w-[0.1px] h-full bg-white/15 origin-top"
         />
       </div>
+      <div className="w-screen h-screen absolute top-0 left-0 z-[-2]">
+        <Gradient/>
+      </div>
     </section>
+    </>
   );
 };
 

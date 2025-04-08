@@ -12,6 +12,7 @@
     "@heroui/accordion": "^2.2.14",
     "@heroui/system": "^2.4.13",
     "@heroui/theme": "^2.4.13",
+    "@react-three/fiber": "^9.1.2",
     "framer-motion": "^12.6.3",
     "gsap": "^3.12.7",
     "lenis": "^1.2.3",
@@ -19,7 +20,8 @@
     "next": "15.2.4",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "swiper": "^11.2.6"
+    "swiper": "^11.2.6",
+    "three": "^0.175.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

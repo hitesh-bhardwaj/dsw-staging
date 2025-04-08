@@ -26,7 +26,7 @@ const UnifyAi = () => {
         opacity,
         position: "sticky"
       }}
-      className="h-[250vw] w-screen bg-black relative z-[4]"
+      className="h-[250vw] w-screen bg-black relative z-[4] overflow-hidden"
     >
       <motion.div
         style={{
