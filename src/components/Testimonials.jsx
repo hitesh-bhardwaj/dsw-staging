@@ -70,7 +70,6 @@ const TestimonialCard = ({ name, designation, title, para }) => {
           <p className='text-[1.145vw] text-[#CACACA]'>{title}</p>
           <p className='text-[1.145vw] text-[#CACACA]'>{para}</p>
         </div>
-
       </div>
     </>
   )
@@ -119,7 +118,7 @@ const Testimonials = () => {
           >
             {data.map((items, index) => (
               <SwiperSlide key={index} className={`${styles.testimonialThumbsSlide} h-full w-full`}>
-                <img src={items.img} />
+                <img src={items.img} alt='client-image' loading='lazy' />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -135,7 +134,6 @@ const Testimonials = () => {
                 height={20}
                 width={20}
                 className={` h-full w-full`}
-
               />
             </div>
           </div>
@@ -151,7 +149,6 @@ const Testimonials = () => {
                 height={20}
                 width={20}
                 className={` h-full w-full`}
-
               />
             </div>
           </div>
@@ -167,7 +164,6 @@ const Testimonials = () => {
                 height={20}
                 width={20}
                 className={` h-full w-full`}
-
               />
             </div>
           </div>
@@ -175,7 +171,6 @@ const Testimonials = () => {
             className={`px-[1.2vw] py-[1.2vw] bottom-[2%] right-[52%] absolute z-[5] mobile:bottom-[6%] mobile:top-auto mobile:left-[37%] mobile:right-auto  translate-x-[-38%]  tablet:top-[93%] tablet:right-[48%] tablet:bottom-auto tablet:translate-y-[-70%] overflow-hidden  mobile:p-[5vw] tablet:p-[2vw] rounded-full prev-button cursor-pointer  mobile:block border border-stone-700/50`}
             onClick={handlePrev}
           >
-
             <div className="w-[1.2vw] h-[1.2vw] relative z-[6] mobile:w-[4.5vw] mobile:h-[4.5vw] tablet:w-[2.5vw] tablet:h-[2.5vw]">
               <Image
                 src="/assets/icons/arrow-left.svg"

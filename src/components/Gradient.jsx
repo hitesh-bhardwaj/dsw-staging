@@ -84,8 +84,8 @@ void main() {
 const Plane = ({ colorA, colorB }) => {
   const { viewport } = useThree()
   return (
-    <mesh position={[0,1,0]}>
-      <planeGeometry args={[viewport.width, viewport.height*1.2]} />
+    <mesh position={[0,0,0]}>
+      <planeGeometry args={[viewport.width, viewport.height]} />
       <NoiseMaterial colorA={colorA} colorB={colorB} />
     </mesh>
   )
@@ -93,12 +93,12 @@ const Plane = ({ colorA, colorB }) => {
 
 const Gradient = () => {
   return (
-    <div style={{ width: '100vw', height: '100vh', background: '#000' }}>
-      <Canvas camera={{ position: [0, 0, 5], fov: 45 }} className=' h-screen w-screen absolute top-50 left-0  '>
+    <div style={{ width: '100vw', height: '100vh', background: '#000' }} className='overflow-visible'>
+      <Canvas camera={{ position: [0, 0, 5], fov: 45 }} className='h-[100vw] w-screen -translate-y-1/4'>
         <Plane colorA="#E61216" colorB="#F16B0D" />
       </Canvas>
-      <div className='h-[85vw] w-screen absolute top-90  left-0 '>
-        <Image src="/assets/images/gradient.png" fill alt="image" className='object-cover'/>
+      <div className='h-[100vh] w-screen overflow-visible absolute top-0 left-0 right-0'>
+        <Image src="/assets/images/hero-gradient.png" fill alt="image" className='object-cover w-full object-top size-full translate-y-[10%]'/>
       </div>
     </div>
   )
