@@ -6,7 +6,7 @@ import WhiteButton from './Button/WhiteButton'
 
 const WhyUnify = () => {
     return (
-        <section className='h-full w-screen relative pb-[15vw] mt-[-120vw] pt-[35vw] '>
+        <section className='h-full w-screen relative pb-[15vw] mt-[-150vw] pt-[35vw] '>
             <div className='absolute top-0 left-0 h-[85%] w-screen bg-gradient-to-r from-[#F16B0D] to-[#E61216] rounded-bl-[30%] rounded-br-[20%]'>
 
             </div>

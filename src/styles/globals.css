@@ -1,3 +1,4 @@
+
 @import "tailwindcss";
 
 :root {
@@ -35,4 +36,27 @@ body {
  font-size: 1.145vw;
  line-height: 1.4;
  letter-spacing:0.01vw;
+}
+[data-para-anim],
+.para-anim,
+.lineWord {
+  font-kerning: none;
+}
+
+[data-para-anim] .line,
+.para-anim .line,
+.lineWord .line {
+  overflow: hidden;
+}
+.headingAnim .line .line-internal {
+ 
+  mask-size: 500% 100%;
+  
+  mask-image:linear-gradient(150deg,#fff 33.3%,rgba(255,255,255,.0) 66.6%);
+}
+.turbo-headingAnim .line .word {
+ 
+  mask-size: 500% 100%;
+  
+  mask-image:linear-gradient(150deg,#fff 33.3%,rgba(255,255,255,.0) 66.6%);
 }

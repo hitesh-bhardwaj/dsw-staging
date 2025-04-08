@@ -11,21 +11,23 @@ const Hero = () => {
       <section className="h-[150vh] w-screen relative" id="hero">
         <div className="flex flex-col items-center justify-start w-full h-full pt-[15vw]">
           <div className="w-[62%] text-center space-y-6 pb-5">
-            <h1 className="text-[5.2vw] font-head leading-[1.2]">
+            <h1 className="text-[5.2vw] font-head leading-[1.2] headingAnim">
               AI-Powered Innovation with Data Science Wizards
             </h1>
-            <p className="text-[#CACACA] w-full content-p font-body ml-auto mr-auto  ">
+            <p data-para-anim className="text-[#CACACA] w-full content-p font-body ml-auto mr-auto  ">
               Whether you're in insurance, finance, healthcare, or retail, our AI
               solutions accelerate your journey from concept to production: AI/ML
               Use Cases in 3-4 weeks and GenAI in 2-4 hours{" "}
             </p>
             <div className="flex items-center justify-center gap-6  mt-10">
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 1 } }}>
+              <motion.div initial={{ opacity: 0 ,y:20}} animate={{ opacity: 1, y:0, transition: { duration: 1 } }}>
                 <PrimaryButton href={"#"} text={"Start Walkthrough"} />
               </motion.div>
+              <motion.div initial={{ opacity: 0 ,y:20}} animate={{ opacity: 1, y:0, transition: { duration: 1 } }}>
               <WhiteButton href={"#"} text={"Schedule a Call"} />
+              </motion.div>
             </div>
-            <div></div>
+            
           </div>
         </div>
 
