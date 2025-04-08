@@ -7,7 +7,7 @@ const Header = () => {
     <>
       <header className=" text-white p-4 fixed top-0 left-0 z-[999]">
         <div className="flex items-center justify-between py-6 px-12 w-screen">
-          <div>
+          <Link href={"/"}>
             <Image
               src={"/dsw-logo.svg"}
               height={67}
@@ -15,7 +15,7 @@ const Header = () => {
               alt="dsw-logo"
               className="w-[7vw] h-[5vw] object-contain"
             />
-          </div>
+          </Link>
           <div className="border rounded-4xl bg-stone-900/30 backdrop-blur-sm border-white/20 ml-[4vw]">
             <ul className="flex items-center justify-between px-12 py-4.5 gap-12 text-[1.145vw] ">
               <li>

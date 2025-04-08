@@ -9,11 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroui/accordion": "^2.2.14",
     "@heroui/system": "^2.4.13",
     "@heroui/theme": "^2.4.13",
     "framer-motion": "^12.6.3",
-    "@heroui/accordion": "^2.2.14",
+    "gsap": "^3.12.7",
     "lenis": "^1.2.3",
+    "motion": "^12.6.3",
     "next": "15.2.4",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
