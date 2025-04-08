@@ -1,69 +1,110 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
+
+const businessData = [
+  {
+    title: "Insurance",
+    link: "#",
+    list: [
+      "Sales Attrition",
+      "Persistency",
+      "Early Claim Prediction",
+      "Customer Unification",
+    ],
+  },
+  {
+    title: "Banking",
+    link: "#",
+    list: [
+      "Sales Attrition",
+      "Persistency",
+      "Early Claim Prediction",
+      "Customer Unification",
+    ],
+  },
+  {
+    title: "Retail",
+    link: "#",
+    list: [
+      "Sales Attrition",
+      "Persistency",
+      "Early Claim Prediction",
+      "Customer Unification",
+    ],
+  },
+  {
+    title: "Healthcare",
+    link: "#",
+    list: [
+      "Sales Attrition",
+      "Persistency",
+      "Early Claim Prediction",
+      "Customer Unification",
+    ],
+  },
+  {
+    title: "Gaming",
+    link: "#",
+    list: [
+      "Sales Attrition",
+      "Persistency",
+      "Early Claim Prediction",
+      "Customer Unification",
+    ],
+  },
+];
 const Business = () => {
-  const businessData = [
-    {
-      title: "Insurance",
-      link: "#",
-      list: [
-        "Sales Attrition",
-        "Persistency",
-        "Early Claim Prediction",
-        "Customer Unification",
-      ],
-    },
-    {
-      title: "Banking",
-      link: "#",
-      list: [
-        "Sales Attrition",
-        "Persistency",
-        "Early Claim Prediction",
-        "Customer Unification",
-      ],
-    },
-    {
-      title: "Retail",
-      link: "#",
-      list: [
-        "Sales Attrition",
-        "Persistency",
-        "Early Claim Prediction",
-        "Customer Unification",
-      ],
-    },
-    {
-      title: "Healthcare",
-      link: "#",
-      list: [
-        "Sales Attrition",
-        "Persistency",
-        "Early Claim Prediction",
-        "Customer Unification",
-      ],
-    },
-    {
-      title: "Gaming",
-      link: "#",
-      list: [
-        "Sales Attrition",
-        "Persistency",
-        "Early Claim Prediction",
-        "Customer Unification",
-      ],
-    },
-  ];
+  const sectionRef = useRef(null);
+  const cardsRef = useRef(null);
+  const paraRef = useRef(null);
 
+  useEffect(() => {
+    const section = sectionRef.current;
+    const cards = cardsRef.current;
+    const para = paraRef.current;
+  
+    gsap.to(cards, {
+      x: "-100vw",
+      ease: "none",
+      scrollTrigger: {
+        trigger: section,
+        start: "25% top",
+        end: "+=2000", 
+        scrub: true,
+        pin: true,
+        anticipatePin: 1,
+      },
+    });
+  
+    gsap.to(para, {
+      y: -150, 
+      
+      ease: "none",
+      duration:2,
+      scrollTrigger: {
+        trigger: para,
+        start: "20% top",
+        end:"bottom -20%",
+        // markers:true,
+        scrub: true,
+      },
+    });
+  }, []);
+  
   return (
-    <section className="h-full w-screen py-10 overflow-hidden">
-      <div className="py-10 px-15 w-full">
-        <div className="w-[52%] space-y-8">
+    <section ref={sectionRef} className="h-full w-screen py-10 overflow-hidden">
+      <div className="py-10  w-full">
+        <div className="w-[52%] space-y-8 px-15">
           <h2 className="text-[5.2vw] font-head leading-[1.2]">
             AI That Works for Your Business
           </h2>
-          <p className="content-p text-[#CACACA]">
+          <p className="content-p text-[#CACACA]" ref={paraRef}>
             UnifyAI is designed to solve real-world business challenges with
             cutting-edge AI capabilities. Whether you need to enhance fraud
             prevention, automate workflows, or improve customer interactions,
@@ -72,7 +113,7 @@ const Business = () => {
           </p>
         </div>
         <div className=" overflow-scroll w-screen mt-[5vw]">
-          <div className="ml-[50vw] overflow-x-auto overflow-scroll w-fit flex  gap-10 py-10 mr-[10vw]">
+          <div className="ml-[50vw] overflow-x-auto overflow-scroll w-fit flex  gap-10 py-10 mr-[10vw]" ref={cardsRef}>
             {businessData.map((data, id) => (
               <>
                 <Link href={data.link}>

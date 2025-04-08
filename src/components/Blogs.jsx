@@ -1,10 +1,13 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { Navigation } from 'swiper/modules';
 import Image from 'next/image';
 import PrimaryButton from './Button/PrimaryButton';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
+
 
 
 const BlogCard=({title, date,img})=>{
@@ -23,7 +26,24 @@ const BlogCard=({title, date,img})=>{
     )
 }
 const Blogs = () => {
-  const swiperRef = useRef(null);  
+  const swiperRef = useRef(null); 
+  const blogsRef = useRef(null); 
+
+  useEffect(() => {
+    if (blogsRef.current) {
+      gsap.from(".swiper-container", {
+        x: 50,
+        opacity: 0,
+        duration: 1.5,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: blogsRef.current,
+          start: 'top 80%',
+        },
+      });
+    }
+  }, []);
+
   const handleNext = () => {
     if (swiperRef.current) {
       swiperRef.current.slideNext();
@@ -36,17 +56,16 @@ const Blogs = () => {
     }
   };
   return (
-  <section className='h-full w-screen py-20 my-30 relative'>
+  <section ref={blogsRef} className='h-full w-screen py-20 my-30 relative'>
     <div className='h-full w-full flex items-center justify-between pl-15'>
         <div className='w-1/2 space-y-10'>
          <h2 className='text-[5.2vw] leading-[1.2] w-[90%]'>Stay Ahead with AI Insights</h2>
          <p className='content-p text-[#CACACA] w-[72%]'>stay informed with expert insights, industry updates, and real-world use cases from UnifyAI. Whether you&apos;re looking for the latest in Generative AI, AI governance, or enterprise AI adoption, we&apos;ve got you covered.</p>
          <PrimaryButton text={"Know More"} href={"#"}/>
         </div>
-        <div className='w-[55%] text-white'>
-        
+        <div className='w-[55%] text-white ' >
          <Swiper slidesPerView={1.8}  
-         className="mySwiper"  onSwiper={(swiper) => (swiperRef.current = swiper)}>
+         className="mySwiper swiper-container"  onSwiper={(swiper) => (swiperRef.current = swiper)}>
         <SwiperSlide><BlogCard img={"/assets/images/blog-1.png"} title={"How Generative AI is Revolutionizing Insurance"} date={"6 March, 2025"}/></SwiperSlide>
         <SwiperSlide><BlogCard img={"/assets/images/blog-2.png"} title={"Best Practices for AI Deployment in Regulated Industries"} date={"6 March, 2025"}/></SwiperSlide>
         <SwiperSlide><BlogCard img={"/assets/images/blog-1.png"} title={"How Generative AI is Revolutionizing Insurance"} date={"6 March, 2025"}/></SwiperSlide>
@@ -82,7 +101,7 @@ const Blogs = () => {
                           alt="arrow-right"
                           height={20}
                           width={20}
-                          className={` h-full w-full rotate-180`}
+                          className={` h-full w-full`}
                           
                         />
                       </div>
