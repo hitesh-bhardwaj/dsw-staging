@@ -12,29 +12,45 @@ const Insuraince = () => {
     const spanRefs = useRef([]);
 
     useEffect(() => {
-        const cards = cardRefs.current;
-        const spans = spanRefs.current;
-        cards.forEach((card, i) => {
-            setTimeout(() => {
-                gsap.fromTo(
+        const ctx = gsap.context(() => {
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: 'top 80%',
+                    toggleActions: 'play none none none',
+                },
+            });
+
+            // Animate cards
+            cardRefs.current.forEach((card, i) => {
+                tl.fromTo(
                     card,
-                    { opacity: 0, },
+                    { opacity: 0 },
                     {
                         opacity: 1,
-                        // y:0,
-                        duration: 2,
+                        duration: 1.2,
                         ease: 'power3.out',
-                    }
+                    },
+                    i * 1.0
                 );
-    
-                gsap.to(spans[i], {
-                    scaleX: 1,
-                    transformOrigin: "left center",
-                    duration: 2,
-                    ease: 'none',
-                });
-            }, i * 1000); 
-        });
+            });
+
+            // Animate spans
+            spanRefs.current.forEach((span, i) => {
+                tl.to(
+                    span,
+                    {
+                        scaleX: 1,
+                        transformOrigin: 'left center',
+                        duration: 1.2,
+                        ease: 'none',
+                    },
+                    i * 0.3 // align this to same timing as cards
+                );
+            });
+        }, sectionRef);
+
+        return () => ctx.revert(); // Clean up
     }, []);
     
 
