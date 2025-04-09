@@ -4,7 +4,7 @@ import Clients from "@/components/Clients";
 import Connects from "@/components/Connects";
 import FAQs from "@/components/FAQs";
 import Footer from "@/components/Footer";
-import { headingAnim, paraAnim } from "@/components/gsapAnimations";
+import { fadeIn, fadeUp, headingAnim, paraAnim } from "@/components/gsapAnimations";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Insuraince from "@/components/Insuraince";
@@ -16,8 +16,10 @@ import UnifyAi from "@/components/UnifyAi";
 import WhyUnify from "@/components/WhyUnify";
 
 export default function Home() {
-  headingAnim()
-  paraAnim()
+  headingAnim();
+  paraAnim();
+  fadeUp();
+  fadeIn();
   return (
     <>
       <Header />

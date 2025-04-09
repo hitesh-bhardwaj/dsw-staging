@@ -34,33 +34,31 @@ const TurbochargeG = () => {
 
 useEffect(() => {
     const ctx = gsap.context(() => {
-
-
-      const headingAnim = document.querySelectorAll(".turbo-headingAnim");
-      headingAnim.forEach((headingAnim)=>{
-          SplitInLineWord(headingAnim);
-          const headingWord = headingAnim.querySelectorAll(".word");
-          gsap.fromTo(headingWord,{
+      // const headingAnim = document.querySelectorAll(".turbo-headingAnim");
+      // headingAnim.forEach((headingAnim)=>{
+      //     SplitInLineWord(headingAnim);
+      //     const headingWord = headingAnim.querySelectorAll(".line-internal");
+      //     gsap.fromTo(headingWord,{
              
-                maskPosition: "100% 100%",
+      //           maskPosition: "100% 100%",
               
-          },{
-              maskPosition:"0% 100%",
-              stagger:0.05,
-              duration:2.5,
-              ease:"power3.out",
-              scrollTrigger: {
-                trigger: ".turbo-headingAnim",
-                start: 'top top', 
-                // markers:true,
-                scrub:true,
+      //     },{
+      //         maskPosition:"0% 100%",
+      //         stagger:0.05,
+      //         duration:2.5,
+      //         ease:"power3.out",
+      //         scrollTrigger: {
+      //           trigger: ".turbo-headingAnim",
+      //           start: '30% top', 
+      //           // markers:true,
+      //           scrub:true,
                 
                 
         
-              },
+      //         },
 
-          });
-      })      
+          // });
+      // })      
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: "#turbo",
@@ -82,9 +80,7 @@ useEffect(() => {
             trigger:"#turbo",
             scrub:true,
             start:"top 50%",
-            end:"bottom 30%",
-           
-            
+            end:"bottom 30%",    
         }
       })
       gsap.to(".turbo-content",{
@@ -114,7 +110,6 @@ useEffect(() => {
           ".img-2",
           {
             rotateX: 45,
-            
             transformOrigin: "top center",
             duration: 1,
           },
@@ -137,7 +132,6 @@ useEffect(() => {
             yPercent:-30,
             xPercent:25,
             rotateX: 45,
-           
             transformOrigin: "right center",
             duration: 1,
           },
@@ -213,11 +207,11 @@ useEffect(() => {
           </div>
 
           <div className="space-y-10 turbo-content">
-            <h2 className="text-[5.2vw] font-head leading-[1.2] turbo-headingAnim">
+            <h2 className="text-[5.2vw] font-head leading-[1.2] turbo-headingAnim headingAnim">
               Turbocharge Your AI/ML Use Cases in 3-4 weeks and GenAI in 2-4
               hours
             </h2>
-            <p className="text-[#CACACA] w-[80%] content-p mx-auto">
+            <p data-para-anim className="text-[#CACACA] w-[80%] content-p mx-auto">
               Unleash the power of AI and Generative AI with UnifyAI – the
               enterprise-ready platform designed to streamline, scale, and
               deploy AI solutions seamlessly. Whether you're leveraging AI for

@@ -59,9 +59,9 @@ const Blogs = () => {
   <section ref={blogsRef} className='h-full w-screen py-20 my-30 relative'>
     <div className='h-full w-full flex items-center justify-between pl-15'>
         <div className='w-1/2 space-y-10'>
-         <h2 className='text-[5.2vw] leading-[1.2] w-[90%]'>Stay Ahead with AI Insights</h2>
-         <p className='content-p text-[#CACACA] w-[72%]'>stay informed with expert insights, industry updates, and real-world use cases from UnifyAI. Whether you&apos;re looking for the latest in Generative AI, AI governance, or enterprise AI adoption, we&apos;ve got you covered.</p>
-         <PrimaryButton text={"Know More"} href={"#"}/>
+         <h2 className='text-[5.2vw] leading-[1.2] w-[90%] headingAnim'>Stay Ahead with AI Insights</h2>
+         <p data-para-anim className='content-p text-[#CACACA] w-[72%]'>stay informed with expert insights, industry updates, and real-world use cases from UnifyAI. Whether you&apos;re looking for the latest in Generative AI, AI governance, or enterprise AI adoption, we&apos;ve got you covered.</p>
+         <PrimaryButton text={"Know More"} href={"#"} className='fadeup'/>
         </div>
         <div className='w-[55%] text-white ' >
          <Swiper slidesPerView={1.8}  

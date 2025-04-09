@@ -7,10 +7,10 @@ const SecurityCard = ({img,text})=>{
         <>
          <div className='flex  items-center gap-10 border-b border-white/20 pb-15'>
                 <div className='w-1/2'>
-                    <Image src={img} height={178} width={178} alt='securtity-1' className='w-[10vw] h-[10vw] object-contain'/>
+                    <Image src={img} height={178} width={178} alt='securtity-1' className='w-[10vw] h-[10vw] object-contain fadein'/>
                 </div>
                 <div className='w-[98vw]'>
-                <p className='text-[1.145vw] text-[#CACACA] content-p'>{text}</p>
+                <p data-para-anim className='text-[1.145vw] text-[#CACACA] content-p'>{text}</p>
                 </div>
                 </div>
         </>
@@ -21,7 +21,7 @@ const Security = () => {
    <section className='h-full w-screen py-20'>
     <div className='py-10 px-15 w-full space-y-16 '>
         <div className='w-[50%]'>
-        <h2 className='text-[5.2vw] font-head leading-[1.2]'>Security Standards and Compliance</h2>
+        <h2 className='text-[5.2vw] font-head leading-[1.2] headingAnim'>Security Standards and Compliance</h2>
 
         </div>
         <div className='w-full flex items-end justify-end  gap-10 py-10'>

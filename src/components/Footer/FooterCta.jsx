@@ -9,11 +9,11 @@ const FooterCTA = () => {
     return (
         <div className="px-20 flex items-center justify-between h-[80vh] w-screen overflow-hidden">
             <div className="w-1/2">
-                <h5 className="text-[5.2vw] leading-[1.2] font-head mb-3">Ready to Transform Your AI Strategy?</h5>
-                <p className="text-white-300 w-4/5 mb-12">Discover how UnifyAI can accelerate your AI/ML and GenAI initiatives with seamless deployment, scalability, and security.</p>
+                <h5 className="text-[5.2vw] leading-[1.2] font-head mb-3 headingAnim">Ready to Transform Your AI Strategy?</h5>
+                <p data-para-anim className="text-white-300 w-4/5 mb-12">Discover how UnifyAI can accelerate your AI/ML and GenAI initiatives with seamless deployment, scalability, and security.</p>
                 <div className="flex gap-6">
-                    <PrimaryButton text="Book a Demo" href="#" />
-                    <WhiteButton text="Schedule a Call" href="#" />
+                    <PrimaryButton text="Book a Demo" href="#" className="fadeup"/>
+                    <WhiteButton text="Schedule a Call" href="#" className="fadeup"/>
                 </div>
             </div>
             <div className="relative w-1/2 h-[50vw]">

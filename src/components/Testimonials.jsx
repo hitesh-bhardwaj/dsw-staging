@@ -63,12 +63,12 @@ const TestimonialCard = ({ name, designation, title, para }) => {
     <>
       <div className='w-full h-full flex flex-col items-center space-y-20 rounded-4xl p-15 border border-stone-700 text-center bg-white/5 pt-30'>
         <div className='space-y-5'>
-          <p className='text-[2.6vw] text-[#F16B0D]'>{name}</p>
-          <p className='font-medium text-[1.145vw] text-[#CACACA]'>{designation}</p>
+          <p data-para-anim className='text-[2.6vw] text-[#F16B0D]'>{name}</p>
+          <p data-para-anim  className='font-medium text-[1.145vw] text-[#CACACA]'>{designation}</p>
         </div>
         <div className='w-[65%] space-y-5 '>
-          <p className='text-[1.145vw] text-[#CACACA]'>{title}</p>
-          <p className='text-[1.145vw] text-[#CACACA]'>{para}</p>
+          <p data-para-anim  className='text-[1.145vw] text-[#CACACA]'>{title}</p>
+          <p data-para-anim  className='text-[1.145vw] text-[#CACACA]'>{para}</p>
         </div>
       </div>
     </>
@@ -93,7 +93,7 @@ const Testimonials = () => {
     <section className='h-full w-screen py-20 relative'>
       <div className='w-full flex flex-col items-center space-y-20'>
         <div className='w-[55%]'>
-          <h2 className='text-[5.2vw] font-head leading-[1.2] text-center'>
+          <h2 className='text-[5.2vw] font-head leading-[1.2] text-center headingAnim'>
             Don&apos;t Take It from Us, Take It from Our Clients
           </h2>
         </div>

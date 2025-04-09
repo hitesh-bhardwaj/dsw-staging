@@ -77,7 +77,6 @@ const Turbocharge = () => {
 
             {/* Details Image */}
             <motion.div 
-             
               transition={{ duration: 1 }}
               className='absolute bottom-[7%] left-[15%] z-[1]' 
               style={{ transformStyle: 'preserve-3d', perspective: 1800 , rotateX:rotateX , perspectiveOrigin:"top" , translateY:translateY  }}
@@ -90,10 +89,7 @@ const Turbocharge = () => {
                 alt='details'
               />
             </motion.div>
-
-            {/* Ratings Image */}
-            <motion.div 
-             
+            <motion.div              
               transition={{ duration: 1 }}
               className='absolute right-0 top-[7%] z-[1]' 
               style={{ transformStyle: 'preserve-3d', perspective: 1800 , rotateX:rotateX , perspectiveOrigin:"top" , translateY:translateY  }}

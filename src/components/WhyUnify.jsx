@@ -21,7 +21,7 @@ const WhyUnify = () => {
                 </div>
                 </div>
                 <div className='space-y-25'>
-                    <h3 className='text-[5.2vw] text-white text-center font-light'>Why Choose UnifyAI?</h3>
+                    <h3 className='text-[5.2vw] text-white text-center font-light headingAnim'>Why Choose UnifyAI?</h3>
                     <div className='w-full flex items-center justify-between '>
                         <div className='flex w-[20%] gap-5'>
                             <div>
