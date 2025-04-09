@@ -61,7 +61,7 @@ const data = [
 const TestimonialCard = ({ name, designation, title, para }) => {
   return (
     <>
-      <div className='w-full h-full flex flex-col items-center space-y-20 rounded-4xl p-15 border border-stone-700 text-center bg-white/5 pt-30'>
+      <div className='w-full h-full flex flex-col items-center space-y-20 rounded-4xl px-15 border border-stone-700 text-center bg-white/5 py-10 pt-15'>
         <div className='space-y-5'>
           <p data-para-anim className='text-[2.6vw] text-[#F16B0D]'>{name}</p>
           <p data-para-anim  className='font-medium text-[1.145vw] text-[#CACACA]'>{designation}</p>
@@ -99,7 +99,7 @@ const Testimonials = () => {
         </div>
         <div className='h-full text-white w-[60%] py-10'>
           <Swiper thumbs={{ swiper: thumbsSwiper }}
-            modules={[FreeMode, Thumbs]} onSwiper={(swiper) => (swiperRef.current = swiper)} className="mySwiper testimonial-swiper">
+            modules={[FreeMode, Thumbs]} spaceBetween={20} onSwiper={(swiper) => (swiperRef.current = swiper)} className="mySwiper testimonial-swiper">
             {data.map((items, index) => (
               <SwiperSlide key={index}>
                 <TestimonialCard name={items.name} designation={items.designation} title={items.title} para={items.para} />
@@ -118,7 +118,7 @@ const Testimonials = () => {
           >
             {data.map((items, index) => (
               <SwiperSlide key={index} className={`${styles.testimonialThumbsSlide} h-full w-full`}>
-                <img src={items.img} alt='client-image' loading='lazy' />
+                <img src={items.img} alt='client-image' loading='lazy'/>
               </SwiperSlide>
             ))}
           </Swiper>

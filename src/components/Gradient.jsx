@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 import Image from 'next/image'
@@ -93,7 +93,7 @@ const Plane = ({ colorA, colorB }) => {
 const Gradient = () => {
   return (
     <div style={{ width: '100vw', height: '100vh', background: '#000' }} className='overflow-visible'>
-      <Canvas transparent camera={{ position: [0, 0, 5], fov: 45 }} className='h-[100vw] w-screen translate-y-[20%]'>
+      <Canvas  transparent camera={{ position: [0, 0, 5], fov: 45 }} className='h-[100vw] w-screen translate-y-[20%]'>
         <Plane colorA="#E61216" colorB="#F16B0D" />
       </Canvas>
       <div className='h-[80vh] w-screen overflow-visible absolute top-0 left-0 right-0'>

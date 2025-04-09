@@ -3,11 +3,52 @@ import PrimaryButton from "../Button/PrimaryButton";
 import WhiteButton from "../Button/WhiteButton";
 import Image1 from "../../../public/assets/images/footer/image-1.png";
 import Image2 from "../../../public/assets/images/footer/image-2.png";
-import { motion } from "motion/react";
+import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
+import { useEffect, useRef } from "react";
 
 const FooterCTA = () => {
+    const containerRef = useRef(null);
+    const mouseX = useMotionValue(0);
+    const mouseY = useMotionValue(0);
+
+    const smoothX = useSpring(mouseX, { damping: 20, stiffness: 100 });
+    const smoothY = useSpring(mouseY, { damping: 20, stiffness: 100 });
+
+    useEffect(() => {
+        const container = containerRef.current;
+
+        const handleMouseMove = (e) => {
+            const rect = container.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+            const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+            mouseX.set(x);
+            mouseY.set(y);
+        };
+
+        const handleMouseLeave = () => {
+            mouseX.set(0);
+            mouseY.set(0);
+        };
+
+        if (container) {
+            container.addEventListener("mousemove", handleMouseMove);
+            container.addEventListener("mouseleave", handleMouseLeave);
+        }
+
+        return () => {
+            if (container) {
+                container.removeEventListener("mousemove", handleMouseMove);
+                container.removeEventListener("mouseleave", handleMouseLeave);
+            }
+        };
+    }, [mouseX, mouseY]);
+
+    const image1X = useTransform(smoothX, (v) => v * 20);
+    const image1Y = useTransform(smoothY, (v) => v * 20);
+    const image2X = useTransform(smoothX, (v) => v * -15);
+    const image2Y = useTransform(smoothY, (v) => v * -15);
     return (
-        <div className="px-20 flex items-center justify-between h-[80vh] w-screen overflow-hidden">
+        <div ref={containerRef} className="px-20 flex items-center justify-between h-[80vh] w-screen overflow-hidden">
             <div className="w-1/2">
                 <h5 className="text-[5.2vw] leading-[1.2] font-head mb-3 headingAnim">Ready to Transform Your AI Strategy?</h5>
                 <p data-para-anim className="text-white-300 w-4/5 mb-12">Discover how UnifyAI can accelerate your AI/ML and GenAI initiatives with seamless deployment, scalability, and security.</p>
@@ -44,8 +85,21 @@ const FooterCTA = () => {
                         </defs>
                     </svg>
                 </motion.div>
-                <Image className="absolute w-[45%] top-[15%] left-[20%]" src={Image1} loading="lazy" placeholder="blur" />
-                <Image className="absolute w-[45%] bottom-[10%] left-[45%]" src={Image2} loading="lazy" placeholder="blur" />
+                <motion.div
+                    style={{ x: image1X, y: image1Y,  boxShadow: "0 0 10px rgba(255, 255, 255, 0.3)"}}
+                    className="absolute w-[45%] top-[15%] left-[20%] rounded-2xl"
+                >
+                    <Image src={Image1} alt="Image1" loading="lazy" placeholder="blur" />
+                </motion.div>
+
+                <motion.div
+                    style={{ x: image2X, y: image2Y, boxShadow: "0 0 10px rgba(255, 255, 255, 0.3)"  }}
+                    className="absolute  w-[40%] bottom-[10%] left-[45%] rounded-2xl "
+                >
+                    <Image src={Image2} alt="Image2" loading="lazy" placeholder="blur" className="object-cover"/>
+                </motion.div>
+                {/* <Image  className="absolute w-[45%] top-[15%] left-[20%]" src={Image1} loading="lazy" placeholder="blur" />
+                <Image className="absolute w-[45%] bottom-[10%] left-[45%]" src={Image2} loading="lazy" placeholder="blur" /> */}
             </div>
         </div>
     )

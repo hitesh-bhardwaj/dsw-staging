@@ -49,6 +49,18 @@ body {
 .heroParaAnim .line {
   overflow: hidden;
 }
+.unify-title,
+.para-anim,
+.lineWord {
+  font-kerning: none;
+}
+
+.unify-title .line,
+.para-anim .line,
+.lineWord .line,
+.heroParaAnim .line {
+  overflow: hidden;
+}
 
 .headingAnim .line .line-internal {
   mask-size: 500% 100%;

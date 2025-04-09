@@ -1,13 +1,13 @@
 .testimonialThumbs{
     position: absolute;
-    top:35%;
+    top:40%;
     left:32%;
     height: 7vw;
     width: 50%;
 }
 .testimonialThumbs .swiper-wrapper .swiper-slide{
-    height: 7vw;
-    width: 7vw;
+    height: 5.2vw;
+    width: 5.2vw;
 }
 .testimonialThumbsSlide{
     height: 100%;
@@ -15,8 +15,8 @@
     margin: 0;
 }
 .testimonialThumbsSlide img{
-    height: 7vw;
-    width: 7vw;
+    height: 5.2vw;
+    width: 5.2vw;
     border-radius: 50%;
     cursor: pointer;
 
@@ -25,9 +25,11 @@
     height: 10vw !important;
     width: 10vw !important;
     border: 1px solid red !important;
+    z-index: 10;
 }
 .testimonialThumbsSlide .swiper-wrapper .swiper-slide-thumb-active img{
     height: 10vw !important;
     width: 10vw !important;
     border: 1px solid red !important;
+    z-index: 10;
 }
