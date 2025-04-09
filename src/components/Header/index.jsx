@@ -9,7 +9,7 @@ const Header = () => {
       <motion.header 
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
+        transition={{ duration: 1, ease: "easeOut", delay: 2.2 }}
         className=" text-white p-4 fixed top-0 left-0 z-[999]">
         <div className="flex items-center justify-between py-6 px-12 w-screen">
           <Link href={"/"}>

@@ -2,46 +2,46 @@
 import Image from "next/image";
 import React, { useEffect, useRef } from "react";
 import PrimaryButton from "./Button/PrimaryButton";
-import { SplitInLineWord} from "@/components/splitTextUtils";
+import { SplitInLineWord } from "@/components/splitTextUtils";
 
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger)
 const TurbochargeG = () => {
   const turboChargeContainer = useRef(null);
-//   useEffect(()=>{
-//     const ctx = gsap.context(()=>{
+  //   useEffect(()=>{
+  //     const ctx = gsap.context(()=>{
 
-//         const tl = gsap.timeline({
-//             scrollTrigger:{
-//                 trigger:"#turbo",
-//                 scrub:true,
-//                 pin:true,
-//                 start:"top top",
-//                 end:"200% bottom",
-//                 markers:true
+  //         const tl = gsap.timeline({
+  //             scrollTrigger:{
+  //                 trigger:"#turbo",
+  //                 scrub:true,
+  //                 pin:true,
+  //                 start:"top top",
+  //                 end:"200% bottom",
+  //                 markers:true
 
-//             }
-//         })
-//         tl.from(".base-img",{
-//             perspective:"800px",
-//             perspectiveOrigin:"top"
-//         })
-//     })
-//     return()=>ctx.revert()
+  //             }
+  //         })
+  //         tl.from(".base-img",{
+  //             perspective:"800px",
+  //             perspectiveOrigin:"top"
+  //         })
+  //     })
+  //     return()=>ctx.revert()
 
-//   },[])
+  //   },[])
 
-useEffect(() => {
+  useEffect(() => {
     const ctx = gsap.context(() => {
       // const headingAnim = document.querySelectorAll(".turbo-headingAnim");
       // headingAnim.forEach((headingAnim)=>{
       //     SplitInLineWord(headingAnim);
       //     const headingWord = headingAnim.querySelectorAll(".line-internal");
       //     gsap.fromTo(headingWord,{
-             
+
       //           maskPosition: "100% 100%",
-              
+
       //     },{
       //         maskPosition:"0% 100%",
       //         stagger:0.05,
@@ -52,12 +52,12 @@ useEffect(() => {
       //           start: '30% top', 
       //           // markers:true,
       //           scrub:true,
-                
-                
-        
+
+
+
       //         },
 
-          // });
+      // });
       // })      
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -66,46 +66,46 @@ useEffect(() => {
           pin: true,
           start: "top 12%",
           end: "bottom bottom",
-        
+
         },
       });
-      gsap.from(".turbo-img",{
-        opacity:0,
-        duration:0.5,
+      gsap.from(".turbo-img", {
+        opacity: 0,
+        duration: 0.5,
         stagger: {
-            from: "random",
-            each: 0.1,
-          },
-        scrollTrigger:{
-            trigger:"#turbo",
-            scrub:true,
-            start:"top 50%",
-            end:"bottom 30%",    
+          from: "random",
+          each: 0.1,
+        },
+        scrollTrigger: {
+          trigger: "#turbo",
+          scrub: true,
+          start: "top 50%",
+          end: "bottom 30%",
         }
       })
-      gsap.to(".turbo-content",{
-        opacity:0,
-        duration:1,
-        scrollTrigger:{
-            trigger:".turbo-content",
-            start:"bottom top",
-            end:"200% top",
-            scrub:true,
-       
+      gsap.to(".turbo-content", {
+        opacity: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: ".turbo-content",
+          start: "bottom top",
+          end: "200% top",
+          scrub: true,
+
         }
       })
-  
+
       tl.from(".img-1", {
         rotateX: 45,
-        yPercent:-30,
-        xPercent:-25,
-       
-        duration: 1,
-      }).from(".base-img",{
-        rotateX:45,
-        duration:1,
+        yPercent: -30,
+        xPercent: -25,
 
-      },"<")
+        duration: 1,
+      }).from(".base-img", {
+        rotateX: 45,
+        duration: 1,
+
+      }, "<")
         .from(
           ".img-2",
           {
@@ -119,8 +119,8 @@ useEffect(() => {
           ".img-3",
           {
             rotateX: 45,
-             yPercent:-40,
-             scale:1.4,
+            yPercent: -40,
+            scale: 1.4,
             transformOrigin: "bottom center",
             duration: 1,
           },
@@ -128,9 +128,9 @@ useEffect(() => {
         )
         .from(
           ".img-4",
-          {  
-            yPercent:-30,
-            xPercent:25,
+          {
+            yPercent: -30,
+            xPercent: 25,
             rotateX: 45,
             transformOrigin: "right center",
             duration: 1,
@@ -138,10 +138,10 @@ useEffect(() => {
           "<"
         );
     });
-  
+
     return () => ctx.revert();
   }, []);
-  
+
   return (
     <section id="turbo" className="w-screen h-full">
       <div className="flex flex-col items-center p-10 w-full">
@@ -151,15 +151,15 @@ useEffect(() => {
             ref={turboChargeContainer}
           >
             {/* Base background image */}
-   
-              <Image
-                src={"/assets/images/turbo-charge-base.png"}
-                width={1500}
-                height={900}
-                className="w-full h-full object-contain base-img"
-                alt="base"
-              />
-     
+
+            <Image
+              src={"/assets/images/turbo-charge-base.png"}
+              width={1500}
+              height={900}
+              className="w-full h-full object-contain base-img"
+              alt="base"
+            />
+
 
             {/* Dashboard Image with perspective */}
             <div className="absolute top-0 w-[8.8vw] left-0 z-[1] rounded-[0.5vw] overflow-hidden img-1 turbo-img">

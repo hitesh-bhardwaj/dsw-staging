@@ -45,9 +45,11 @@ body {
 
 [data-para-anim] .line,
 .para-anim .line,
-.lineWord .line {
+.lineWord .line,
+.heroParaAnim .line {
   overflow: hidden;
 }
+
 .headingAnim .line .line-internal {
   mask-size: 500% 100%;
   mask-image:linear-gradient(150deg,#fff 33.3%,rgba(255,255,255,.0) 66.6%);
