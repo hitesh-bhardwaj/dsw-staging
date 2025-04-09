@@ -119,9 +119,8 @@ const Business = () => {
     const section = sectionRef.current;
     const cards = cardsRef.current;
     const para = paraRef.current;
-
     gsap.to(cards, {
-      x: "-100vw",
+      x: "-140vw",
       ease: "none",
       scrollTrigger: {
         trigger: section,
@@ -129,13 +128,13 @@ const Business = () => {
         end: "+=2000",
         scrub: true,
         pin: true,
+        // markers:true,
         anticipatePin: 1,
       },
     });
 
     gsap.to(para, {
       y: -150,
-
       ease: "none",
       duration: 2,
       scrollTrigger: {
@@ -164,7 +163,7 @@ const Business = () => {
           </p>
         </div>
         <div className=" overflow-scroll w-screen mt-[5vw]">
-          <div className="ml-[50vw] overflow-x-auto overflow-scroll w-fit flex  gap-10 py-10 mr-[10vw]" ref={cardsRef}>
+          <div className="ml-[90vw] overflow-x-auto overflow-scroll w-fit flex  gap-10 py-10 mr-[10vw]" ref={cardsRef}>
             {businessData.map((data, index) => (
               <Card data={data} key={index}/>
             ))}

@@ -1,64 +1,106 @@
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
 
 const Insuraince = () => {
+    const cardRefs = useRef([]);
+    const sectionRef = useRef();
+    const spanRefs = useRef([]);
+
+    useEffect(() => {
+        const cards = cardRefs.current;
+        const spans = spanRefs.current;
+        cards.forEach((card, i) => {
+            setTimeout(() => {
+                gsap.fromTo(
+                    card,
+                    { opacity: 0, },
+                    {
+                        opacity: 1,
+                        // y:0,
+                        duration: 2,
+                        ease: 'power3.out',
+                    }
+                );
+    
+                gsap.to(spans[i], {
+                    scaleX: 1,
+                    transformOrigin: "left center",
+                    duration: 2,
+                    ease: 'none',
+                });
+            }, i * 1000); 
+        });
+    }, []);
+    
+
     return (
-        <section className='w-screen h-full pb-[10vw]'>
-            <div className='w-full py-15 space-y-20 px-20 '>
+        <section className='w-screen h-full pb-[10vw] overflow-hidden' ref={sectionRef}>
+            <div className='w-full py-15 space-y-20 px-20'>
                 <div className='text-center space-y-2'>
-                    <h3 className="bg-gradient-to-r from-[#F16B0D]  to-[#E61216] bg-clip-text text-transparent text-[5.2vw] font-medium ">
+                    <h3 className="bg-gradient-to-r from-[#F16B0D]  to-[#E61216] bg-clip-text text-transparent text-[5.2vw] font-medium">
                         InsurAInce
                     </h3>
-                    <p data-para-anim className='text-[#CACACA] content-p'>Fast-track your Insurance Use Cases with InsurAInce</p>
+                    <p data-para-anim className='text-[#CACACA] content-p'>
+                        Fast-track your Insurance Use Cases with InsurAInce
+                    </p>
                 </div>
                 <div className='flex items-center justify-between'>
-                    <div className='w-[30%] space-y-5'>
-                        <div>
-                            <Image src="/assets/icons/rapid.svg" height={98} width={98} className='w-[5vw] h-[5vw] object-contain fadeup' />
+                    {content.map((data, index) => (
+                        <div key={index} ref={(el) => (cardRefs.current[index] = el)} className='w-[28%] opacity-0'>
+                            <Card data={data} spanRef={(el) => (spanRefs.current[index] = el)} />
                         </div>
-                        <h4 className='text-[2.6vw] text-[#E8E8E8] leading-[1.25] headingAnim'>Rapid AI/ML Deployment</h4>
-                        <p data-para-anim className='text-[#CACACA] content-p'>Bring use cases into production in as little as 3-4 weeks.</p>
-                        <span className='h-[0.2px] bg-[#F26B0D] w-1/4 absolute mt-30' />
-                    </div>
-                    <div className='w-[30%] space-y-5'>
-                        <div>
-                            <Image src="/assets/icons/scalability.svg" height={98} width={98} className='w-[5vw] h-[5vw] object-contain fadeup' />
-                        </div>
-                        <h4 className='text-[2.6vw] text-[#E8E8E8] leading-[1.25] headingAnim'>Scalability & Transparency</h4>
-                        <p data-para-anim className='text-[#CACACA] content-p'>Enterprise-grade infrastructure that offers complete control over deployment, monitoring, and retraining.</p>
-                        <span className='h-[0.2px] bg-[#CACACA75] w-1/4 absolute mt-30' />
-
-                    </div>
-                    <div className='w-[30%] space-y-5'>
-                        <div>
-                            <Image src="/assets/icons/rapid.svg" height={98} width={98} className='w-[5vw] h-[5vw] object-contain fadeup' />
-                        </div>
-                        <h4 className='text-[2.6vw] text-[#E8E8E8] leading-[1.25] headingAnim'>Future-Proofed Innovation</h4>
-                        <p data-para-anim className='text-[#CACACA] content-p'>Stay at the forefront of technology with a solution that seamlessly integrates with the latest advancements in AI and data science.</p>
-                        <span className='h-[0.2px] bg-[#CACACA75] w-1/4 absolute mt-30' />
-
-                    </div>
-
+                    ))}
+                    
+                </div>
+                <div className='flex items-center justify-between '>
+                <div className="relative w-[30%] h-[0.5px] bg-[#616161] mt-25">
+                <span
+                  ref={(el) => (spanRefs.current[0] = el)}
+                    className="absolute top-0 left-0 h-full bg-[#F26B0D] w-full scale-x-0 origin-left transition-transform duration-500"
+                />
+            </div>
+            <div className="relative w-[30%] h-[0.5px] bg-[#616161] mt-25">
+                <span
+                  ref={(el) => (spanRefs.current[1] = el)}
+                    className="absolute top-0 left-0 h-full bg-[#F26B0D] w-full scale-x-0 origin-left transition-transform duration-500"
+                />
+            </div>
+            <div className="relative w-[30%] h-[0.5px] bg-[#616161] mt-25">
+                <span
+                  ref={(el) => (spanRefs.current[2] = el)}
+                    className="absolute top-0 left-0 h-full bg-[#F26B0D] w-full scale-x-0 origin-left transition-transform duration-500"
+                />
+            </div>
                 </div>
             </div>
-
         </section>
-    )
-}
+    );
+};
+
 
 export default Insuraince;
 
-const Card = ({ icon, title, desc }) => {
+const Card = ({ data, spanRef }) => {
     return (
-        <div className='w-[30%] space-y-5'>
+        <div className='w-full space-y-5 '>
             <div>
-                <Image src={icon} height={98} width={98} className='w-[5vw] h-[5vw] object-contain' />
+                <Image src={data.icon} height={98} width={98} className='w-[5vw] h-[5vw] object-contain' />
             </div>
             <h4 className='text-[2.6vw] text-[#E8E8
-                E8] leading-[1.25]'>{title}</h4>
-            <p className='text-[#CACACA] content-p'>{desc}</p>
-            <span className='h-[0.2px] bg-[#F26B0D
-                ] w-1/4 absolute mt-30' />
+                E8] leading-[1.25]'>{data.title}</h4>
+            <p className='text-[#CACACA] content-p'>{data.desc}</p>
+            {/* <span  ref={spanRef} className='h-[0.2px] bg-[#F26B0D] w-full absolute mt-30 scale-x-0' /> */}
+            {/* <div className="relative w-full h-[1px] bg-[#CACACA] mt-30">
+                <span
+                    ref={spanRef}
+                    className="absolute top-0 left-0 h-full bg-[#F26B0D] w-full scale-x-0 origin-left transition-transform duration-500"
+                />
+            </div> */}
         </div>
     )
 }
@@ -77,6 +119,6 @@ const content = [
     {
         title: 'Future-Proofed Innovation',
         desc: 'Stay at the forefront of technology with a solution that seamlessly integrates with the latest advancements in AI and data science.',
-        icon: '/assets/icons/future.svg'
+        icon: '/assets/icons/rapid.svg'
     },
 ]
