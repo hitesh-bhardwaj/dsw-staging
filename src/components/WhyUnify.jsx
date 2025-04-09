@@ -22,7 +22,7 @@ const WhyUnify = () => {
                     scrub: true,
                     pin: true,
                     anticipatePin: 1,
-                    markers: true,
+                    // markers: true,
                 }
             });
     //         for (let i = 0; i < 3; i++) {
