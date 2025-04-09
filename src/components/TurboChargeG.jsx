@@ -2,92 +2,107 @@
 import Image from "next/image";
 import React, { useEffect, useRef } from "react";
 import PrimaryButton from "./Button/PrimaryButton";
-import { SplitInLineWord } from "@/components/splitTextUtils";
+import { SplitInLine, SplitInLineWord } from "@/components/splitTextUtils";
 
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger)
 const TurbochargeG = () => {
   const turboChargeContainer = useRef(null);
-  //   useEffect(()=>{
-  //     const ctx = gsap.context(()=>{
+  useEffect(()=>{
+    const ctx = gsap.context(()=>{
+      const headingAnim = document.querySelectorAll(".turbo-headingAnim");
+                headingAnim.forEach((headingAnim)=>{
+                    SplitInLine(headingAnim);
+                    const headingWord = headingAnim.querySelectorAll(".line-internal");
+      
+            gsap.fromTo(headingWord,{
+                  maskPosition: "100% 100%",
+            },{
+                maskPosition:"0% 100%",
+                stagger:0.5,
+                duration:5.5,
+                ease:"power3.out",
+                scrollTrigger: {
+                  trigger: "#turbo",
+                  start: '+2000 65%', 
+                  end:"+2500 top",
+                  scrub:true,
+                  lazy: true,
+                  
+                },
+            });
+        })
 
-  //         const tl = gsap.timeline({
-  //             scrollTrigger:{
-  //                 trigger:"#turbo",
-  //                 scrub:true,
-  //                 pin:true,
-  //                 start:"top top",
-  //                 end:"200% bottom",
-  //                 markers:true
-
-  //             }
-  //         })
-  //         tl.from(".base-img",{
-  //             perspective:"800px",
-  //             perspectiveOrigin:"top"
-  //         })
-  //     })
-  //     return()=>ctx.revert()
-
-  //   },[])
+        const paraAnimations = document.querySelectorAll(".turbo-para-anim");
+        paraAnimations.forEach((paraAnimation) => {
+          SplitInLine(paraAnimation);
+          const paraLine = paraAnimation.querySelectorAll(".line-internal");
+          gsap.from(paraLine, {
+            scrollTrigger: {
+              trigger: paraAnimation,
+              trigger: "#turbo",
+              start: '+2000 35%', 
+              end:"+2500 top",
+             scrub:true,
+            },
+            duration: 1.2,
+            yPercent: 100,
+            stagger: 0.07,
+            ease: "power3.out"
+          });
+        });
+      })
+    return () => ctx.revert();
+},[]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // const headingAnim = document.querySelectorAll(".turbo-headingAnim");
-      // headingAnim.forEach((headingAnim)=>{
-      //     SplitInLineWord(headingAnim);
-      //     const headingWord = headingAnim.querySelectorAll(".line-internal");
-      //     gsap.fromTo(headingWord,{
-
-      //           maskPosition: "100% 100%",
-
-      //     },{
-      //         maskPosition:"0% 100%",
-      //         stagger:0.05,
-      //         duration:2.5,
-      //         ease:"power3.out",
-      //         scrollTrigger: {
-      //           trigger: ".turbo-headingAnim",
-      //           start: '30% top', 
-      //           // markers:true,
-      //           scrub:true,
-
-
-
-      //         },
-
-      // });
-      // })      
+        
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: "#turbo",
           scrub: true,
           pin: true,
           start: "top 12%",
-          end: "bottom bottom",
+          end: "+=2000 bottom",
 
         },
       });
-      gsap.from(".turbo-img", {
+      gsap.from(".turbo-button",{
+        opacity:0,
+        yPercent:40,
+        duration:1,
+        scrollTrigger:{
+          trigger:"#turbo",
+          start:"+1000 70%",
+          end:"+2500 top",
+          
+
+        }
+      })
+      gsap.from(".base-img",{
+        scale:0.3,
+        opacity:0.1,
+        scrollTrigger:{
+          trigger:"#turbo",
+          start:"top 90%",
+          end:"50% bottom",
+        
+          scrub:true
+        }
+      })
+      tl.from(".turbo-img", {
         opacity: 0,
         duration: 0.5,
-        stagger: {
-          from: "random",
-          each: 0.1,
-        },
-        scrollTrigger: {
-          trigger: "#turbo",
-          scrub: true,
-          start: "top 50%",
-          end: "bottom 30%",
-        }
+        
+       
       })
       gsap.to(".turbo-content", {
         opacity: 0,
         duration: 1,
         scrollTrigger: {
-          trigger: ".turbo-content",
+          trigger: "#turbo",
           start: "bottom top",
           end: "200% top",
           scrub: true,
@@ -97,7 +112,7 @@ const TurbochargeG = () => {
 
       tl.from(".img-1", {
         rotateX: 45,
-        yPercent: -30,
+        yPercent: -40,
         xPercent: -25,
 
         duration: 1,
@@ -110,6 +125,8 @@ const TurbochargeG = () => {
           ".img-2",
           {
             rotateX: 45,
+            xPercent:5,
+            yPercent:-20,
             transformOrigin: "top center",
             duration: 1,
           },
@@ -119,8 +136,8 @@ const TurbochargeG = () => {
           ".img-3",
           {
             rotateX: 45,
-            yPercent: -40,
-            scale: 1.4,
+            yPercent: -20,
+            scale: 1.6,
             transformOrigin: "bottom center",
             duration: 1,
           },
@@ -129,8 +146,8 @@ const TurbochargeG = () => {
         .from(
           ".img-4",
           {
-            yPercent: -30,
-            xPercent: 25,
+            yPercent: -45,
+            xPercent: 40,
             rotateX: 45,
             transformOrigin: "right center",
             duration: 1,
@@ -207,11 +224,11 @@ const TurbochargeG = () => {
           </div>
 
           <div className="space-y-10 turbo-content">
-            <h2 className="text-[5.2vw] font-head leading-[1.2] turbo-headingAnim headingAnim">
+            <h2 className="text-[5.2vw] font-head leading-[1.2] turbo-headingAnim">
               Turbocharge Your AI/ML Use Cases in 3-4 weeks and GenAI in 2-4
               hours
             </h2>
-            <p data-para-anim className="text-[#CACACA] w-[80%] content-p mx-auto">
+            <p className="text-[#CACACA] w-[80%] content-p mx-auto turbo-para-anim">
               Unleash the power of AI and Generative AI with UnifyAI – the
               enterprise-ready platform designed to streamline, scale, and
               deploy AI solutions seamlessly. Whether you're leveraging AI for
@@ -219,7 +236,10 @@ const TurbochargeG = () => {
               accelerates your journey from prototype to production with
               unmatched speed and efficiency.
             </p>
+            <div className="turbo-button">
+
             <PrimaryButton text={"Know more"} href={"#"} />
+            </div>
           </div>
         </div>
       </div>

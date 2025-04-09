@@ -62,11 +62,25 @@ body {
   overflow: hidden;
 }
 
+.turbo-para-anim,
+.para-anim,
+.lineWord {
+  font-kerning: none;
+}
+
+.turbo-para-anim .line,
+.para-anim .line,
+.lineWord .line,
+.heroParaAnim .line {
+  overflow: hidden;
+}
+
+
 .headingAnim .line .line-internal {
   mask-size: 500% 100%;
   mask-image:linear-gradient(150deg,#fff 33.3%,rgba(255,255,255,.0) 66.6%);
 }
-.turbo-headingAnim .line .word {
+.turbo-headingAnim .line .line-internal  {
   mask-size: 500% 100%;
   mask-image:linear-gradient(150deg,#fff 33.3%,rgba(255,255,255,.0) 66.6%);
 }
