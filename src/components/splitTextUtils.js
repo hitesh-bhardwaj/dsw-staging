@@ -1,4 +1,3 @@
-/* eslint-disable no-inner-declarations */
 // src/utils/splitText.js
 
 import SplitType from 'split-type';

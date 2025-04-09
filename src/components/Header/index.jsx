@@ -1,11 +1,16 @@
 import Link from "next/link";
 import Image from "next/image";
 import PrimaryButton from "../Button/PrimaryButton";
+import { motion } from "motion/react";
 
 const Header = () => {
   return (
     <>
-      <header className=" text-white p-4 fixed top-0 left-0 z-[999]">
+      <motion.header 
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
+        className=" text-white p-4 fixed top-0 left-0 z-[999]">
         <div className="flex items-center justify-between py-6 px-12 w-screen">
           <Link href={"/"}>
             <Image
@@ -45,7 +50,7 @@ const Header = () => {
            <PrimaryButton text={"Book a demo"} href={"#"}/>
           </div>
         </div>
-      </header>
+      </motion.header>
     </>
   );
 };

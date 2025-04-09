@@ -98,7 +98,7 @@ const Gradient = () => {
         <Plane colorA="#E61216" colorB="#F16B0D" />
       </Canvas>
       <div className='h-[100vh] w-screen overflow-visible absolute top-0 left-0 right-0'>
-        <Image src="/assets/images/hero-gradient.png" fill alt="image" className='object-cover w-full object-top size-full translate-y-[10%]'/>
+        <Image src="/assets/images/hero-gradient.png" fill alt="hero-gradient" className='object-cover w-full object-top size-full translate-y-[10%]'/>
       </div>
     </div>
   )

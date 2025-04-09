@@ -8,7 +8,6 @@ import { useRouter } from "next/router";
 
 gsap.registerPlugin(ScrollTrigger);
 
-
 // export function headingBlur() {
 //     useEffect(()=>{
 //         const ctx = gsap.context(()=>{
@@ -45,9 +44,7 @@ export function headingAnim() {
               SplitInLine(headingAnim);
               const headingWord = headingAnim.querySelectorAll(".line-internal");
               gsap.fromTo(headingWord,{
-                 
                     maskPosition: "100% 100%",
-                  
               },{
                   maskPosition:"0% 100%",
                   stagger:0.2,
@@ -56,15 +53,11 @@ export function headingAnim() {
                   scrollTrigger: {
                     trigger: headingWord,
                     start: 'top 85%', 
-                    
-                    
-            
+                    lazy: true,
                   },
-
               });
           })
       });
-      
       return () => ctx.revert();
   },[router.asPath]);
       
