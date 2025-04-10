@@ -112,49 +112,43 @@ const Card = ({data})=>{
   )
 }
 const Business = () => {
-  const sectionRef = useRef(null);
+
   const cardsRef = useRef(null);
-  const paraRef = useRef(null);
   useEffect(() => {
-    const section = sectionRef.current;
     const cards = cardsRef.current;
-    const para = paraRef.current;
+ 
+    const tl = gsap.timeline()
+    tl.to(".card-container",{
+      ease:"none",
+      scrollTrigger:{
+        trigger:".card-container",
+        start:"top 20%",
+        end:"+1500 bottom",
+        scrub:true,
+        pin:true
+      }
+    })
     gsap.to(cards, {
       x: "-140vw",
       ease: "none",
       scrollTrigger: {
-        trigger: section,
-        start: "25% top",
-        end: "+=2000",
-        scrub: true,
-        pin: true,
-        // markers:true,
-        anticipatePin: 1,
+        trigger: ".card-container",
+        start: "top bottom",
+        end: "130% top",
+        scrub: true, 
       },
     });
-
-    gsap.to(para, {
-      y: -150,
-      ease: "none",
-      duration: 2,
-      scrollTrigger: {
-        trigger: para,
-        start: "20% top",
-        end: "bottom -20%",
-        // markers:true,
-        scrub: true,
-      },
-    });
+    
   }, []);
 
   return (
-    <section ref={sectionRef} className="h-full w-screen py-10 overflow-hidden">
+    <section  className="h-full w-screen py-10">
       <div className="py-10  w-full">
         <div className="w-[52%] space-y-8 px-15">
           <h2 className="text-[5.2vw] font-head leading-[1.2] headingAnim">
             AI That Works for Your Business
           </h2>
-          <p data-para-anim className="content-p text-[#CACACA]" ref={paraRef}>
+          <p data-para-anim className="content-p text-[#CACACA]">
             UnifyAI is designed to solve real-world business challenges with
             cutting-edge AI capabilities. Whether you need to enhance fraud
             prevention, automate workflows, or improve customer interactions,
@@ -162,7 +156,7 @@ const Business = () => {
             for enterprises across industries.
           </p>
         </div>
-        <div className=" overflow-scroll w-screen mt-[5vw]">
+        <div className=" overflow-scroll w-screen mt-[10vw] card-container">
           <div className="ml-[90vw] overflow-x-auto overflow-scroll w-fit flex  gap-10 py-10 mr-[10vw]" ref={cardsRef}>
             {businessData.map((data, index) => (
               <Card data={data} key={index}/>
