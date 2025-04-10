@@ -22,7 +22,7 @@ const Footer = () => {
                 start: "top 30%",
                 end:"80% 80%",
                 // markers:true,
-                // scrub:true
+                scrub:true
             }
         })
     })
