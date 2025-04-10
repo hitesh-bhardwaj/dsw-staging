@@ -75,7 +75,7 @@ const Card = ({data})=>{
       />
          <div className="relative z-10 bg-white/5 rounded-4xl py-14 px-8 space-y-20 ">
                     <div
-          className={`h-13 w-13 absolute top-8 right-8 rounded-full flex items-center justify-center transition-all duration-300 border  ${
+          className={`h-13 w-13 absolute top-8 right-8 rounded-full flex items-center justify-center transition-all duration-500 border  ${
             hovered ? "bg-white text-black border-white " : "bg-white/5 text-white  border-stone-600/80"
           }`}
         >
@@ -97,9 +97,9 @@ const Card = ({data})=>{
                         <ul className="list-disc text-[1.145vw] font-medium space-y-0.5 ml-[1vw]">
                           {data.list.map((listData) => (
                             <li key={listData}>
-                              <p className="flex items-center gap-1 group">{listData}
+                              <p className="flex items-center gap-1 group transition-all duration-500 ease">{listData}
                                 <span className="block">
-                                  <Image src="/assets/icons/top-right-white.svg" height={10} width={10} alt="top-right" className="opacity-0 group-hover:opacity-100" />
+                                  <Image src="/assets/icons/top-right-white.svg" height={10} width={10} alt="top-right" className="opacity-0 group-hover:opacity-100 transition-all duration-500 ease" />
                                 </span>
                               </p></li>
                           ))}

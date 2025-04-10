@@ -14,12 +14,13 @@ gsap.registerPlugin(ScrollTrigger);
 const BlogCard = ({ title, date, img }) => {
   return (
     <>
-      <div className='rounded-3xl group border-[0.25px] border-stone-600 pb-10 bg-white/5 w-[27vw] space-y-8 overflow-hidden group cursor-pointer'>
+      <div className='rounded-3xl group border-[0.25px] border-stone-600 pb-10 bg-white/5 w-[27vw] space-y-8 overflow-hidden group cursor-pointer under-multi-parent'>
         <div className='w-full h-full overflow-hidden rounded-3xl '>
           <Image src={img} width={531} height={510} alt='blog-1' className='object-cover h-[20vw] w-[31vw] group-hover:scale-[1.1] transition-all duration-500 ease' />
         </div>
         <div className='space-y-5 px-5'>
-          <p className='text-[1.245vw] font-medium text-[#E8E8E8]'>{title}</p>
+          <p className='text-[1.245vw] font-medium text-[#E8E8E8] leading-[1.5]'>
+            <span className='under-multi pb-0.5'>{title}</span></p>
           <p className='text-[1.145vw] font-medium text-[#E8E8E8]'>{date}</p>
         </div>
         <div
