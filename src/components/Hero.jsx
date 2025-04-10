@@ -51,7 +51,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="h-[120vh] w-screen relative" id="hero">
+    <section className="h-[70vw] w-screen relative" id="hero">
       <div className="flex flex-col items-center justify-start w-full h-full pt-[15vw]">
         <div className="w-[62%] text-center space-y-6 pb-5">
           <motion.h1 animate={{ opacity: 1 }} ref={heading} className="text-[5.2vw] font-head leading-[1.2] heroHeadAnim opacity-0">
@@ -84,7 +84,7 @@ const Hero = () => {
       </div>
 
       {/* Gradient Background */}
-      <motion.div initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }} className="w-screen h-[120vh] absolute bottom-0 left-0 right-0 z-[-2]">
+      <motion.div initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }} className="w-screen h-[120vh] absolute bottom-[10%] left-0 right-0 z-[-2]">
         <Gradient />
       </motion.div>
     </section>

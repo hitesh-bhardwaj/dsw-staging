@@ -8,6 +8,7 @@ import { fadeIn, fadeUp, headingAnim, lineAnim, paraAnim } from "@/components/gs
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Insuraince from "@/components/Insuraince";
+import Layout from "@/components/Layout";
 import Security from "@/components/Security";
 import { initSplit } from "@/components/splitTextUtils";
 import Testimonials from "@/components/Testimonials";
@@ -31,7 +32,7 @@ export default function Home() {
 
   return (
     <>
-      <Header />
+      <Layout>
       <Hero />
       <TurbochargeG/>
       <UnifyAi />
@@ -44,7 +45,8 @@ export default function Home() {
       <Testimonials />
       <Blogs />
       <FAQs />
-      <Footer />
+      </Layout>
+ 
     </>
   );
 }

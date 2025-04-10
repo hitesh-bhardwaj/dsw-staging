@@ -46,7 +46,7 @@ const TurbochargeG = () => {
             trigger: paraAnimation,
             trigger: "#turbo",
             start: "+2000 55%",
-            end: "+2500 top",
+            end: "+2200 top",
             scrub: true,
           },
           duration: 1.2,
@@ -66,7 +66,7 @@ const TurbochargeG = () => {
           trigger: "#turbo",
           scrub: true,
           pin: true,
-          start: "top 12%",
+          start: "top top",
           end: "+=2000 bottom",
         },
       });
@@ -76,9 +76,10 @@ const TurbochargeG = () => {
         duration: 1,
         scrollTrigger: {
           trigger: "#turbo",
-          start: "+1000 70%",
-          end: "+1500 30%",
+          start: "+1000 80%",
+          end: "+1200 80%",
           scrub: true,
+          
         
         },
       });
@@ -189,9 +190,9 @@ const TurbochargeG = () => {
   }, []);
 
   return (
-    <section id="turbo" className="w-screen h-full">
+    <section id="turbo" className="w-screen h-full bg-[#070707]">
       <div className="flex flex-col items-center p-10 w-full">
-        <div className="w-[70%] text-center space-y-15 py-10">
+        <div className="w-[70%] text-center space-y-15 py-15">
           <div
             className="w-full h-fit rounded-[1vw] relative  perspective-[800px]"
             ref={turboChargeContainer}
