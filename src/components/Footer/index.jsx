@@ -16,13 +16,13 @@ const Footer = () => {
             scale:1.1,
             opacity:0,
             ease:"power3.out",
-            duration:2,
+            // duration:2,
             scrollTrigger:{
                 trigger: footerRef.current,
-                start: "top 30%",
-                end:"80% 80%",
+                start: "top 40%",
+                end:"bottom bottom",
                 // markers:true,
-                scrub:true
+                scrub: 0.25,
             }
         })
     })
@@ -85,7 +85,7 @@ const Footer = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="flex justify-between py-8">
+                    <div className="flex justify-between py-8 text-lg">
                         <p>Copyright © Data Science Wizards 2025</p>
                         <p>By: <a href="https://weareenigma.com/">Enigma Digital</a></p>
                     </div>

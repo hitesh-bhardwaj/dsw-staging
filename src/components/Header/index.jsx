@@ -56,7 +56,7 @@ const Header = () => {
             </ul>
           </div>
           <div>
-            <PrimaryButton text={"Book a demo"} href={"#"} />
+            <PrimaryButton text={"Book a Demo"} href={"#"} />
           </div>
         </div>
       </motion.header>

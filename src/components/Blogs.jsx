@@ -14,7 +14,7 @@ gsap.registerPlugin(ScrollTrigger);
 const BlogCard = ({ title, date, img }) => {
   return (
     <>
-      <div className='rounded-3xl group border-[0.25px] border-stone-600 pb-10 bg-white/5 w-[27vw] space-y-8 overflow-hidden group cursor-pointer under-multi-parent'>
+      <div className='rounded-3xl group border-[0.25px] border-stone-600 pb-4 bg-white/5 w-[27vw] space-y-8 overflow-hidden group cursor-pointer under-multi-parent'>
         <div className='w-full h-full overflow-hidden rounded-3xl '>
           <Image src={img} width={531} height={510} alt='blog-1' className='object-cover h-[20vw] w-[31vw] group-hover:scale-[1.1] transition-all duration-500 ease' />
         </div>
@@ -77,8 +77,8 @@ const Blogs = () => {
     <section ref={blogsRef} className='h-full w-screen py-20 my-30 relative'>
       <div className='h-full w-full flex items-center justify-between pl-15'>
         <div className='w-1/2 space-y-10'>
-          <h2 className='text-[5.2vw] leading-[1.2] w-[90%] headingAnim'>Stay Ahead with AI Insights</h2>
-          <p data-para-anim className='content-p text-[#CACACA] w-[72%]'>stay informed with expert insights, industry updates, and real-world use cases from UnifyAI. Whether you&apos;re looking for the latest in Generative AI, AI governance, or enterprise AI adoption, we&apos;ve got you covered.</p>
+          <h2 className='text-[5.2vw] leading-[1.2] w-[90%] headingAnim font-head'>Stay Ahead with AI Insights</h2>
+          <p data-para-anim className='content-p text-[#CACACA] w-[72%]'>Stay informed with expert insights, industry updates, and real-world use cases from UnifyAI. Whether you&apos;re looking for the latest in Generative AI, AI governance, or enterprise AI adoption, we&apos;ve got you covered.</p>
           <div className='fadeUp'>
             <PrimaryButton text={"Know More"} href={"#"} />
           </div>
@@ -98,7 +98,7 @@ const Blogs = () => {
             <PreviousButton onClick={handlePrev} />
             <NextButton onClick={handleNext} />
           </div>
-          
+
         </div>
       </div>
     </section>
