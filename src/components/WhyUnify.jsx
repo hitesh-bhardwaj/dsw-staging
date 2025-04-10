@@ -33,62 +33,24 @@ const WhyUnify = () => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       const totalLength = progressLineRef.current.getTotalLength();
-      const segments = 3;
+      // Calculate segments based on the number of transitions,
+      // which is one less than the number of content blocks.
+      const segments = contentRefs.current.length - 1;
       const segmentLength = totalLength / segments;
-
-      // Set initial line and active circle
+  
+      // Set up the initial states.
       gsap.set(progressLineRef.current, {
         strokeDasharray: totalLength,
         strokeDashoffset: totalLength,
       });
-
-      // Ensure first block and circle are active by default
-      gsap.set(contentRefs.current[0], { opacity: 1, y: 0 });
+      // Ensure the first content block is visible.
+      gsap.set(contentRefs.current[0], { opacity: 1, y: 0, zIndex: 1 });
+      // Set initial circle state: first circle active.
       svgCircleRefs.current.forEach((circle, i) => {
-        gsap.set(circle, {
-          fill: i === 0 ? "#FFFFFF" : "#EF5F0E",
-        });
+        gsap.set(circle, { fill: i === 0 ? "#FFFFFF" : "#EF5F0E" });
       });
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "50% 5%",
-          end: "+=3000",
-          scrub: 0.25,
-          pin: true,
-          anticipatePin: 1,
-          // markers: true,
-        },
-      });
-
-      for (let i = 1; i < contentRefs.current.length; i++) {
-        const currentOffset = totalLength - segmentLength * i;
-
-        // Progress line
-        tl.to(progressLineRef.current, {
-          strokeDashoffset: currentOffset,
-          duration: 1,
-          ease: "none",
-        });
-
-        // Animate content transition
-        tl.to(contentRefs.current[i - 1], {
-          opacity: 0,
-          y: -50,
-          duration: 0.5,
-          ease: "power2.inOut",
-        }, "<");
-
-        tl.fromTo(contentRefs.current[i],
-          { opacity: 0, y: 50 },
-          { opacity: 1, y: 0, duration: 0.5, ease: "power2.inOut", delay: 0.5 }, "<"
-        );
-
-        // Circle highlighting
-        tl.call(() => highlightCircle(i), null, "<");
-      }
-
+  
+      // Function to update the circle highlights.
       function highlightCircle(index) {
         svgCircleRefs.current.forEach((circle, i) => {
           gsap.to(circle, {
@@ -97,8 +59,70 @@ const WhyUnify = () => {
           });
         });
       }
+  
+      // Build a timeline that drives your content and progress line animations.
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "50% 5%",
+          end: "+=3000",
+          scrub: 0.25,
+          pin: true,
+          // anticipatePin: 1,
+          // Use onUpdate to calculate active step based on the scroll progress.
+          onUpdate: (self) => {
+            // Divide the entire scroll progress into steps for each content block.
+            const totalSteps = contentRefs.current.length;
+            const activeIndex = Math.min(
+              totalSteps - 1,
+              Math.floor(self.progress * totalSteps)
+            );
+            highlightCircle(activeIndex);
+          },
+        },
+      });
+  
+      // Loop through each transition between content blocks.
+      for (let i = 1; i < contentRefs.current.length; i++) {
+        const currentOffset = totalLength - segmentLength * i;
+  
+        // Animate the progress line.
+        tl.to(progressLineRef.current, {
+          strokeDashoffset: currentOffset,
+          duration: 1,
+          ease: "none",
+        });
+  
+        // Fade out the previous content.
+        tl.to(
+          contentRefs.current[i - 1],
+          {
+            opacity: 0,
+            y: -50,
+            zIndex: 0,
+            duration: 0.5,
+            ease: "power2.inOut",
+          },
+          "<"
+        );
+  
+        // Bring in the next content block.
+        tl.fromTo(
+          contentRefs.current[i],
+          { opacity: 0, y: 50, zIndex: 0 },
+          {
+            opacity: 1,
+            zIndex: 2,
+            y: 0,
+            duration: 0.5,
+            ease: "power2.inOut",
+            delay: 0.5,
+          },
+          "<"
+        );
+      }
     }, sectionRef);
-
+  
     return () => ctx.revert();
   }, []);
 
@@ -190,7 +214,7 @@ const WhyUnify = () => {
                     y2="310.975"
                     stroke="#E8E8E8"
                     strokeOpacity="0.46"
-                    strokeWidth="2"
+                    strokeWidth="1"
                   />
                   {/* Animated progress line */}
                   <line
@@ -199,7 +223,7 @@ const WhyUnify = () => {
                     x2="8.08082"
                     y2="310.975"
                     stroke="white"
-                    strokeWidth="2"
+                    strokeWidth="1"
                     ref={progressLineRef}
                   />
                   {/* Circle 0 */}
@@ -209,7 +233,6 @@ const WhyUnify = () => {
                     r="6.5681"
                     fill="#EF5F0E"
                     stroke="#E8E8E8"
-                    strokeWidth="2"
                     ref={addToCircleRefs}
                   />
                   {/* Circle 1 */}
@@ -300,7 +323,7 @@ const WhyUnify = () => {
                   streamlined workflow, reducing time-to-market and eliminating
                   inefficiencies.
                 </p>
-                <WhiteButton text="Learn More" href="#" className="border-none mt-4" />
+                <WhiteButton text="Know More" href="#" className="border-none mt-4" />
               </div>
 
               <div ref={addToContentRefs} className="step-block absolute top-10 left-0">
@@ -315,7 +338,7 @@ const WhyUnify = () => {
                   streamlined workflow, reducing time-to-market and eliminating
                   inefficiencies.
                 </p>
-                <WhiteButton text="See How" href="#" className="border-none mt-4" />
+                <WhiteButton text="Know More" href="#" className="border-none mt-4" />
               </div>
 
               <div ref={addToContentRefs} className="step-block absolute top-10 left-0">

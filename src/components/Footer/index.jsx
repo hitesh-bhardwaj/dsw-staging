@@ -16,17 +16,14 @@ const Footer = () => {
             scale:1.1,
             opacity:0,
             ease:"power3.out",
-            // duration:2,
             scrollTrigger:{
                 trigger: footerRef.current,
                 start: "top 40%",
                 end:"bottom bottom",
-                // markers:true,
                 scrub: 0.25,
             }
         })
     })
-
 
     return (
         <>
