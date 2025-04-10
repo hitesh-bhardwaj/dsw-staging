@@ -10,7 +10,7 @@ const Newsletter = () => {
                     <span>
                         Subscribe
                     </span>
-                    <Image src="/assets/icons/arrow-right.svg" width={10} height={10} className="w-4 h-4" />
+                    <Image src="/assets/icons/arrow-right.svg" alt="arrow-right" width={10} height={10} className="w-4 h-4" />
                 </button>
             </form>
         </div>

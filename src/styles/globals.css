@@ -17,6 +17,8 @@
   --foreground: var(--foreground);
   --font-head: var(--font-display);
   --font-body: var(--font-body);
+  --color-primary-1: var(--primary-1);
+  --color-primary-2: var(--primary-2);
   --color-white-200: var(--white-200);
   --color-white-300: var(--white-300);
 }
@@ -88,4 +90,19 @@ body {
 .heroHeadAnim .line{
   mask-size: 500% 100%;
   mask-image:linear-gradient(150deg,#fff 33.3%,rgba(255,255,255,.0) 66.6%);
+}
+
+
+
+/* Button Text Shadow */
+.buttonTextShadow {
+  text-shadow: 0 1.5em currentColor;
+}
+
+.buttonSplit .single-letter {
+  transition: transform 0.5s cubic-bezier(0.625, 0.05, 0, 1);
+}
+
+.buttonSplit:hover .single-letter {
+  transform: translate(0px, -1.5em);
 }

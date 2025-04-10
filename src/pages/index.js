@@ -9,17 +9,24 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Insuraince from "@/components/Insuraince";
 import Security from "@/components/Security";
+import { initSplit } from "@/components/splitTextUtils";
 import Testimonials from "@/components/Testimonials";
 import Turbocharge from "@/components/Turbocharge";
 import TurbochargeG from "@/components/TurboChargeG";
 import UnifyAi from "@/components/UnifyAi";
 import WhyUnify from "@/components/WhyUnify";
+import { useEffect } from "react";
 
 export default function Home() {
   headingAnim();
   paraAnim();
   fadeUp();
   fadeIn();
+
+  useEffect(() => {
+    initSplit();
+  }, [])
+
   return (
     <>
       <Header />
