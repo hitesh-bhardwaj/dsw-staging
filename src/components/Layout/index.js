@@ -3,16 +3,13 @@ import Header from '../Header'
 import Footer from '../Footer'
 import KeepScrolling from '../KeepScrolling'
 
-const Layout = ({children}) => {
+const Layout = ({ children }) => {
   return (
     <>
-    <Header/>
-    {children}
-    <KeepScrolling/>
-
-    <Footer/>
-    
-      
+      <Header />
+      {children}
+      <KeepScrolling />
+      <Footer />
     </>
   )
 }
