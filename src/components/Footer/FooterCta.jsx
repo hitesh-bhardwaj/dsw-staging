@@ -102,8 +102,6 @@ const FooterCTA = () => {
                 >
                     <Image src={Image2} alt="Image2" loading="lazy" placeholder="blur" className="object-cover"/>
                 </motion.div>
-                {/* <Image  className="absolute w-[45%] top-[15%] left-[20%]" src={Image1} loading="lazy" placeholder="blur" />
-                <Image className="absolute w-[45%] bottom-[10%] left-[45%]" src={Image2} loading="lazy" placeholder="blur" /> */}
             </div>
         </div>
     )
