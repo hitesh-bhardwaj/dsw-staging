@@ -19,7 +19,7 @@ const AnimatedLine = ({ delay }) => (
       animate={{ y: "38vw" }}
       transition={{ duration: 1.2, delay, repeat: Infinity, repeatDelay: 2 + delay }}
       className="block w-full h-3 bg-white blur-[1px]"
-    />
+    /> 
   </motion.div>
 );
 

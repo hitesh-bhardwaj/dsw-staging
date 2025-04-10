@@ -76,8 +76,8 @@ const Footer = () => {
                                 <ul className="flex gap-4">
                                     {SocialLinks.map((link, index) => (
                                         <li key={index} className="group">
-                                            <Link href={link.href} aria-label={link.label} className="rounded-full bg-black/20 block p-2.5 border overflow-hidden group-hover:bg-white transition-all duration-500 ease">
-                                                <div className="w-5 h-5 flex items-center justify-center text-white group-hover:text-black transition-all duration-500 ease" dangerouslySetInnerHTML={{__html: link.icon}}/>
+                                            <Link href={link.href} aria-label={link.label} className="rounded-full bg-black/20 block p-2.5 border overflow-hidden group-hover:bg-white transition-all duration-500 ease group-hover:scale-[0.95]">
+                                                <div className="w-5 h-5 flex items-center justify-center text-white group-hover:text-black transition-all duration-500 ease " dangerouslySetInnerHTML={{__html: link.icon}}/>
                                             </Link>
                                         </li>
                                     ))}
