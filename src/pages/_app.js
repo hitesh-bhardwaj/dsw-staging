@@ -1,6 +1,6 @@
 import "@/styles/globals.css";
 import { Manrope } from "next/font/google";
-import localFont from 'next/font/local';
+import localFont from 'next/font/local'
 import 'lenis/dist/lenis.css';
 import LenisSmoothScroll from "@/components/LenisSmoothScroll";
 
