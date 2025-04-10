@@ -3,6 +3,7 @@ import Image from "next/image";
 import PrimaryButton from "../Button/PrimaryButton";
 import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
+import { Links, NavLink } from "./NavLink";
 
 const Header = () => {
   const [isHidden, setIsHidden] = useState(false);
@@ -30,7 +31,7 @@ const Header = () => {
 
   return (
     <>
-      <motion.header 
+      <motion.header
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut", delay: 2.2 }}
@@ -47,31 +48,15 @@ const Header = () => {
           </Link>
           <div className="border rounded-4xl bg-stone-900/30 backdrop-blur-sm border-white/20 ml-[4vw]">
             <ul className="flex items-center justify-between px-12 py-4.5 gap-12 text-[1.145vw] ">
-              <li>
-                <Link href={"#"}>Home</Link>
-              </li>
-              <li>
-                <Link href={"#"}>Product</Link>
-              </li>
-              <li>
-                <Link href={"#"}>Solutions</Link>
-              </li>
-              <li>
-                <Link href={"#"}>About Us</Link>
-              </li>
-              <li>
-                <Link href={"#"}>Resources</Link>
-              </li>
-              <li>
-                <Link href={"#"}>Pilot Program</Link>
-              </li>
-              <li>
-                <Link href={"#"}>Contact</Link>
-              </li>
+              {Links.map((link, index) => (
+                <li key={index} className="text-white">
+                  <NavLink text={link.text} href={link.href} />
+                </li>
+              ))}
             </ul>
           </div>
           <div>
-           <PrimaryButton text={"Book a demo"} href={"#"}/>
+            <PrimaryButton text={"Book a demo"} href={"#"} />
           </div>
         </div>
       </motion.header>

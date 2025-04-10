@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import Newsletter from "./Newsletter";
 import FooterCTA from "./FooterCta";
+import { Links, NavLink, SocialLinks } from "../Header/NavLink";
 
 const Footer = () => {
     return (
@@ -36,9 +37,9 @@ const Footer = () => {
                             <div>
                                 <h6 className="font-medium mb-5">NAVIGATION</h6>
                                 <ul className="space-y-3">
-                                    {NavLinks.map((link, index) => (
-                                        <li key={index} className="">
-                                            <Link href={link.href} className="">{link.label}</Link>
+                                    {Links.map((link, index) => (
+                                        <li key={index} className="text-white">
+                                            <NavLink text={link.text} href={link.href} />
                                         </li>
                                     ))}
                                 </ul>
@@ -72,53 +73,3 @@ const Footer = () => {
 }
 
 export default Footer;
-
-const NavLinks = [
-    {
-        label: "Product",
-        href: "/product"
-    },
-    {
-        label: "Solutions",
-        href: "/solutions"
-    },
-    {
-        label: "About Us",
-        href: "/about-us"
-    },
-    {
-        label: "Resources",
-        href: "/resources"
-    },
-    {
-        label: "Pilot Program",
-        href: "/pilot-program"
-    },
-    {
-        label: "Contact",
-        href: "/contact-us"
-    }
-]
-
-const SocialLinks = [
-    {
-        label: "Facebook",
-        href: "https://www.facebook.com",
-        icon: "/assets/icons/facebook.svg"
-    },
-    {
-        label: "LinkedIn",
-        href: "https://www.linkedin.com",
-        icon: "/assets/icons/linkedin.svg"
-    },
-    {
-        label: "Twitter",
-        href: "https://www.twitter.com",
-        icon: "/assets/icons/twitter.svg"
-    },
-    {
-        label: "Instagram",
-        href: "https://www.instagram.com",
-        icon: "/assets/icons/instagram.svg"
-    }
-]

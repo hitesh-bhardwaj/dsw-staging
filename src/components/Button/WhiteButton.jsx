@@ -3,10 +3,11 @@ import Link from "next/link";
 
 const WhiteButton = ({ text, className = "", ...props }) => {
   return (
-    <Link {...props} className={`relative inline-flex items-center gap-3 group rounded-4xl px-8 py-4 bg-white text-black ${className}`}>
-       <span className="bg-black rounded-full h-2 w-2 opacity-0 group-hover:opacity-100  duration-300 ease-in-out"></span>
-    
-      <span className="text-[1.145vw] -translate-x-2 group-hover:translate-0 duration-300 ease-in-out">{text}</span>
+    <Link {...props} data-letters-delay data-split='letters' className={`buttonSplit relative inline-flex h-[4vw] min-w-[10vw] px-[2vw] items-center gap-3 rounded-full text-background bg-foreground group hover:scale-95 transition-transform duration-500 ${className}`}>
+      <span className="bg-background rounded-full h-2 w-2"></span>
+      <div className="overflow-clip leading-[1.4] mt-[-4px]">
+        <p className="text-[1.145vw] leading-[1.4] buttonTextShadow">{text}</p>
+      </div>
     </Link>
   );
 };

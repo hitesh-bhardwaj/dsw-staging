@@ -14,9 +14,9 @@ gsap.registerPlugin(ScrollTrigger);
 const BlogCard = ({ title, date, img }) => {
   return (
     <>
-      <div className='rounded-3xl group border-[0.25px] border-stone-600 pb-10 bg-white/5 w-[27vw] space-y-8 overflow-hidden transition-all duration-500 ease group  cursor-pointer'>
+      <div className='rounded-3xl group border-[0.25px] border-stone-600 pb-10 bg-white/5 w-[27vw] space-y-8 overflow-hidden group cursor-pointer'>
         <div className='w-full h-full overflow-hidden rounded-3xl '>
-          <Image src={img} width={531} height={510} alt='blog-1' className='object-cover h-[20vw] w-[31vw] group-hover:scale-[1.1] transition-all duration-300 ease' />
+          <Image src={img} width={531} height={510} alt='blog-1' className='object-cover h-[20vw] w-[31vw] group-hover:scale-[1.1] transition-all duration-500 ease' />
         </div>
         <div className='space-y-5 px-5'>
           <p className='text-[1.245vw] font-medium text-[#E8E8E8]'>{title}</p>
@@ -78,7 +78,9 @@ const Blogs = () => {
         <div className='w-1/2 space-y-10'>
           <h2 className='text-[5.2vw] leading-[1.2] w-[90%] headingAnim'>Stay Ahead with AI Insights</h2>
           <p data-para-anim className='content-p text-[#CACACA] w-[72%]'>stay informed with expert insights, industry updates, and real-world use cases from UnifyAI. Whether you&apos;re looking for the latest in Generative AI, AI governance, or enterprise AI adoption, we&apos;ve got you covered.</p>
-          <PrimaryButton text={"Know More"} href={"#"} className='fadeup' />
+          <div className='fadeUp'>
+            <PrimaryButton text={"Know More"} href={"#"} />
+          </div>
         </div>
         <div className='w-[55%] text-white ' >
           <Swiper slidesPerView={1.8}
