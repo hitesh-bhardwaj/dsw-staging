@@ -40,33 +40,41 @@ const WhyUnify = () => {
       }
 
       // Animate body background color
-      // ScrollTrigger.create({
-      //   trigger: sectionRef.current,
-      //   start: "top 50%",
-      //   end: "+=2000 50%",
-      //   markers:true,
-      //   onEnter: () => {
-      //     gsap.to(document.body, {
-      //       background: "linear-gradient(to right, #F16B0D, #E61216)",
-      //       duration: 1,
-      //       ease: "power2.out",
-      //     });
-      //   },
-      //   onLeaveBack: () => {
-      //     gsap.to(document.body, {
-      //       background: "linear-gradient(to right, #F16B0D, #E61216)",
-      //       duration: 1,
-      //       ease: "power2.out",
-      //     });
-      //   },
-      //   onLeave: () => {
-      //     gsap.to(document.body, {
-      //       background: "#070707",
-      //       duration: 1,
-      //       ease: "power2.out",
-      //     });
-      //   },
-      // });
+      ScrollTrigger.create({
+        trigger: sectionRef.current,
+        start: "top 90%",
+        end: "+=5000 90%",
+        // markers:true,
+        
+        onEnter: () => {
+          gsap.to(document.body, {
+            background: "linear-gradient(to right, #F16B0D, #E61216)",
+            duration: 0.1,
+            ease: "none",
+          });
+        },
+        onEnterBack:()=>{
+          gsap.to(document.body, {
+            background: "linear-gradient(to right, #F16B0D, #E61216)",
+            duration: 1,
+            ease: "none",
+          });
+        },
+        onLeaveBack: () => {
+          gsap.to(document.body, {
+            background: "linear-gradient(to right, #070707, #070707)",
+            duration: 0.1,
+            ease: "none",
+          });
+        },
+        onLeave: () => {
+          gsap.to(document.body, {
+            background: "linear-gradient(to right, #070707, #070707)",
+            duration: 1,
+            ease: "none",
+          });
+        },
+      });
     }, sectionRef);
 
     return () => ctx.revert();
@@ -78,7 +86,7 @@ const WhyUnify = () => {
       ref={sectionRef}
     >
       {/* Gradient BG layer */}
-      <div className="absolute top-0 left-0 h-full w-screen z-0 pointer-events-none bg-gradient-to-r from-[#F16B0D] to-[#E61216] " />
+      <div className="absolute top-0 left-0 h-full w-screen z-0 pointer-events-none " />
 
       <div className="flex flex-col items-center w-full py-30 space-y-30 px-10 relative z-[2]">
         <div className="w-[58%] ml-auto mr-auto text-center space-y-10 pb-32">
