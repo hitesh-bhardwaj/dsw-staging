@@ -6,59 +6,61 @@ import { SplitInLine, SplitInLineWord } from "@/components/splitTextUtils";
 
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 const TurbochargeG = () => {
   const turboChargeContainer = useRef(null);
-  useEffect(()=>{
-    const ctx = gsap.context(()=>{
+  useEffect(() => {
+    const ctx = gsap.context(() => {
       const headingAnim = document.querySelectorAll(".turbo-headingAnim");
-                headingAnim.forEach((headingAnim)=>{
-                    SplitInLine(headingAnim);
-                    const headingWord = headingAnim.querySelectorAll(".line-internal");
-      
-            gsap.fromTo(headingWord,{
-                  maskPosition: "100% 100%",
-            },{
-                maskPosition:"0% 100%",
-                stagger:0.5,
-                duration:5.5,
-                ease:"power3.out",
-                scrollTrigger: {
-                  trigger: "#turbo",
-                  start: '+2000 65%', 
-                  end:"+2500 top",
-                  scrub:true,
-                  lazy: true,
-                  
-                },
-            });
-        })
+      headingAnim.forEach((headingAnim) => {
+        SplitInLine(headingAnim);
+        const headingWord = headingAnim.querySelectorAll(".line-internal");
 
-        const paraAnimations = document.querySelectorAll(".turbo-para-anim");
-        paraAnimations.forEach((paraAnimation) => {
-          SplitInLine(paraAnimation);
-          const paraLine = paraAnimation.querySelectorAll(".line-internal");
-          gsap.from(paraLine, {
+        gsap.fromTo(
+          headingWord,
+          {
+            maskPosition: "100% 100%",
+          },
+          {
+            maskPosition: "0% 100%",
+            stagger: 0.5,
+            duration: 5.5,
+            ease: "power3.out",
             scrollTrigger: {
-              trigger: paraAnimation,
               trigger: "#turbo",
-              start: '+2000 35%', 
-              end:"+2500 top",
-             scrub:true,
+              start: "+2000 65%",
+              end: "+2500 top",
+              scrub: true,
+              lazy: true,
             },
-            duration: 1.2,
-            yPercent: 100,
-            stagger: 0.07,
-            ease: "power3.out"
-          });
+          }
+        );
+      });
+
+      const paraAnimations = document.querySelectorAll(".turbo-para-anim");
+      paraAnimations.forEach((paraAnimation) => {
+        SplitInLine(paraAnimation);
+        const paraLine = paraAnimation.querySelectorAll(".line-internal");
+        gsap.from(paraLine, {
+          scrollTrigger: {
+            trigger: paraAnimation,
+            trigger: "#turbo",
+            start: "+2000 55%",
+            end: "+2500 top",
+            scrub: true,
+          },
+          duration: 1.2,
+          yPercent: 100,
+          stagger: 0.07,
+          ease: "power3.out",
         });
-      })
+      });
+    });
     return () => ctx.revert();
-},[]);
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-        
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: "#turbo",
@@ -66,67 +68,44 @@ const TurbochargeG = () => {
           pin: true,
           start: "top 12%",
           end: "+=2000 bottom",
-
         },
       });
-      gsap.from(".turbo-button",{
-        opacity:0,
-        yPercent:40,
-        duration:1,
-        scrollTrigger:{
-          trigger:"#turbo",
-          start:"+1000 70%",
-          end:"+2500 top",
-          
-
-        }
-      })
-      gsap.from(".base-img",{
-        scale:0.3,
-        opacity:0.1,
-        scrollTrigger:{
-          trigger:"#turbo",
-          start:"top 90%",
-          end:"50% bottom",
-        
-          scrub:true
-        }
-      })
-      tl.from(".turbo-img", {
+      gsap.from(".turbo-button", {
         opacity: 0,
-        duration: 0.5,
-        
-       
-      })
-      gsap.to(".turbo-content", {
-        opacity: 0,
+        yPercent: 40,
         duration: 1,
         scrollTrigger: {
           trigger: "#turbo",
-          start: "bottom top",
-          end: "200% top",
+          start: "+1000 70%",
+          end: "+1500 30%",
           scrub: true,
-
-        }
-      })
-
+        
+        },
+      });
+      gsap.from(".base-img", {
+        scale: 0.3,
+        opacity: 0.1,
+        scrollTrigger: {
+          trigger: "#turbo",
+          start: "top 90%",
+          end: "50% bottom",
+          scrub: true,
+        },
+      });
+      tl.from(".turbo-img", {
+        opacity: 0,
+        duration: 0.5,
+      });
       tl.from(".img-1", {
-        rotateX: 45,
         yPercent: -40,
-        xPercent: -25,
-
+        xPercent: -55,
+        delay: -0.5,
         duration: 1,
-      }).from(".base-img", {
-        rotateX: 45,
-        duration: 1,
-
-      }, "<")
+      })
         .from(
           ".img-2",
           {
-            rotateX: 45,
-            xPercent:5,
-            yPercent:-20,
+            yPercent: -30,
             transformOrigin: "top center",
             duration: 1,
           },
@@ -135,9 +114,7 @@ const TurbochargeG = () => {
         .from(
           ".img-3",
           {
-            rotateX: 45,
-            yPercent: -20,
-            scale: 1.6,
+            yPercent: -40,
             transformOrigin: "bottom center",
             duration: 1,
           },
@@ -147,7 +124,59 @@ const TurbochargeG = () => {
           ".img-4",
           {
             yPercent: -45,
-            xPercent: 40,
+            xPercent: 60,
+            transformOrigin: "right center",
+            duration: 1,
+          },
+          "<"
+        );
+
+      gsap.to(".turbo-content", {
+        opacity: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: "#turbo",
+          start: "bottom top",
+          end: "200% top",
+          scrub: true,
+        },
+      });
+
+      tl.from(".img-1", {
+        rotateX: 45,
+        delay: -0.5,
+        duration: 1,
+      })
+        .from(
+          ".base-img",
+          {
+            rotateX: 45,
+            duration: 1,
+          },
+          "<"
+        )
+        .from(
+          ".img-2",
+          {
+            rotateX: 45,
+            transformOrigin: "top center",
+            duration: 1,
+          },
+          "<"
+        )
+        .from(
+          ".img-3",
+          {
+            rotateX: 45,
+            scale: 1.6,
+            transformOrigin: "bottom center",
+            duration: 1,
+          },
+          "<"
+        )
+        .from(
+          ".img-4",
+          {
             rotateX: 45,
             transformOrigin: "right center",
             duration: 1,
@@ -176,7 +205,6 @@ const TurbochargeG = () => {
               className="w-full h-full object-contain base-img"
               alt="base"
             />
-
 
             {/* Dashboard Image with perspective */}
             <div className="absolute top-0 w-[8.8vw] left-0 z-[1] rounded-[0.5vw] overflow-hidden img-1 turbo-img">
@@ -237,8 +265,7 @@ const TurbochargeG = () => {
               unmatched speed and efficiency.
             </p>
             <div className="turbo-button">
-
-            <PrimaryButton text={"Know more"} href={"#"} />
+              <PrimaryButton text={"Know more"} href={"#"} />
             </div>
           </div>
         </div>

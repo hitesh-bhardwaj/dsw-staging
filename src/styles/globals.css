@@ -24,6 +24,8 @@
 }
 
 body {
+  transition: background 1s ease !important;
+  background: linear-gradient(to right, #F16B0D, #E61216);
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-body);
