@@ -4,7 +4,7 @@ import Clients from "@/components/Clients";
 import Connects from "@/components/Connects";
 import FAQs from "@/components/FAQs";
 import Footer from "@/components/Footer";
-import { fadeIn, fadeUp, headingAnim, paraAnim } from "@/components/gsapAnimations";
+import { fadeIn, fadeUp, headingAnim, lineAnim, paraAnim } from "@/components/gsapAnimations";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Insuraince from "@/components/Insuraince";
@@ -22,10 +22,12 @@ export default function Home() {
   paraAnim();
   fadeUp();
   fadeIn();
+  lineAnim();
 
   useEffect(() => {
     initSplit();
   }, [])
+
 
   return (
     <>

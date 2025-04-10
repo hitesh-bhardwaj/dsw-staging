@@ -50,6 +50,7 @@ const FAQs = () => {
       <div className='w-[80%] ml-auto mr-auto py-20'>
         <Accordion showDivider={false} itemClasses={itemClasses} defaultExpandedKeys={["0"]}>
           {data.map((item, index) => (
+            <>
             <AccordionItem
               key={index}
               aria-label={item.title}
@@ -60,7 +61,9 @@ const FAQs = () => {
               )}
             >
               {item.description}
+
             </AccordionItem>
+             </>
           ))}
 
         </Accordion>
