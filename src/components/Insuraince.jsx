@@ -31,10 +31,10 @@ const Insuraince = () => {
                     },
                     {
                         scaleX: 1,
-                        duration: 1.8,
-                        ease: 'power2.out',
+                        duration: 4.8,
+                        ease: 'power3.out',
                     },
-                    i * 1.5
+                    i * 3
                 );
 
                 tl.fromTo(
@@ -49,7 +49,7 @@ const Insuraince = () => {
                         duration: 1.2,
                         ease: 'power3.out',
                     },
-                    i * 1.3
+                    i * 3.3
                 );
             });
         }, sectionRef);
