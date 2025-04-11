@@ -26,9 +26,9 @@ const data = [
 
 const Icon = ({ isOpen }) => {
   return (
-    <div className={`size-10 p-3 flex items-center justify-center relative text-3xl text-white border border-zinc-700 rounded-full ${isOpen ? "bg-gradient-to-r from-[#f16b0d] group to-[#e61216]" : ""} `}>
-      <span className='w-3/6 h-[2px] bg-current absolute' />
-      <span className={`w-3/6 h-[2px] bg-current rotate-90 absolute duration-300 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+    <div className={`size-10 p-2 flex items-center justify-center relative text-3xl text-white border border-zinc-700 rounded-full ${isOpen ? "bg-gradient-to-r from-[#f16b0d] group to-[#e61216]" : ""} `}>
+      <span className='w-2/5 h-[2px] bg-current absolute' />
+      <span className={`w-2/5 h-[2px] bg-current rotate-90 absolute duration-300 transition-transform ${isOpen ? "rotate-180" : ""}`} />
     </div>
   )
 }

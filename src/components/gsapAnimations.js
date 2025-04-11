@@ -152,6 +152,7 @@ export function paraAnim() {
               opacity: 0,
               ease:"power1.out",
               duration: 1,
+              delay:0.3,
               stagger: 0.1,
             });
           });

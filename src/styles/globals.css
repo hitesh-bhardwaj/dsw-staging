@@ -138,3 +138,47 @@ body {
     background-position: -90% 0%;
   }
 }
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #F16B0D, #E61216); /* gradient from top to bottom */
+  border-radius: 8px;
+}
+
+/* Optional hover effect */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #ff8000, #ff0033);
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+.circle-1,
+.circle-2,
+.circle-3 {
+  transform-origin: center;
+  animation: ripple 5s linear infinite;
+}
+/* 
+.circle-2 {
+  animation-delay: 1s;
+}
+
+.circle-3 {
+  animation-delay: 2s;
+} */

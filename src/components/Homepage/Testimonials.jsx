@@ -134,8 +134,8 @@ const Testimonials = () => {
                 key={index}
                 onClick={() => setActive(index)}
                 style={{ order: getThumbOrder(index) }}
-                className={`w-[5vw] h-[5vw] rounded-full ${index === active ? "bg-linear-to-r from-primary-1 to-primary-2 p-2 scale-180 z-10" : ""
-                  } transition-transform duration-500 overflow-hidden`}
+                className={`w-[5vw] h-[5vw] rounded-full ${index === active ? "bg-linear-to-r from-primary-1 to-primary-2 p-1 scale-220 z-10" : ""
+                  } transition-transform duration-500 overflow-hidden  `}
               >
                 <Image
                   src={item.img}

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -7,57 +7,120 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Connects = () => {
   const sectionRef = useRef(null);
+  const[entered,setEntered] = useState(null);
   const circle1 = useRef(null);
   const circle2 = useRef(null);
   const circle3 = useRef(null);
   const circle4 = useRef(null);
   const circle5 = useRef(null);
 
+useEffect(()=>{
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: sectionRef.current,
+      start: "top 50%",
+      end:"bottom 70%",
+      // scrub:true,
+      // markers:true,
+    }
+  });
+  tl.fromTo(
+    circle1.current,
+    { scale: 0 },
+    { scale: 1, duration: 0.8, ease: "power3.inout" }
+  )
+  .fromTo(
+    circle2.current,
+    { scale: 0 },
+    { scale: 1, duration: 0.8, ease: "power3.inout" },
+    "-=0.5"
+  )    
+  .fromTo(
+    circle3.current,
+    { scale: 0.5,opacity:0},
+    { scale: 1, duration: 0.8,opacity:1, ease: "power3.inout" },
+    "-=0.5"
+  )
+    .fromTo(
+      circle4.current,
+      { scale: 0.5,opacity:0},
+      { scale: 1, duration: 0.8,opacity:1, ease: "power3.inout" },
+      "-=0.65"
+    )
+    .fromTo(
+      circle5.current,
+      { scale: 0.5,opacity:0},
+      { scale: 1, duration: 0.8,opacity:1, ease: "power3.inout",
+
+
+        onComplete:()=>{
+          setEntered(null)
+        }
+       },
+      "-=0.7"
+    );
+  
+
+  return () => {
+    tl.kill();
+  };
+
+},[])
+
   useEffect(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top 50%",
-        end:"bottom 70%",
-        // scrub:true,
-        // markers:true,
-      }
-    });
-    tl.fromTo(
-      circle1.current,
-      { scale: 0 },
-      { scale: 1, duration: 0.8, ease: "power3.out" }
-    )
-    .fromTo(
-      circle2.current,
-      { scale: 0 },
-      { scale: 1, duration: 0.8, ease: "power3.out" },
-      "-=0.3"
-    )    
-    .fromTo(
-      circle3.current,
-      { scale: 0,},
-      { scale: 1, duration: 0.8, ease: "power3.out" },
-      "-=0.3"
-    )
-      .fromTo(
-        circle4.current,
-        { scale: 0,},
-        { scale: 1, duration: 0.8, ease: "power3.out" },
-        "-=0.3"
+    if(entered){
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 50%",
+          end:"bottom 70%",
+          // scrub:true,
+          // markers:true,
+        }
+      });
+      tl.fromTo(
+        circle1.current,
+        { scale: 0 },
+        { scale: 1, duration: 0.8, ease: "power3.inout" }
       )
       .fromTo(
-        circle5.current,
-        { scale: 0,},
-        { scale: 1, duration: 0.8, ease: "power3.out" },
-        "-=0.3"
-      );
+        circle2.current,
+        { scale: 0 },
+        { scale: 1, duration: 0.8, ease: "power3.inout" },
+        "-=0.5"
+      )    
+      .fromTo(
+        circle3.current,
+        { scale: 0.5,opacity:0},
+        { scale: 1, duration: 0.8,opacity:1, ease: "power3.inout" },
+        "-=0.5"
+      )
+        .fromTo(
+          circle4.current,
+          { scale: 0.5,opacity:0},
+          { scale: 1, duration: 0.8,opacity:1, ease: "power3.inout" },
+          "-=0.65"
+        )
+        .fromTo(
+          circle5.current,
+          { scale: 0.5,opacity:0},
+          { scale: 1, duration: 0.8,opacity:1, ease: "power3.inout",
+
+
+            onComplete:()=>{
+              setEntered(null)
+            }
+           },
+          "-=0.7"
+        );
+      
     
-  
-    return () => {
-      tl.kill();
-    };
-  }, []);
+      return () => {
+        tl.kill();
+      };
+    }
+  }, [entered]);
   
 
   return (
@@ -97,7 +160,7 @@ const Connects = () => {
               className="fadein"
             />
           </div>
-          <div className="relative flex items-center justify-center w-[20vw] h-[20vw]">
+          <div className="relative flex items-center justify-center w-[20vw] h-[20vw] " onMouseEnter={()=>setEntered(true)}>
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-stone-800/60 h-[15vw] w-[15vw] z-[-1] origin-center" ref={circle1}/>
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-stone-800/40 h-[20vw] w-[20vw] z-[-2] origin-center" ref={circle2}/>
             <Image

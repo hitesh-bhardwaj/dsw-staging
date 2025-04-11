@@ -5,6 +5,8 @@ import Image1 from "../../../public/assets/images/footer/image-1.png";
 import Image2 from "../../../public/assets/images/footer/image-2.png";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 const FooterCTA = () => {
     const containerRef = useRef(null);
@@ -13,6 +15,21 @@ const FooterCTA = () => {
 
     const smoothX = useSpring(mouseX, { damping: 20, stiffness: 100 });
     const smoothY = useSpring(mouseY, { damping: 20, stiffness: 100 });
+    useEffect(()=>{
+        const ctx = gsap.context(()=>{
+             gsap.to(".scrolling",{
+                opacity:0,
+                scrollTrigger:{
+                    trigger:"#footer",
+                    start:"top 70%",
+                    end:"5% 70%",
+                    // markers:true,
+                    scrub:true
+                }
+             })
+        })
+        return()=>ctx.revert()
+    },[])
 
     useEffect(() => {
         const container = containerRef.current;
@@ -62,17 +79,14 @@ const FooterCTA = () => {
                 </div>
             </div>
             <div className="relative w-1/2 h-[50vw]">
-                <motion.div 
+                <div 
                     className="absolute top-1/2 -translate-y-1/2 right-0 -z-10"
-                    initial={{ opacity: 0, scale: 0 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 1, ease: "easeInOut" }}
-                    viewport={{ once: true }}
+                    
                     >
                     <svg className="w-[95%] ml-auto" width="778" height="778" viewBox="0 0 778 778" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="389.094" cy="388.916" r="388.781" stroke="url(#paint0_linear_232_8167)" strokeOpacity="0.5" strokeWidth="0.25" />
-                        <circle cx="389.094" cy="388.915" r="302.668" stroke="url(#paint1_linear_232_8167)" strokeOpacity="0.5" strokeWidth="0.25" />
-                        <circle cx="389.095" cy="389.237" r="210.959" stroke="url(#paint2_linear_232_8167)" strokeOpacity="0.5" strokeWidth="0.25" />
+                        <circle cx="389.094" cy="388.916" r="388.781" stroke="url(#paint0_linear_232_8167)" strokeOpacity="0.5" strokeWidth="0.25" className="circle-1" />
+                        <circle cx="389.094" cy="388.915" r="302.668" stroke="url(#paint1_linear_232_8167)" strokeOpacity="0.5" strokeWidth="0.25" className="circle-2" />
+                        <circle cx="389.095" cy="389.237" r="210.959" stroke="url(#paint2_linear_232_8167)" strokeOpacity="0.5" strokeWidth="0.25" className="circle-3"/>
                         <defs>
                             <linearGradient id="paint0_linear_232_8167" x1="0.188477" y1="27.2433" x2="781.305" y2="30.8303" gradientUnits="userSpaceOnUse">
                                 <stop stopColor="white" />
@@ -88,7 +102,7 @@ const FooterCTA = () => {
                             </linearGradient>
                         </defs>
                     </svg>
-                </motion.div>
+                </div>
                 <motion.div
                     style={{ x: image1X, y: image1Y,  boxShadow: "0 0 10px rgba(255, 255, 255, 0.3)"}}
                     className="absolute w-[45%] top-[15%] left-[20%] rounded-2xl"
@@ -97,7 +111,7 @@ const FooterCTA = () => {
                 </motion.div>
 
                 <motion.div
-                    style={{ x: image2X, y: image2Y, boxShadow: "0 0 10px rgba(255, 255, 255, 0.3)"  }}
+                    style={{ x: image1X, y: image1Y, boxShadow: "0 0 10px rgba(255, 255, 255, 0.3)"  }}
                     className="absolute  w-[40%] bottom-[10%] left-[45%] rounded-2xl "
                 >
                     <Image src={Image2} alt="Image2" loading="lazy" placeholder="blur" className="object-cover"/>

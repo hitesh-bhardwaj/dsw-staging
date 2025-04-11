@@ -115,9 +115,9 @@ const WhyUnify = () => {
             opacity: 1,
             zIndex: 2,
             y: 0,
-            duration: 0.5,
+            duration: 1,
             ease: "power2.inOut",
-            delay: 0.5,
+            delay: 0.2,
           },
           "<"
         );

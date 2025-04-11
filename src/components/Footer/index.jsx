@@ -13,27 +13,41 @@ const Footer = () => {
     const footerGlassRef = useRef(null);
     useEffect(()=>{
         gsap.from(footerGlassRef.current,{
-            scale:1.1,
+            // scale:1.1,
             opacity:0,
+            yPercent:40,
             ease:"power3.out",
             scrollTrigger:{
                 trigger: footerRef.current,
-                start: "top 40%",
-                end:"bottom bottom",
+                start: "top 60%",
+                end:"bottom 60%",
                 scrub: 0.25,
+                // markers:true, 
             }
         })
+        // gsap.from(".footer-content",{
+        //     opacity:0,
+        //     delay:1,
+        //     scrollTrigger:{
+        //         trigger:".footer-content",
+        //         start:"10% 70%",
+        //         end:"20% 50%",
+        //         // markers:true,
+        //         scrub:true
+        //     }
+        // })
     })
 
     return (
         <>
             <FooterCTA />
-            <footer className="relative overflow-hidden px-20 pt-[15vw]" ref={footerRef}>
+            <footer className="relative overflow-hidden px-20 pt-[15vw]" id="footer" ref={footerRef}>
                 <Image src="/assets/images/footer-bg.svg" width={1920} height={900} alt="Footer Background" loading="lazy" className="absolute -bottom-20 left-0 right-0 w-full" />
                 <div className="relative z-[1]">
                     <div className="rounded-3xl bg-black/20 border border-white/30 backdrop-blur-2xl px-12 py-12 flex justify-between" ref={footerGlassRef}>
                         {/* Logo and Contact Info */}
-                        <div className="flex flex-col justify-between items-start gap-24">
+                       
+                        <div className="flex flex-col justify-between items-start gap-24 footer-content">
                             <Image src="/dsw-logo.svg" width={338} height={172} alt="Logo" loading="lazy" className="w-2/3" />
                             <div className="">
                                 <h6 className="font-medium mb-5">CONTACT US</h6>
@@ -52,7 +66,7 @@ const Footer = () => {
                         </div>
 
 
-                        <div className="flex justify-between w-2/5 ml-auto gap-10">
+                        <div className="flex justify-between w-2/5 ml-auto gap-10 footer-content">
                             {/* Navigation Links */}
                             <div>
                                 <h6 className="font-medium mb-5">NAVIGATION</h6>

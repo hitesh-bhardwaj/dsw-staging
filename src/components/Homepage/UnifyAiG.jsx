@@ -45,7 +45,7 @@ const UnifyAiG = () => {
             start:"top top",
             end:"+750 top",
             scrub:true,
-            markers:true,
+            // markers:true,
          
         }
       })
