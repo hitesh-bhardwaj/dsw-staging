@@ -60,10 +60,10 @@ const TestimonialCard = ({ item, onSwipe }) => {
     <>
       <motion.div
         key={item.name + item.title}
-        initial={{ opacity: 0, y: 40 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.25 }}
         drag="x"
         dragConstraints={{ left: 0, right: 0 }}
         onDragEnd={(event, info) => {

@@ -144,7 +144,7 @@ useEffect(()=>{
           </div>
           <div>
             <Image
-              src="/assets/images/intel-logo.png"
+              src="/assets/images/Intel-logo-final.png"
               height={51}
               width={131}
               alt="intel-logo"

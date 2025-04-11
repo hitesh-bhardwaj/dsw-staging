@@ -13,11 +13,10 @@ import Security from "@/components/Homepage/Security";
 import { initSplit } from "@/components/splitTextUtils";
 import Testimonials from "@/components/Homepage/Testimonials";
 import TurbochargeG from "@/components/Homepage/TurboChargeG";
-import UnifyAi from "@/components/Homepage/UnifyAi";
 import WhyUnify from "@/components/Homepage/WhyUnify";
 import Head from "next/head";
 import { useEffect } from "react";
-import UnifyAiG from "@/components/Homepage/UnifyAiG";
+import UnifyAi from "@/components/Homepage/UnifyAi";
 
 export default function Home() {
   headingAnim();
@@ -41,8 +40,7 @@ export default function Home() {
       <Layout>
         <Hero />
         <TurbochargeG />
-        {/* <UnifyAi /> */}
-        <UnifyAiG/>
+        <UnifyAi />
         <WhyUnify />
         <Insuraince />
         <Business />

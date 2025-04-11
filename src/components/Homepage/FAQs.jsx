@@ -36,9 +36,9 @@ const Icon = ({ isOpen }) => {
 const FAQs = () => {
   const itemClasses = {
     base: "py-5 w-full px-4 border-b border-zinc-800",
-    title: "font-medium text-[1.145vw] text-[#E8E8E8] ",
+    title: "font-medium text-[1.145vw] font-body text-[#E8E8E8] ",
     trigger: "px-2 py-0 rounded-full h-14 flex items-center justify-between w-full",
-    content: "text-[1.145vw] py-4 px-2 text-[#CACACA] w-5/6",
+    content: "text-[1.145vw] py-4 px-2 text-[#CACACA] w-5/6 font-body",
   };
 
   return (
