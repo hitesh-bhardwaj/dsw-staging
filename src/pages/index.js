@@ -17,6 +17,7 @@ import UnifyAi from "@/components/Homepage/UnifyAi";
 import WhyUnify from "@/components/Homepage/WhyUnify";
 import Head from "next/head";
 import { useEffect } from "react";
+import UnifyAiG from "@/components/Homepage/UnifyAiG";
 
 export default function Home() {
   headingAnim();
@@ -40,7 +41,8 @@ export default function Home() {
       <Layout>
         <Hero />
         <TurbochargeG />
-        <UnifyAi />
+        {/* <UnifyAi /> */}
+        <UnifyAiG/>
         <WhyUnify />
         <Insuraince />
         <Business />

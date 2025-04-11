@@ -169,7 +169,7 @@ const WhyUnify = () => {
 
   return (
     <section
-      className="h-full w-screen relative pb-[15vw] mt-[-150vw] pt-[35vw]"
+      className="h-full w-screen relative pb-[15vw] z-[10] -mt-[50vw] pt-[35vw]"
       ref={sectionRef}
     >
       {/* Gradient Background Layer */}

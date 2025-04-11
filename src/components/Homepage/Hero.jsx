@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import Gradient from "./Gradient";
 import gsap from "gsap";
 import { SplitInLine, SplitInLineOnly } from "../splitTextUtils";
+import Image from "next/image";
 
 const lineCount = 4;
 
@@ -16,7 +17,7 @@ const AnimatedLine = ({ delay }) => (
   >
     <motion.span
       initial={{ y: 0 }}
-      animate={{ y: "38vw" }}
+      animate={{ y: "48vw" }}
       transition={{ duration: 1.2, delay, repeat: Infinity, repeatDelay: 2 + delay }}
       className="block w-full h-3 bg-white blur-[1px]"
     /> 
@@ -52,7 +53,7 @@ const Hero = () => {
 
   return (
     <section className="h-[70vw] w-screen relative" id="hero">
-      <div className="flex flex-col items-center justify-start w-full h-full pt-[15vw]">
+      <div className="flex flex-col items-center justify-start w-full h-full pt-[15vw] relative z-[10]">
         <div className="w-[62%] text-center space-y-6 pb-5">
           <motion.h1 animate={{ opacity: 1 }} ref={heading} className="text-[5.2vw] font-head leading-[1.2] heroHeadAnim opacity-0">
             AI-Powered Innovation with Data Science Wizards
@@ -77,7 +78,7 @@ const Hero = () => {
       </div>
 
       {/* Animated Vertical Lines */}
-      <div className="w-screen h-[38vw] absolute top-0 left-0 z-[-1] flex justify-center gap-[22vw]">
+      <div className="w-screen h-[55vw] absolute top-0 left-0 z-[-1] flex justify-center gap-[22vw]">
         {[...Array(lineCount)].map((_, i) => (
           <AnimatedLine key={i} delay={i * 0.2} />
         ))}
@@ -87,6 +88,15 @@ const Hero = () => {
       <motion.div initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }} className="w-screen h-[120vh] absolute bottom-[10%] left-0 right-0 z-[-2]">
         <Gradient />
       </motion.div>
+      <div className="h-[40vw] w-screen overflow-visible absolute top-0 left-0 right-0 z-[1]">
+        <Image
+          src="/assets/images/homepage/hero-gradient-final.png"
+          width={1920}
+          height={1000}
+          alt="hero-gradient"
+          className="object-strecth w-full object-top size-full translate-y-[80%]"
+        />
+      </div>
     </section>
   );
 };

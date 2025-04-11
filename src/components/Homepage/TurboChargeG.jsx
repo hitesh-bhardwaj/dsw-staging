@@ -29,10 +29,11 @@ const TurbochargeG = () => {
             ease: "power3.out",
             scrollTrigger: {
               trigger: "#turbo",
-              start: "+2000 65%",
-              end: "+2500 top",
+              start: "+1100 75%",
+              end: "+1400 top",
               scrub: true,
               lazy: true,
+              // markers:true
             },
           }
         );
@@ -46,9 +47,10 @@ const TurbochargeG = () => {
           scrollTrigger: {
             trigger: paraAnimation,
             trigger: "#turbo",
-            start: "+2000 55%",
-            end: "+2200 top",
+            start: "+1200 55%",
+            end: "+1400 55%",
             scrub: true,
+            // markers:true
           },
           duration: 1.2,
           yPercent: 100,
@@ -65,40 +67,47 @@ const TurbochargeG = () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: "#turbo",
-          scrub: true,
+          scrub: 1,
           pin: true,
           start: "top top",
-          end: "+=2000 bottom",
+          end: "+=1200 bottom",
         },
       });
-      gsap.from(".turbo-button", {
-        opacity: 0,
-        yPercent: 40,
-        duration: 1,
+      const bl = gsap.timeline({
         scrollTrigger: {
           trigger: "#turbo",
-          start: "+1000 80%",
-          end: "+1200 80%",
-          scrub: true,
-          
-        
+          scrub: 1,
+          // markers:true,
+          start: "top 50%",
+          end: "+=1200 bottom",
         },
       });
+      // gsap.from(".turbo-button", {
+      //   opacity: 0,
+      //   yPercent: 40,
+      //   duration: 1,
+      //   scrollTrigger: {
+      //     trigger: "#turbo",
+      //     start: "+1000 80%",
+      //     end: "+1200 80%",
+      //     scrub: 1,
+      //   },
+      // });
       gsap.from(".base-img", {
         scale: 0.3,
         opacity: 0.1,
         scrollTrigger: {
           trigger: "#turbo",
-          start: "top 90%",
-          end: "50% bottom",
+          start: "top bottom",
+          end: "30% bottom",
           scrub: true,
         },
       });
-      tl.from(".turbo-img", {
+      bl.from(".turbo-img", {
         opacity: 0,
         duration: 0.5,
       });
-      tl.from(".img-1", {
+      bl.from(".img-1", {
         yPercent: -40,
         xPercent: -55,
         delay: -0.5,
@@ -144,9 +153,9 @@ const TurbochargeG = () => {
         },
       });
 
-      tl.from(".img-1", {
+      bl.from(".img-1", {
         rotateX: 45,
-        delay: -0.5,
+        delay: -1,
         duration: 1,
       })
         .from(
