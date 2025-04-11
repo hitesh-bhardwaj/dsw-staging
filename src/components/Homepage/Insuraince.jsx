@@ -1,5 +1,3 @@
-'use client';
-
 import Image from 'next/image';
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
@@ -31,8 +29,14 @@ const Insuraince = () => {
                     },
                     {
                         scaleX: 1,
-                        duration: 4,
+                        duration: 3.5,
                         ease: 'power2.out',
+                        onComplete: () => {
+                            gsap.to(span, {
+                                scaleX: 0,
+                                duration: 0.2,
+                            });
+                        },
                     },
                     i * 3
                 );
@@ -59,7 +63,7 @@ const Insuraince = () => {
 
     return (
         <section className="w-screen h-full pb-[10vw] overflow-hidden" ref={sectionRef}>
-            <div className="w-full py-15 space-y-20 px-20">
+            <div className="w-full pt-0 pb-15 space-y-20 px-20">
                 <div className="text-center space-y-2 w-fit mx-auto">
                     <h3 className="bg-linear-to-r from-primary-1 to-primary-2 bg-clip-text text-transparent text-[5.2vw] font-medium font-head">
                         InsurAInce
@@ -90,7 +94,7 @@ export default Insuraince;
 const Card = ({ data, spanRef }) => {
     return (
         <div className="w-full space-y-5 relative group">
-            <div className='group-hover:scale-95 duration-500'>
+            <div className=''>
                 <Image
                     src={data.icon}
                     height={98}
@@ -98,13 +102,16 @@ const Card = ({ data, spanRef }) => {
                     alt={data.title}
                     className="w-[5vw] h-[5vw] object-contain"
                 />
-                <h4 className="text-[2.6vw] text-white-200 leading-[1.25] group-hover:text-primary-1 duration-300">{data.title}</h4>
+                <h4 className="text-[2.6vw] text-white-200 leading-[1.25]">{data.title}</h4>
                 <p className="text-white-300 content-p h-28">{data.desc}</p>
             </div>
             <div className="relative w-full h-[1px] bg-[#616161] mt-30">
                 <span
                     ref={spanRef}
-                    className="absolute top-0 left-0 h-full bg-primary-1 w-full scale-x-0 origin-left "
+                    className="absolute top-0 left-0 h-full bg-primary-1 w-full scale-x-0 origin-left"
+                />
+                 <span
+                    className="absolute top-0 left-0 h-full bg-primary-1 w-full scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500"
                 />
             </div>
         </div>
