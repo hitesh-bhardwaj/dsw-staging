@@ -65,7 +65,7 @@ const KeepScrolling = () => {
       <div className="text-white/80 text-[1vw] h-fit relative overflow-hidden flex gap-[1vw]">
         <div className="scroll-content flex gap-[1vw]">
 
-          <span className={` block shimmer`}>
+          <span className={` block shimmer `}  data-text="Keep scrolling to discover more">
 
             Keep scrolling to discover more
           </span>

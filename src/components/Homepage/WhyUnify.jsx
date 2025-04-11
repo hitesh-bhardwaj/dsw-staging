@@ -2,7 +2,8 @@ import Image from "next/image";
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import WhiteButton from "./Button/WhiteButton";
+import WhiteButton from "../Button/WhiteButton";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -126,43 +127,43 @@ const WhyUnify = () => {
     return () => ctx.revert();
   }, []);
 
-  useEffect(() => {
-    const bgTrigger = ScrollTrigger.create({
-      trigger: sectionRef.current,
-      start: "top 90%",
-      end: "+=5000 90%",
-      onEnter: () => {
-        gsap.to(document.body, {
-          background: "linear-gradient(to right, #F16B0D, #E61216)",
-          duration: 0.1,
-          ease: "none",
-        });
-      },
-      onEnterBack: () => {
-        gsap.to(document.body, {
-          background: "linear-gradient(to right, #F16B0D, #E61216)",
-          duration: 1,
-          ease: "none",
-        });
-      },
-      onLeaveBack: () => {
-        gsap.to(document.body, {
-          background: "linear-gradient(to right, #070707, #070707)",
-          duration: 0.1,
-          ease: "none",
-        });
-      },
-      onLeave: () => {
-        gsap.to(document.body, {
-          background: "linear-gradient(to right, #070707, #070707)",
-          duration: 1,
-          ease: "none",
-        });
-      },
-    });
+  // useEffect(() => {
+  //   const bgTrigger = ScrollTrigger.create({
+  //     trigger: sectionRef.current,
+  //     start: "top 90%",
+  //     end: "+=5000 90%",
+  //     onEnter: () => {
+  //       gsap.to(document.body, {
+  //         background: "linear-gradient(to right, #F16B0D, #E61216)",
+  //         duration: 0.1,
+  //         ease: "none",
+  //       });
+  //     },
+  //     onEnterBack: () => {
+  //       gsap.to(document.body, {
+  //         background: "linear-gradient(to right, #F16B0D, #E61216)",
+  //         duration: 1,
+  //         ease: "none",
+  //       });
+  //     },
+  //     onLeaveBack: () => {
+  //       gsap.to(document.body, {
+  //         background: "linear-gradient(to right, #070707, #070707)",
+  //         duration: 0.1,
+  //         ease: "none",
+  //       });
+  //     },
+  //     onLeave: () => {
+  //       gsap.to(document.body, {
+  //         background: "linear-gradient(to right, #070707, #070707)",
+  //         duration: 1,
+  //         ease: "none",
+  //       });
+  //     },
+  //   });
 
-    return () => bgTrigger.kill();
-  }, []);
+  //   return () => bgTrigger.kill();
+  // }, []);
 
 
 
@@ -172,7 +173,7 @@ const WhyUnify = () => {
       ref={sectionRef}
     >
       {/* Gradient Background Layer */}
-      <div className="absolute top-0 left-0 h-full w-screen z-0 pointer-events-none" />
+      <div className="absolute top-0 left-0 h-full w-screen z-0 pointer-events-none bg-linear-to-r from-primary-1 to-primary-2" />
 
       <div className="flex flex-col items-center w-full py-30 space-y-30 px-10 relative z-[2]">
         {/* INTRO: Text & Button */}

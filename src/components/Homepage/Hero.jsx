@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from "react";
-import PrimaryButton from "./Button/PrimaryButton";
-import WhiteButton from "./Button/WhiteButton";
+import PrimaryButton from "../Button/PrimaryButton";
+import WhiteButton from "../Button/WhiteButton";
 import { motion } from "motion/react";
 import Gradient from "./Gradient";
 import gsap from "gsap";
-import { SplitInLine, SplitInLineOnly } from "./splitTextUtils";
+import { SplitInLine, SplitInLineOnly } from "../splitTextUtils";
 
 const lineCount = 4;
 

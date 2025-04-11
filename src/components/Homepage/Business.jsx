@@ -61,16 +61,21 @@ const businessData = [
 ];
 
 const Card = ({ data }) => {
+
+
   const [hovered, setHovered] = useState(false);
   return (
     <>
       <Link href={data.link}>
-        <div className="relative w-[27vw] rounded-4xl overflow-hidden border border-gray-800" onMouseEnter={() => setHovered(true)}
+        <div  className={`relative w-[27vw] rounded-4xl overflow-hidden border border-gray-800 `} onMouseEnter={() => {setHovered(true)
+           
+
+        }}
           onMouseLeave={() => setHovered(false)}>
 
           <div
             className={`absolute inset-0 bg-gradient-to-r from-[#F16B0D] to-[#E61216] transition-opacity duration-300 ease-in-out z-0 pointer-events-none ${hovered ? "opacity-100" : "opacity-0"
-              }`}
+              } `}
           />
           <div className="relative z-10 bg-white/5 rounded-4xl py-14 px-8 space-y-20 ">
             <div
