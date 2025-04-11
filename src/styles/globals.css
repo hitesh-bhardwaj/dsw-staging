@@ -120,32 +120,21 @@ body {
 }
 
 .shimmer {
-  display: inline-block;
-  color: white;
-  background: #ffffffc6 -webkit-gradient(linear, 0% 0, 0 0, from(#ffffffc6), color-stop(0.1, #ffffff), to(#ffffffc6));
-  background-position: -4rem top; /*50px*/
-  background-repeat: no-repeat;
+  color: transparent;
+  background-image: linear-gradient(90deg, #ffffff70 0%, rgb(255, 255, 255) 25%, #ffffff70 50%);
+  background-size: 250% 100%;
   background-clip: text;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-animation-name: shimmer;
-  animation-name: shimmer;
-  -webkit-animation-duration: 3.2s;
-  animation-duration: 3.2s;
-  -webkit-animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  -webkit-background-size: 5rem 100%;
-  background-size: 3rem 100%;
- 
+  background-position: 100% 0%;
+  animation: shimmerAnimation 3s linear infinite;
+  animation-delay: 2s;
 }
 
-@keyframes shimmer {
+@keyframes shimmerAnimation{
   0% {
-    background-position: -4rem top; /*50px*/
+    background-position: 100% 0%;
   }
   100% {
-    background-position: 17rem top; /*200px*/
+    background-position: -90% 0%;
   }
 }
