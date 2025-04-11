@@ -9,6 +9,7 @@
   --white-300: #cacaca;
   --font-display: var(--font-display);
   --font-body: var(--font-body);
+  --default-ease: cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 @theme inline {
@@ -20,6 +21,7 @@
   --color-primary-2: var(--primary-2);
   --color-white-200: var(--white-200);
   --color-white-300: var(--white-300);
+  --ease-default-ease: var(--default-ease);
 }
 
 body {
@@ -96,7 +98,7 @@ body {
 }
 
 .buttonSplit .single-letter {
-  transition: transform 0.5s cubic-bezier(0.625, 0.05, 0, 1);
+  transition: transform 1.2s var(--default-ease);
 }
 
 .buttonSplit:hover .single-letter {
@@ -106,12 +108,11 @@ body {
 /* on-hover line animation*/
 .under-multi {
   text-decoration: none;
-  background-image: linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0, 0)),
-    linear-gradient(#ffffff, #ffffff);
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0, 0)), linear-gradient(#ffffff, #ffffff);
   background-size: 100% 0px, 0% 1px;
   background-position: 100% 100%, 0 100%;
   background-repeat: no-repeat, no-repeat;
-  transition: all 0.5s ease-out;
+  transition: all 1s var(--default-ease);
 }
 
 .under-multi-parent:hover .under-multi {

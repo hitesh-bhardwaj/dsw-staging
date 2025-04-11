@@ -1,16 +1,16 @@
-import React, { useEffect, useRef } from 'react'
-import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import * as THREE from 'three'
-import Image from 'next/image'
+import React, { useEffect, useRef } from "react";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import * as THREE from "three";
+import Image from "next/image";
 
 const NoiseMaterial = ({ colorA, colorB }) => {
-  const materialRef = useRef()
+  const materialRef = useRef();
 
   useFrame(({ clock }) => {
     if (materialRef.current) {
-      materialRef.current.uniforms.uTime.value = clock.getElapsedTime()
+      materialRef.current.uniforms.uTime.value = clock.getElapsedTime();
     }
-  })
+  });
 
   return (
     <shaderMaterial
@@ -77,30 +77,42 @@ void main() {
         uColorB: { value: new THREE.Color(colorB) },
       }}
     />
-  )
-}
+  );
+};
 
 const Plane = ({ colorA, colorB }) => {
-  const { viewport } = useThree()
+  const { viewport } = useThree();
   return (
     <mesh position={[0, 0, 0]}>
       <planeGeometry args={[viewport.width, viewport.height]} />
       <NoiseMaterial colorA={colorA} colorB={colorB} />
     </mesh>
-  )
-}
+  );
+};
 
 const Gradient = () => {
   return (
-    <div style={{ width: '100vw', height: '100vh', background: '#000' }} className='overflow-visible'>
-      <Canvas camera={{ position: [0, 0, 5], fov: 45 }} className='h-[100vw] w-screen translate-y-[20%]'>
+    <div
+      style={{ width: "100vw", height: "100vh", background: "#000" }}
+      className="overflow-visible"
+    >
+      <Canvas
+        camera={{ position: [0, 0, 5], fov: 45 }}
+        className="h-[100vw] w-screen translate-y-[20%]"
+      >
         <Plane colorA="#E61216" colorB="#F16B0D" />
       </Canvas>
-      <div className='h-[80vh] w-screen overflow-visible absolute top-0 left-0 right-0'>
-        <Image src="/assets/images/homepage/hero-gradient-final.png" width={1920} height={1000} alt="hero-gradient" className='object-strecth w-full object-top size-full translate-y-[80%]' />
+      <div className="h-[80vh] w-screen overflow-visible absolute top-0 left-0 right-0">
+        <Image
+          src="/assets/images/homepage/hero-gradient-final.png"
+          width={1920}
+          height={1000}
+          alt="hero-gradient"
+          className="object-strecth w-full object-top size-full translate-y-[80%]"
+        />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Gradient
+export default Gradient;
