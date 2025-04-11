@@ -65,7 +65,7 @@ const WhyUnify = () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "50% 5%",
+          start: "10% 5%",
           end: "+=3000",
           scrub: 0.25,
           pin: true,
@@ -131,8 +131,8 @@ const WhyUnify = () => {
     gsap.to(".gradientClassBackground", {
       scrollTrigger: {
         trigger: ".gradientClassBackground",
-        start: "+4500 50%",
-        end: "+5400 50%",
+        start: "+3500 50%",
+        end: "+4400 50%",
         // markers: true,
         scrub: 0.5,
       },
@@ -144,7 +144,7 @@ const WhyUnify = () => {
 
 return (
   <section
-    className="h-full w-screen relative pb-[15vw] z-[10] -mt-[50vw] pt-[35vw]"
+    className="h-full w-screen relative pb-[15vw] z-[10]  pt-[5%]"
     ref={sectionRef}
   >
     {/* Gradient Background Layer */}
@@ -154,18 +154,7 @@ return (
 
     <div className="flex flex-col items-center w-full py-30 space-y-30 px-10 relative z-[2]">
       {/* INTRO: Text & Button */}
-      <div className="w-[58%] ml-auto mr-auto text-center space-y-10 pb-32">
-        <p className="text-white content-p font-light">
-          UnifyAI is a cutting-edge AI/ML platform that empowers businesses to
-          develop, test, and deploy AI solutions with ease. Built for both
-          traditional AI and Generative AI, it provides a unified ecosystem to
-          accelerate AI adoption in industries like insurance, finance,
-          healthcare, and retail.
-        </p>
-        <div>
-          <WhiteButton text={"Book a demo"} href={"#"} className="border-none" />
-        </div>
-      </div>
+     
 
       {/* PINNED SECTION CONTENT */}
       <div className="space-y-24 w-full">

@@ -45,7 +45,7 @@ const KeepScrolling = () => {
       clearTimeout(timeout);
       timeout = setTimeout(() => {
         setScrolling(false);
-      }, 2000); // adjust delay as needed
+      }, 7000); // adjust delay as needed
     };
 
     window.addEventListener("scroll", handleScroll);

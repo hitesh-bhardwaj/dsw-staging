@@ -60,27 +60,36 @@ const businessData = [
   },
 ];
 
-const Card = ({ data }) => {
-
+const Card = ({ data, index }) => {
+  const [activeCard, setActiveCard] = useState(1);
 
   const [hovered, setHovered] = useState(false);
   return (
     <>
       <Link href={data.link}>
-        <div  className={`relative w-[27vw] rounded-4xl overflow-hidden border border-gray-800 `} onMouseEnter={() => {setHovered(true)
-           
+        <div
+          className={`relative w-[27vw] rounded-4xl overflow-hidden border border-gray-800 `}
+          onMouseEnter={() => {
+            setActiveCard(index);
+            setHovered(true);
+          }}
+          onMouseLeave={() =>{
+            setHovered(false)
 
-        }}
-          onMouseLeave={() => setHovered(false)}>
-
+          }}
+        >
           <div
-            className={`absolute inset-0 bg-gradient-to-r from-[#F16B0D] to-[#E61216] transition-opacity duration-300 ease-in-out z-0 pointer-events-none ${hovered ? "opacity-100" : "opacity-0"
-              } `}
+            className={`absolute inset-0 bg-gradient-to-r from-[#F16B0D] to-[#E61216] transition-opacity duration-300 ease-in-out z-0 pointer-events-none ${
+              index == activeCard ? "opacity-100" : "opacity-0"
+            } `}
           />
           <div className="relative z-10 bg-white/5 rounded-4xl py-14 px-8 space-y-20 ">
             <div
-              className={`h-13 w-13 absolute top-8 right-8 rounded-full flex items-center justify-center transition-all duration-500 border  ${hovered ? "bg-white text-black border-white " : "bg-white/5 text-white  border-stone-600/80"
-                }`}
+              className={`h-13 w-13 absolute top-8 right-8 rounded-full flex items-center justify-center transition-all duration-500 border  ${
+                hovered
+                  ? "bg-white text-black border-white "
+                  : "bg-white/5 text-white  border-stone-600/80"
+              }`}
             >
               <svg
                 width="19"
@@ -96,15 +105,26 @@ const Card = ({ data }) => {
               </svg>
             </div>
             <div className="space-y-5 mt-40">
-              <p data-para-anim className="text-[2.6vw]">{data.title}</p>
+              <p data-para-anim className="text-[2.6vw]">
+                {data.title}
+              </p>
+
               <ul className="list-disc text-[1.145vw] font-medium space-y-0.5 ml-[1vw]">
                 {data.list.map((listData) => (
                   <li key={listData}>
-                    <p className="flex items-center gap-1 group transition-all duration-500 ease">{listData}
+                    <p className="flex items-center gap-1 group transition-all duration-500 ease">
+                      {listData}
                       <span className="block">
-                        <Image src="/assets/icons/top-right-white.svg" height={10} width={10} alt="top-right" className="opacity-0 group-hover:opacity-100 transition-all duration-500 ease" />
+                        <Image
+                          src="/assets/icons/top-right-white.svg"
+                          height={10}
+                          width={10}
+                          alt="top-right"
+                          className="opacity-0 group-hover:opacity-100 transition-all duration-500 ease"
+                        />
                       </span>
-                    </p></li>
+                    </p>
+                  </li>
                 ))}
               </ul>
             </div>
@@ -112,15 +132,14 @@ const Card = ({ data }) => {
         </div>
       </Link>
     </>
-  )
-}
+  );
+};
 const Business = () => {
-
   const cardsRef = useRef(null);
   useEffect(() => {
     const cards = cardsRef.current;
 
-    const tl = gsap.timeline()
+    const tl = gsap.timeline();
     tl.to(".card-container", {
       ease: "none",
       scrollTrigger: {
@@ -128,9 +147,9 @@ const Business = () => {
         start: "top 20%",
         end: "+1500 bottom",
         scrub: true,
-        pin: true
-      }
-    })
+        pin: true,
+      },
+    });
     gsap.to(cards, {
       x: "-140vw",
       ease: "none",
@@ -141,7 +160,6 @@ const Business = () => {
         scrub: true,
       },
     });
-
   }, []);
 
   return (
@@ -160,9 +178,12 @@ const Business = () => {
           </p>
         </div>
         <div className=" overflow-scroll w-screen mt-[10vw] card-container">
-          <div className="ml-[90vw] overflow-x-auto overflow-scroll w-fit flex  gap-10 py-10 mr-[10vw]" ref={cardsRef}>
+          <div
+            className="ml-[90vw] overflow-x-auto overflow-scroll w-fit flex  gap-10 py-10 mr-[10vw]"
+            ref={cardsRef}
+          >
             {businessData.map((data, index) => (
-              <Card data={data} key={index} />
+              <Card data={data} key={index} index={index + 1} />
             ))}
           </div>
         </div>

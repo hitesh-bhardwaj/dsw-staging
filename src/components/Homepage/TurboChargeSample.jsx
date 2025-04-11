@@ -1,20 +1,22 @@
+"use client";
 import Image from "next/image";
 import React, { useEffect, useRef } from "react";
-import { SplitInLine } from "@/components/splitTextUtils";
+
+import { SplitInLine, SplitInLineWord } from "@/components/splitTextUtils";
+
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import PrimaryButton from "../Button/PrimaryButton";
 gsap.registerPlugin(ScrollTrigger);
-
-const TurbochargeG = () => {
+const TurbochargeSample = () => {
   const turboChargeContainer = useRef(null);
-
   useEffect(() => {
     const ctx = gsap.context(() => {
       const headingAnim = document.querySelectorAll(".turbo-headingAnim");
       headingAnim.forEach((headingAnim) => {
         SplitInLine(headingAnim);
         const headingWord = headingAnim.querySelectorAll(".line-internal");
+
         gsap.fromTo(
           headingWord,
           {
@@ -27,10 +29,11 @@ const TurbochargeG = () => {
             ease: "power3.out",
             scrollTrigger: {
               trigger: "#turbo",
-              start: "+800 95%",
-              end: "+1000 top",
+              start: "+1100 75%",
+              end: "+1400 top",
               scrub: true,
               lazy: true,
+              // markers:true
             },
           }
         );
@@ -44,9 +47,10 @@ const TurbochargeG = () => {
           scrollTrigger: {
             trigger: paraAnimation,
             trigger: "#turbo",
-            start: "+800 55%",
-            end: "+1100 55%",
+            start: "+1200 55%",
+            end: "+1400 55%",
             scrub: true,
+            // markers:true
           },
           duration: 1.2,
           yPercent: 100,
@@ -60,35 +64,35 @@ const TurbochargeG = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // const tl = gsap.timeline({
-      //   scrollTrigger: {
-      //     trigger: "#turbo",
-      //     scrub: 1,
-      //     pin: true,
-      //     start: "top top",
-      //     end: "+=1200 bottom",
-      //   },
-      // });
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#turbo",
+          scrub: 1,
+          pin: true,
+          start: "top top",
+          end: "+=1200 bottom",
+        },
+      });
       const bl = gsap.timeline({
         scrollTrigger: {
           trigger: "#turbo",
-          scrub: 0.25,
+          scrub: 1,
           // markers:true,
           start: "top 50%",
-          end: "+=800 bottom",
+          end: "+=1200 bottom",
         },
       });
-      gsap.from(".turbo-button", {
-        opacity: 0,
-        yPercent: 40,
-        duration: 1,
-        scrollTrigger: {
-          trigger: "#turbo",
-          start: "+1000 80%",
-          end: "+1200 80%",
-          scrub: 1,
-        },
-      });
+      // gsap.from(".turbo-button", {
+      //   opacity: 0,
+      //   yPercent: 40,
+      //   duration: 1,
+      //   scrollTrigger: {
+      //     trigger: "#turbo",
+      //     start: "+1000 80%",
+      //     end: "+1200 80%",
+      //     scrub: 1,
+      //   },
+      // });
       gsap.from(".base-img", {
         scale: 0.3,
         opacity: 0.1,
@@ -191,6 +195,7 @@ const TurbochargeG = () => {
           "<"
         );
     });
+
     return () => ctx.revert();
   }, []);
 
@@ -280,4 +285,4 @@ const TurbochargeG = () => {
   );
 };
 
-export default TurbochargeG;
+export default TurbochargeSample;
