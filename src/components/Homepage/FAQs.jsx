@@ -26,7 +26,7 @@ const data = [
 
 const Icon = ({ isOpen }) => {
   return (
-    <div className={`size-10 p-2 flex items-center justify-center relative text-3xl text-white border border-zinc-700 rounded-full ${isOpen ? "bg-gradient-to-r from-[#f16b0d] group to-[#e61216]" : ""} `}>
+    <div className={`size-10 p-2 flex items-center justify-center relative text-3xl text-white border border-zinc-700 rounded-full cursor-pointer ${isOpen ? "bg-gradient-to-r from-[#f16b0d] group to-[#e61216]" : ""} `}>
       <span className='w-2/5 h-[2px] bg-current absolute' />
       <span className={`w-2/5 h-[2px] bg-current rotate-90 absolute duration-300 transition-transform ${isOpen ? "rotate-180" : ""}`} />
     </div>
@@ -57,7 +57,7 @@ const FAQs = () => {
               title={item.title}
               className='!w-full fadeup'
               indicator={({ isOpen }) => (
-                <Icon isOpen={isOpen} />
+                <Icon isOpen={isOpen}/>
               )}
             >
               {item.description}

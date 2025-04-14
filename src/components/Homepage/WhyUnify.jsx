@@ -314,12 +314,15 @@ const WhyUnify = () => {
             </div>
           </div>
           {/* Skip Button triggers scroll to the last snap */}
-          <div className="mt-10 flex justify-center absolute right-10 bottom-20">
+          <div className="mt-10 flex justify-center absolute right-10 bottom-35">
             <button
-              className="px-6 py-2 rounded-full text-foreground font-light hover:scale-95 text-[1vw] transition duration-500"
+              className="px-6 py-2 rounded-full flex items-center cursor-pointer gap-2 text-foreground font-light hover:scale-95 text-[1vw] transition duration-500"
               onClick={handleSkip}
             >
               Skip
+              <span>
+                <Image src={"/assets/icons/skip-icon.svg"} height={10} width={10} alt="skip-icon"/>
+              </span>
             </button>
           </div>
         </div>

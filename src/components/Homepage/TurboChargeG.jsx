@@ -271,7 +271,7 @@ const TurbochargeG = () => {
               unmatched speed and efficiency.
             </p>
             <div className="turbo-button">
-              <PrimaryButton text={"Know more"} href={"#"} />
+              <PrimaryButton text={"Know More"} href={"#"} />
             </div>
           </div>
         </div>

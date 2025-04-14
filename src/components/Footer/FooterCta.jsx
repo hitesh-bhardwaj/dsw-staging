@@ -6,7 +6,7 @@ import Image2 from "../../../public/assets/images/footer/image-2.png";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
+
 
 const FooterCTA = () => {
     const containerRef = useRef(null);
@@ -104,15 +104,15 @@ const FooterCTA = () => {
                     </svg>
                 </div>
                 <motion.div
-                    style={{ x: image1X, y: image1Y,  boxShadow: "0 0 10px rgba(255, 255, 255, 0.3)"}}
-                    className="absolute w-[45%] top-[15%] left-[20%] rounded-2xl"
+                    style={{ x: image1X, y: image1Y }}
+                    className="absolute w-[45%] top-[15%] left-[20%] rounded-2xl border border-white/30 overflow-hidden"
                 >
                     <Image src={Image1} alt="Image1" loading="lazy" placeholder="blur" />
                 </motion.div>
 
                 <motion.div
-                    style={{ x: image1X, y: image1Y, boxShadow: "0 0 10px rgba(255, 255, 255, 0.3)"  }}
-                    className="absolute  w-[40%] bottom-[10%] left-[45%] rounded-2xl "
+                    style={{ x: image1X, y: image1Y}}
+                    className="absolute  w-[40%] bottom-[10%] left-[45%] rounded-2xl  border border-white/30 overflow-hidden "
                 >
                     <Image src={Image2} alt="Image2" loading="lazy" placeholder="blur" className="object-cover"/>
                 </motion.div>
