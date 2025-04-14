@@ -15,7 +15,7 @@ const Clients = () => {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: 'top top',
-          end: '+30% top',
+          end: '+90% top',
           scrub: true,
           pin:true,
           // markers:true
@@ -92,7 +92,7 @@ const Clients = () => {
       <div
         key={index}
         ref={el => imageRefs.current[index] = el}
-        className={`absolute ${img.style} !scale-[0.7]`}
+        className={`absolute ${img.style} !scale-[0.9]`}
       >
         <Image
           quality={100}
@@ -192,7 +192,7 @@ const imageData = [
     alt: "bon-prix",
     height: 102,
     width: 111,
-    style: "top-[-15vw] right-[30vw] ",
+    style: "top-0 right-[15vw] ",
 
   },
   {
@@ -200,7 +200,7 @@ const imageData = [
     alt: "ciek",
     height: 68,
     width: 216,
-    style: "bottom-[20vw] right-[-10vw] ",
+    style: "bottom-[20vw] right-[-30vw] ",
 
   },
 ];

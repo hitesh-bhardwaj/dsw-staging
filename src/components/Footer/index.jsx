@@ -50,16 +50,16 @@ const Footer = () => {
                         <div className="flex flex-col justify-between items-start gap-24 footer-content">
                             <Image src="/dsw-logo.svg" width={338} height={172} alt="Logo" loading="lazy" className="w-2/3" />
                             <div className=" text-foreground">
-                                <h6 className="font-medium mb-5">CONTACT US</h6>
+                                <h6 className="font-medium mb-5 content-p">CONTACT US</h6>
                                 <ul className="space-y-2">
                                     <li className="under-multi-parent">
-                                        <a href="tel:+91 96640 56847" className="under-multi">+91 96640 56847</a>
+                                        <a href="tel:+91 96640 56847" className="under-multi content-p">+91 96640 56847</a>
                                     </li>
                                     <li className="under-multi-parent">
-                                        <a href="tel:+353 894015233" className="under-multi">+353 894015233</a>
+                                        <a href="tel:+353 894015233" className="under-multi content-p">+353 894015233</a>
                                     </li>
                                     <li className="under-multi-parent">
-                                        <a href="mailto:contact@datasciencewizards.ai" className="under-multi">contact@datasciencewizards.ai</a>
+                                        <a href="mailto:contact@datasciencewizards.ai" className="under-multi content-p">contact@datasciencewizards.ai</a>
                                     </li>
                                 </ul>
                             </div>
@@ -69,10 +69,10 @@ const Footer = () => {
                         <div className="flex justify-between w-1/2 ml-auto gap-10 footer-content">
                             {/* Navigation Links */}
                             <div>
-                                <h6 className="mb-5 text-foreground">NAVIGATION</h6>
+                                <h6 className="mb-5 text-foreground content-p">NAVIGATION</h6>
                                 <ul className="space-y-3">
                                     {Links.map((link, index) => (
-                                        <li key={index} className="text-foreground">
+                                        <li key={index} className="text-foreground content-p">
                                             <NavLink text={link.text} href={link.href} />
                                         </li>
                                     ))}
