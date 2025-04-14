@@ -276,7 +276,7 @@ const WhyUnify = () => {
                   UnifyAI provides a complete AI development ecosystem, allowing
                   businesses to build, test, optimize, and deploy AI/ML models seamlessly.
                 </p>
-                <WhiteButton text="Know More" href="#" className="border-none" />
+                <WhiteButton circleColor={"bg-white"} text="Know More" href="#" className="border-white border text-white bg-transparent" />
               </div>
 
               <div ref={addToContentRefs} className="step-block absolute top-10 left-0">
@@ -287,7 +287,7 @@ const WhyUnify = () => {
                   UnifyAI provides a complete AI development ecosystem, allowing
                   businesses to build, test, optimize, and deploy AI/ML models seamlessly.
                 </p>
-                <WhiteButton text="Know More" href="#" className="border-none" />
+                <WhiteButton circleColor={"bg-white"} text="Know More" href="#" className="border-white border text-white bg-transparent" />
               </div>
 
               <div ref={addToContentRefs} className="step-block absolute top-10 left-0">
@@ -298,7 +298,7 @@ const WhyUnify = () => {
                   UnifyAI provides a complete AI development ecosystem, allowing
                   businesses to build, test, optimize, and deploy AI/ML models seamlessly.
                 </p>
-                <WhiteButton text="Know More" href="#" className="border-none" />
+                <WhiteButton circleColor={"bg-white"} text="Know More" href="#" className="border-white border text-white bg-transparent" />
               </div>
 
               <div ref={addToContentRefs} className="step-block absolute top-10 left-0">
@@ -309,7 +309,7 @@ const WhyUnify = () => {
                   UnifyAI provides a complete AI development ecosystem, allowing
                   businesses to build, test, optimize, and deploy AI/ML models seamlessly.
                 </p>
-                <WhiteButton text="Start Free Trial" href="#" className="border-none" />
+                <WhiteButton circleColor={"bg-white"} text="Start Free Trial" href="#" className="border-white border text-white bg-transparent" />
               </div>
             </div>
           </div>

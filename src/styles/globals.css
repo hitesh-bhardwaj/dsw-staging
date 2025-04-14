@@ -182,3 +182,48 @@ body {
 .circle-3 {
   animation-delay: 2s;
 } */
+
+
+/* line css */
+.string-line {
+  height: 1px;
+  position: relative;
+  width: 100%;
+}
+.string-line svg {
+  position: absolute;
+  height: 100px;
+  width: 100%;
+  top: -50px;
+}
+
+.string-line svg path {
+  stroke-width: 0.5px;
+  stroke: rgba(255, 255, 255, 0.202);
+  fill: none;
+}
+.box {
+  height: 70px;
+  width: 100%;
+  display: flex;
+  position: relative;
+  top: -20px;
+  z-index: 1;
+}
+.box:hover {
+  height: 150px;
+
+  top: -75px;
+}
+.transitionIn .blocck {
+  transform-origin: top;
+}
+
+.transitionOut .blocck {
+  transform-origin: bottom;
+}
+.error-page-line .string-line svg path {
+  stroke-width: 1px;
+  stroke: white;
+  fill: none;
+}

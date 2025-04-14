@@ -6,7 +6,7 @@ import FAQs from "@/components/Homepage/FAQs";
 import Footer from "@/components/Footer";
 import { fadeIn, fadeUp, headingAnim, lineAnim, paraAnim } from "@/components/gsapAnimations";
 import Header from "@/components/Header";
-import Hero from "@/components/Homepage/Hero";
+// import Hero from "@/components/Homepage/Hero";
 import Insuraince from "@/components/Homepage/Insuraince";
 import Layout from "@/components/Layout";
 import Security from "@/components/Homepage/Security";
@@ -17,6 +17,7 @@ import WhyUnify from "@/components/Homepage/WhyUnify";
 import Head from "next/head";
 import { useEffect } from "react";
 import UnifyAi from "@/components/Homepage/UnifyAi";
+import Hero from "@/components/Homepage/HeroCopy";
 
 export default function Home() {
   headingAnim();
@@ -38,7 +39,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <Hero />
+        {/* <Hero /> */}
+        <Hero/>
+        
         <TurbochargeG />
         <UnifyAi />
         <WhyUnify />

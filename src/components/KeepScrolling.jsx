@@ -36,8 +36,22 @@ const KeepScrolling = () => {
     return () => ctx.revert()
 
   }, [scrolling])
+  useEffect(()=>{
+    const ctx = gsap.context(()=>{
+     gsap.from(".scrolling",{
+      opacity:0,
+      delay:7,
+      duration:1,
+     })
+
+    })
+    return()=>ctx.revert()
+
+  })
   // Detect scroll
   useEffect(() => {
+
+
     let timeout;
 
     const handleScroll = () => {
@@ -57,8 +71,8 @@ const KeepScrolling = () => {
   }, []);
 
   return (
-    <div className="fixed bottom-10 right-10 z-[99999] pointer-events-none scrolling">
-      <div className="text-[1vw] h-fit relative overflow-hidden flex gap-[1vw]">
+    <div className="fixed bottom-10 right-10 z-[99999] pointer-events-none ">
+      <div className="text-[1vw] h-fit relative overflow-hidden flex gap-[1vw] scrolling">
         <div className="scroll-content flex gap-[1vw]">
           <span className={`inline-block shimmer`}>
             Keep scrolling to discover more
