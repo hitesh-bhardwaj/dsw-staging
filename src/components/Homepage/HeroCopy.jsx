@@ -7,6 +7,7 @@ import gsap from "gsap";
 import { SplitInLine, SplitInLineOnly } from "../splitTextUtils";
 import Image from "next/image";
 import Line from "../Line";
+import {useLenis} from "lenis/react"
 
 const lineCount = 4;
 
@@ -26,6 +27,7 @@ const lineCount = 4;
 // );
 
 const Hero = () => {
+  const lenis = useLenis()
   const heading = useRef(null);
   const para = useRef(null);
 
@@ -65,13 +67,22 @@ const Hero = () => {
           duration: 2,
           yPercent: 100,
           stagger: 0.2,
-          delay:3,
+          delay:2.5,
           ease: "power3.out",
         });
       });
     })
     return () => ctx.revert()
   }, []);
+    useEffect(() => {
+    lenis && lenis.stop();
+
+    const timeout = setTimeout(() => {
+      lenis && lenis.start();
+    }, 3000);
+
+    return()=>clearTimeout(timeout)
+  }, [lenis]);
 
   return (
     <section className="h-[70vw] w-screen relative" id="hero">
