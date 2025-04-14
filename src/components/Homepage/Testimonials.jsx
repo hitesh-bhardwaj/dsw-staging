@@ -128,13 +128,13 @@ const Testimonials = () => {
           </div>
 
           {/* Thumbnails */}
-          <div className="flex w-[100%] justify-center items-center absolute -top-8 left-1/2 -translate-x-1/2">
+          <div className="flex w-[100%] justify-center items-center absolute -top-5 left-1/2 -translate-x-1/2">
             {data.map((item, index) => (
               <button
                 key={index}
                 onClick={() => setActive(index)}
                 style={{ order: getThumbOrder(index) }}
-                className={`w-[5vw] h-[5vw] rounded-full ${index === active ? "bg-linear-to-r from-primary-1 to-primary-2 p-1 scale-220 z-10" : ""
+                className={`w-[5vw] h-[5vw] rounded-full -ml-[20px] ${index === active ? "bg-linear-to-r from-primary-1 to-primary-2 p-1 z-10 ml-[20px] mr-[40px] scale-220" : ""
                   } transition-transform duration-500 overflow-hidden  `}
               >
                 <Image

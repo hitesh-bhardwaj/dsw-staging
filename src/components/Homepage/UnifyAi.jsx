@@ -55,6 +55,7 @@ const UnifyAi = () => {
         opacity: 0,
         duration: 3,
         delay: -0.5,
+        ease: "none",
       });
     });
     return () => ctx.revert();
