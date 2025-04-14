@@ -59,6 +59,7 @@ const Clients = () => {
          
           filter: 'blur(0px)',
           opacity:1,
+          // stagger:0.2,
           // stagger: { each: 0.04, from: 'random' },
           ease: 'none',
         }
@@ -83,6 +84,7 @@ const Clients = () => {
         {
           transform: 'translateZ(700px)',
           scale:1,
+          // stagger:0.5,
           filter: 'blur(15px)',
           opacity:1,
           ease: 'none',
@@ -157,14 +159,14 @@ const imageData = [
     alt: "sodexo",
     height: 89,
     width: 277,
-    style: "top-5 right-40",
+    style: "top-5 right-30",
   },
   {
     src: "/assets/images/canara.png",
     alt: "canara",
     height: 65,
     width: 218,
-    style: "bottom-4 right-20 blur-xs",
+    style: "bottom-0 -right-20 blur-xs",
   },
   {
     src: "/assets/images/bon-prix.png",
@@ -185,7 +187,7 @@ const imageData = [
     alt: "manipal",
     height: 145,
     width: 276,
-    style: "bottom-[5vw] right-[25vw] blur-xs",
+    style: "bottom-[-10vw] right-[15vw] blur-xs",
 
   },
   {
@@ -201,7 +203,7 @@ const imageData = [
     alt: "sodexo",
     height: 89,
     width: 277,
-    style: "bottom-[10vw] left-[-7vw]",
+    style: "bottom-[10vw] left-[-20vw]",
 
   },
   {

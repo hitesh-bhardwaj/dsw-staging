@@ -69,15 +69,7 @@ const Connects = () => {
 
   useEffect(() => {
     if (entered) {
-      // const tl = gsap.timeline({
-      //   scrollTrigger: {
-      //     trigger: sectionRef.current,
-      //     start: "top 50%",
-      //     end: "bottom 70%",
-      //     // scrub:true,
-      //     // markers:true,
-      //   },
-      // });
+    
       gsap.fromTo(
         circle3.current,
         { scale: 0.2, opacity: 0 },
@@ -108,7 +100,7 @@ const Connects = () => {
         gsap.fromTo(
           circle1.current,
           { scale: 0 },
-          { scale: 1, duration: 1, ease: "power3.inout" },
+          { scale: 1, duration: 1,delay:0.1, ease: "power3.inout" },
           
         )
         gsap.fromTo(

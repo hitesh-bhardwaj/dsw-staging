@@ -40,14 +40,14 @@ const Hero = () => {
       maskPosition: "100% 100%",
     }, {
       maskPosition: "0% 100%",
-      delay: 0.6,
+      delay: 5.5,
       stagger: 0.2,
-      duration: 7,
+      duration: 6.5,
       ease: "power2.out",
     })
     gsap.from(paraLines, {
       yPercent: 150,
-      delay: 2,
+      delay: 7,
       duration: 1.2,
       stagger: 0.05,
       ease: "power3.out"
@@ -67,7 +67,7 @@ const Hero = () => {
           duration: 2,
           yPercent: 100,
           stagger: 0.2,
-          delay:2.5,
+          delay:5,
           ease: "power3.out",
         });
       });
@@ -79,7 +79,7 @@ const Hero = () => {
 
     const timeout = setTimeout(() => {
       lenis && lenis.start();
-    }, 3000);
+    }, 8000);
 
     return()=>clearTimeout(timeout)
   }, [lenis]);
@@ -101,7 +101,7 @@ const Hero = () => {
               <motion.div
                 key={text}
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0, transition: { duration: 1, delay: 2.4 } }}
+                animate={{ opacity: 1, y: 0, transition: { duration: 1, delay: 7.4 } }}
               >
                 <Component href="#" text={text} />
               </motion.div>
@@ -130,7 +130,7 @@ const Hero = () => {
       </div>
 
       {/* Gradient Background */}
-      <motion.div initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }} className="w-screen h-[120vh] absolute bottom-[10%] left-0 right-0 z-[-2]">
+      <motion.div initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }} className="w-screen h-[120vh] absolute bottom-[7%] left-0 right-0 z-[-2]">
         <Gradient />
       </motion.div>
       <div className="h-[40vw] w-screen overflow-visible absolute top-0 left-0 right-0 ">

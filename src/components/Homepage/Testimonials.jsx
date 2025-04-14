@@ -80,8 +80,8 @@ const TestimonialCard = ({ item, onSwipe }) => {
           <p data-para-anim className='font-medium text-[1.145vw] text-white-300'>{item.designation}</p>
         </div>
         <div className='space-y-2 flex items-center justify-center flex-col'>
-          <p data-para-anim className='text-[1.145vw] text-white-300'>{item.title}</p>
-          <p data-para-anim className='text-[1.145vw] text-white-300 w-[82%]'>"{item.para}"</p>
+          <p  className='text-[1.145vw] text-white-300'>{item.title}</p>
+          <p  className='text-[1.145vw] text-white-300 w-[82%]'>"{item.para}"</p>
         </div>
       </motion.div>
     </>

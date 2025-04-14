@@ -40,7 +40,7 @@ const KeepScrolling = () => {
     const ctx = gsap.context(()=>{
      gsap.from(".scrolling",{
       opacity:0,
-      delay:7,
+      delay:14,
       duration:1,
      })
 
