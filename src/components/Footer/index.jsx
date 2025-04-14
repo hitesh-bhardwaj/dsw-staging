@@ -49,7 +49,7 @@ const Footer = () => {
                        
                         <div className="flex flex-col justify-between items-start gap-24 footer-content">
                             <Image src="/dsw-logo.svg" width={338} height={172} alt="Logo" loading="lazy" className="w-2/3" />
-                            <div className="">
+                            <div className=" text-foreground">
                                 <h6 className="font-medium mb-5">CONTACT US</h6>
                                 <ul className="space-y-2">
                                     <li className="under-multi-parent">
@@ -66,13 +66,13 @@ const Footer = () => {
                         </div>
 
 
-                        <div className="flex justify-between w-2/5 ml-auto gap-10 footer-content">
+                        <div className="flex justify-between w-1/2 ml-auto gap-10 footer-content">
                             {/* Navigation Links */}
                             <div>
-                                <h6 className="font-medium mb-5">NAVIGATION</h6>
+                                <h6 className="mb-5 text-foreground">NAVIGATION</h6>
                                 <ul className="space-y-3">
                                     {Links.map((link, index) => (
-                                        <li key={index} className="text-white">
+                                        <li key={index} className="text-foreground">
                                             <NavLink text={link.text} href={link.href} />
                                         </li>
                                     ))}
@@ -87,7 +87,7 @@ const Footer = () => {
                                 <ul className="flex gap-4">
                                     {SocialLinks.map((link, index) => (
                                         <li key={index} className="group">
-                                            <Link href={link.href} aria-label={link.label} className="rounded-full bg-black/20 block p-2.5 border overflow-hidden group-hover:bg-white transition-all duration-500 ease group-hover:scale-[0.95]">
+                                            <Link href={link.href} aria-label={link.label} className="rounded-full  block p-2.5 border overflow-hidden bg-white/20  group-hover:bg-white transition-all duration-500 ease group-hover:scale-[0.95]">
                                                 <div className="w-5 h-5 flex items-center justify-center text-white group-hover:text-black transition-all duration-500 ease " dangerouslySetInnerHTML={{__html: link.icon}}/>
                                             </Link>
                                         </li>
@@ -96,7 +96,7 @@ const Footer = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="flex justify-between py-8 text-lg">
+                    <div className="flex justify-between py-8 pt-12 text-lg text-foreground">
                         <p>Copyright © Data Science Wizards 2025</p>
                         <p>By: <a href="https://weareenigma.com/">Enigma Digital</a></p>
                     </div>

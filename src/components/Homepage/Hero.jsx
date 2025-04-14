@@ -55,7 +55,7 @@ const Hero = () => {
     <section className="h-[70vw] w-screen relative" id="hero">
       <div className="flex flex-col items-center justify-start w-full h-full pt-[15vw] relative z-[10]">
         <div className="w-[62%] text-center space-y-6 pb-5">
-          <motion.h1 animate={{ opacity: 1 }} ref={heading} className="text-[5.2vw] font-head leading-[1.2] heroHeadAnim opacity-0">
+          <motion.h1 animate={{ opacity: 1 }} ref={heading} className="text-[5.2vw] font-head leading-[1.2] heroHeadAnim opacity-0 text-[#E8E8E8]">
             AI-Powered Innovation with Data Science Wizards
           </motion.h1>
           <motion.p animate={{ opacity: 1 }} ref={para} className="text-[#CACACA] w-full content-p font-body mx-auto overflow-hidden heroParaAnim opacity-0">
@@ -64,7 +64,7 @@ const Hero = () => {
             Use Cases in 3-4 weeks and GenAI in 2-4 hours
           </motion.p>
           <div className="flex items-center justify-center gap-6 mt-10">
-            {[{ Component: PrimaryButton, text: "Start Walkthrough" }, { Component: WhiteButton, text: "Schedule a Call" }].map(({ Component, text }, index) => (
+            {[{ Component: PrimaryButton, text: "Start Walkthrough" }, { Component: WhiteButton, text: "Schedule a Call",  }].map(({ Component, text,}, index) => (
               <motion.div
                 key={text}
                 initial={{ opacity: 0, y: 20 }}

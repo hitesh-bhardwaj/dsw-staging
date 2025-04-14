@@ -49,7 +49,7 @@ const Header = () => {
           <div className="border rounded-4xl bg-stone-900/30 backdrop-blur-sm border-white/20 ml-[4vw]">
             <ul className="flex items-center justify-between px-12 py-4.5 gap-12 text-[1.145vw] ">
               {Links.map((link, index) => (
-                <li key={index} className="text-white">
+                <li key={index} className="text-[#E8E8E8]">
                   <NavLink text={link.text} href={link.href} />
                 </li>
               ))}

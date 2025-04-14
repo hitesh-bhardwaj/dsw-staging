@@ -79,9 +79,9 @@ const TestimonialCard = ({ item, onSwipe }) => {
           <p className="text-[2.6vw] font-head text-primary-1">{item.name}</p>
           <p data-para-anim className='font-medium text-[1.145vw] text-white-300'>{item.designation}</p>
         </div>
-        <div className='space-y-1'>
+        <div className='space-y-2 flex items-center justify-center flex-col'>
           <p data-para-anim className='text-[1.145vw] text-white-300'>{item.title}</p>
-          <p data-para-anim className='text-[1.145vw] text-white-300'>{item.para}</p>
+          <p data-para-anim className='text-[1.145vw] text-white-300 w-[82%]'>"{item.para}"</p>
         </div>
       </motion.div>
     </>
@@ -107,7 +107,7 @@ const Testimonials = () => {
       <div className='w-full space-y-20'>
 
         <div className='w-[55%] mx-auto'>
-          <h2 className='text-[5.2vw] font-head leading-[1.2] text-center headingAnim'>
+          <h2 className='text-[5.2vw] font-head leading-[1.2] text-center headingAnim text-white-200'>
             Don&apos;t Take It from Us, Take It from Our Clients
           </h2>
         </div>
@@ -134,7 +134,7 @@ const Testimonials = () => {
                 key={index}
                 onClick={() => setActive(index)}
                 style={{ order: getThumbOrder(index) }}
-                className={`w-[5vw] h-[5vw] rounded-full -ml-[20px] ${index === active ? "bg-linear-to-r from-primary-1 to-primary-2 p-1 z-10 ml-[20px] mr-[40px] scale-220" : ""
+                className={`w-[5vw] h-[5vw] rounded-full -ml-[20px] ${index === active ? "bg-linear-to-r from-primary-1 to-primary-2 p-1.5 z-10 ml-[20px] mr-[40px] scale-220" : ""
                   } transition-transform duration-500 overflow-hidden  `}
               >
                 <Image

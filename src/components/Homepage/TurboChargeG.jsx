@@ -258,7 +258,7 @@ const TurbochargeG = () => {
           </div>
 
           <div className="space-y-10 turbo-content">
-            <h2 className="text-[5.2vw] font-head leading-[1.2] turbo-headingAnim">
+            <h2 className="text-[5.2vw] font-head leading-[1.2] turbo-headingAnim text-white-200">
               Turbocharge Your AI/ML Use Cases in 3-4 weeks and GenAI in 2-4
               hours
             </h2>

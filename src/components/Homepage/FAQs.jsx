@@ -44,7 +44,7 @@ const FAQs = () => {
   return (
     <section className='h-full w-screen py-20' >
       <div className='w-full h-full flex flex-col items-center justify-center space-y-10 px-10'>
-        <h2 className='text-[5.2vw] leading-[1.2] text-center headingAnim font-head'>Frequently Asked Questions</h2>
+        <h2 className='text-[5.2vw] leading-[1.2] text-center headingAnim font-head text-white-200'>Frequently Asked Questions</h2>
       </div>
 
       <div className='w-[80%] ml-auto mr-auto py-20'>

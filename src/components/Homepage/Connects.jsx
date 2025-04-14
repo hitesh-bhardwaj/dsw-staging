@@ -127,7 +127,7 @@ useEffect(()=>{
    <section   ref={sectionRef} className='h-full w-screen py-30 px-15 relative overflow-hidden'>
     <div className='w-full h-full flex flex-col items-center justify-center relative z-[2]'>
         <div className='text-center w-[40%] space-y-5 mt-10'>
-        <h3 className='text-[5.2vw] leading-[1.2] headingAnim'>
+        <h3 className='text-[5.2vw] leading-[1.2] headingAnim text-white-200'>
         Connects with Your Platform
         </h3>
         <p data-para-anim className='text-[1.145vw] text-[#CACACA]'>UnifyAI connects with the platforms you already use.</p>

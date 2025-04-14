@@ -2,8 +2,8 @@ import Image from "next/image";
 
 const Newsletter = () => {
     return (
-        <div className="">
-            <p  className="mb-4">Subscribe to our newsletter for the latest tech insights and updates.</p>
+        <div className=" text-foreground">
+            <p  className="mb-4 font-medium">Subscribe to our newsletter for the latest tech insights and updates.</p>
             <form className="relative">
                 <input type="email" placeholder="Enter your email" className="w-full  pb-2" />
                 <span className="w-full h-[1px] bg-white block lineDraw"/>

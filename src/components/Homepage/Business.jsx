@@ -95,12 +95,16 @@ const Card = ({ data, index, activeCard, setActiveCard }) => {
             </svg>
           </div>
           <div className="space-y-5 mt-40">
-            <p data-para-anim className="text-[2.6vw]">{data.title}</p>
+            <p data-para-anim className="text-[2.6vw] text-foreground">{data.title}</p>
 
             <ul className="list-disc text-[1.145vw] font-medium space-y-0.5 ml-[1vw]">
               {data.list.map((listData) => (
                 <li key={listData}>
-                  <p className="flex items-center gap-1 group transition-all duration-500 ease">
+                 <p
+  className={`flex items-center gap-1 group transition-all duration-500 ease ${
+    isActive ? 'text-foreground' : 'text-white-200'
+  }`}
+>
                     {listData}
                     <span className="block">
                       <Image
@@ -157,7 +161,7 @@ const Business = () => {
     <section className="h-full w-screen py-10 ">
       <div className="py-10 w-full">
         <div className="w-[52%] space-y-8 px-15">
-          <h2 className="text-[5.2vw] font-head leading-[1.2] headingAnim">
+          <h2 className="text-[5.2vw] font-head leading-[1.2] headingAnim text-white-200">
             AI That Works for Your Business
           </h2>
           <p data-para-anim className="content-p text-[#CACACA]">

@@ -67,7 +67,7 @@ const FooterCTA = () => {
     return (
         <div ref={containerRef} className="px-20 flex items-center justify-between h-[80vh] w-screen overflow-hidden">
             <div className="w-1/2">
-                <h5 className="text-[5.2vw] leading-[1.2] font-head mb-3 headingAnim">Ready to Transform Your AI Strategy?</h5>
+                <h5 className="text-[5.2vw] leading-[1.2] font-head mb-3 headingAnim text-white-200">Ready to Transform Your AI Strategy?</h5>
                 <p data-para-anim className="text-white-300 w-4/5 mb-12">Discover how UnifyAI can accelerate your AI/ML and GenAI initiatives with seamless deployment, scalability, and security.</p>
                 <div className="flex gap-6">
                     <div className="fadeup">

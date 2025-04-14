@@ -24,7 +24,7 @@ const Security = () => {
    <section className='h-full w-screen py-20'>
     <div className='py-10 px-15 w-full space-y-16 '>
         <div className='w-[50%]'>
-        <h2 className='text-[5.2vw] font-head leading-[1.2] headingAnim'>Security Standards and Compliance</h2>
+        <h2 className='text-[5.2vw] font-head leading-[1.2] headingAnim text-[#E8E8E8]'>Security Standards and Compliance</h2>
 
         </div>
         <div className='w-full flex items-end justify-end  gap-10 py-10'>

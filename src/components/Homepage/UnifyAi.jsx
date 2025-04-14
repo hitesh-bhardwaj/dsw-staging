@@ -78,14 +78,14 @@ const UnifyAi = () => {
       </div>
       <div className="logo-background-content mt-[-100vh] relative z-10 bg-linear-to-r from-primary-1 to-primary-2 w-full h-screen flex items-center justify-center pointer-events-auto">
         <div className="w-[58%] text-center space-y-10">
-          <p className="text-white content-p font-light">
+          <p className="text-foreground content-p font-light">
             UnifyAI is a cutting-edge AI/ML platform that empowers businesses to
             develop, test, and deploy AI solutions with ease. Built for both
             traditional AI and Generative AI, it provides a unified ecosystem to
             accelerate AI adoption in industries like insurance, finance,
             healthcare, and retail.
           </p>
-          <WhiteButton text={"Book a demo"} href={"#"} className="border-none" />
+          <WhiteButton text={"Book a Demo"} href={"#"} className="border-none" />
         </div>
       </div>
     </section>

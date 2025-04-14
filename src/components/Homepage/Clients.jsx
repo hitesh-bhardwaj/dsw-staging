@@ -88,7 +88,6 @@ const Clients = () => {
           ease: 'none',
         }
       )
-
       // .to(
       //   imageRefs.current,
       //   { transform: 'translateZ(1000px)',
@@ -110,27 +109,25 @@ const Clients = () => {
     <section ref={sectionRef} className='py-20 w-screen h-screen relative overflow-hidden'>
         <div className='w-full h-full flex items-center justify-center' style={{ perspective: '1000px', transformStyle: 'preserve-3d', }}>
             <div className='w-[60%] py-10'>
-            <h2 className='font-head text-[5.2vw] leading-[1.2] text-center headingAnim'>Trusted by Innovators, <br/>
+            <h2 className='font-head text-[5.2vw] leading-[1.2] text-center headingAnim text-white-200'>Trusted by Innovators, <br/>
             Built for Industry Disruptors.</h2>
             </div>
-            <div  ref={el => imageRefs.current[0] = el} className='absolute top-5 left-10 blur-xs'>
-                <Image quality={100}  src="/assets/images/manipal.png" height={145} width={276} alt='manipal'/>
-            </div>
-            <div  ref={el => imageRefs.current[1] = el} className='absolute top-2 right-190 blur-xs'>
-                <Image quality={100} src="/assets/images/edgeverve.png" height={150} width={290} alt='edgeverve'/>
-            </div>
-            <div  ref={el => imageRefs.current[2] = el} className='absolute top-5 right-40'>
-                <Image quality={100} src="/assets/images/sodexo.png" height={89} width={277} alt='sodexo'/>
-            </div>
-            <div  ref={el => imageRefs.current[3] = el} className='absolute bottom-4 right-20 blur-xs'>
-                <Image quality={100} src="/assets/images/canara.png" height={65} width={218} alt='canara'/>
-            </div>
-            <div  ref={el => imageRefs.current[4] = el} className='absolute bottom-5 right-170 blur-sm'>
-                <Image quality={100} src="/assets/images/bon-prix.png" height={102} width={111} alt='bon-prix'/>
-            </div>
-            <div  ref={el => imageRefs.current[5] = el} className='absolute bottom-4 left-20'>
-                <Image quality={100} src="/assets/images/ciek.png" height={68} width={216} alt='ciek'/>
-            </div>
+            {imageData.map((img, index) => (
+      <div
+        key={index}
+        ref={el => imageRefs.current[index] = el}
+        className={`absolute ${img.style}`}
+      >
+        <Image
+          quality={100}
+          src={img.src}
+          height={img.height}
+          width={img.width}
+          alt={img.alt}
+        />
+      </div>
+    ))}
+            
 
         </div>
 
@@ -139,3 +136,95 @@ const Clients = () => {
 }
 
 export default Clients
+
+const imageData = [
+  {
+    src: "/assets/images/manipal.png",
+    alt: "manipal",
+    height: 145,
+    width: 276,
+    style: "top-5 left-10 blur-xs",
+  },
+  {
+    src: "/assets/images/edgeverve.png",
+    alt: "edgeverve",
+    height: 150,
+    width: 290,
+    style: "top-2 left-[40vw] blur-xs",
+  },
+  {
+    src: "/assets/images/sodexo.png",
+    alt: "sodexo",
+    height: 89,
+    width: 277,
+    style: "top-5 right-40",
+  },
+  {
+    src: "/assets/images/canara.png",
+    alt: "canara",
+    height: 65,
+    width: 218,
+    style: "bottom-4 right-20 blur-xs",
+  },
+  {
+    src: "/assets/images/bon-prix.png",
+    alt: "bon-prix",
+    height: 102,
+    width: 111,
+    style: "bottom-[-5vw] right-[43vw] blur-sm", 
+  },
+  {
+    src: "/assets/images/ciek.png",
+    alt: "ciek",
+    height: 68,
+    width: 216,
+    style: "bottom-4 left-20",
+  },
+  {
+    src: "/assets/images/manipal.png",
+    alt: "manipal",
+    height: 145,
+    width: 276,
+    style: "bottom-[5vw] right-[25vw] blur-xs",
+
+  },
+  {
+    src: "/assets/images/edgeverve.png",
+    alt: "edgeverve",
+    height: 150,
+    width: 290,
+    style: "bottom-[-10vw] left-[25vw] blur-sm", 
+
+  },
+  {
+    src: "/assets/images/sodexo.png",
+    alt: "sodexo",
+    height: 89,
+    width: 277,
+    style: "bottom-[10vw] left-[-7vw]",
+
+  },
+  {
+    src: "/assets/images/canara.png",
+    alt: "canara",
+    height: 65,
+    width: 218,
+    style: "top-[-10vw] left-[20vw] blur-xs",
+  },
+  {
+    src: "/assets/images/bon-prix.png",
+    alt: "bon-prix",
+    height: 102,
+    width: 111,
+    style: "top-[-15vw] right-[30vw] blur-xs",
+
+  },
+  {
+    src: "/assets/images/ciek.png",
+    alt: "ciek",
+    height: 68,
+    width: 216,
+    style: "bottom-[20vw] right-[-10vw]",
+
+  },
+];

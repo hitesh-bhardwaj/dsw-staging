@@ -169,7 +169,7 @@ const WhyUnify = () => {
 
       <div className="flex flex-col items-center w-full py-30 space-y-30 px-10 relative z-[2]">
         <div className="space-y-24 w-full">
-          <h3 className="text-[5.2vw] text-white text-center font-light headingAnim">
+          <h3 className="text-[5.2vw] text-foreground text-center font-light headingAnim">
             Why Choose UnifyAI?
           </h3>
 
@@ -236,7 +236,7 @@ const WhyUnify = () => {
                   />
                 </svg>
               </div>
-              <div className="text-white space-y-14 content-p font-light">
+              <div className="text-foreground space-y-14 content-p font-light">
                 <p>End-to-End AI Lifecycle Management</p>
                 <p>Multi-Model AI Support</p>
                 <p>Seamless Enterprise Integration</p>
@@ -269,10 +269,10 @@ const WhyUnify = () => {
             {/* Right: Content Blocks */}
             <div className="w-[40vw] relative">
               <div ref={addToContentRefs} className="step-block absolute top-0 left-0">
-                <p className="text-[2.6vw] text-white font-head leading-[1.2]">
+                <p className="text-[2.6vw] text-foreground font-head leading-[1.2]">
                   End-to-End AI Lifecycle Management - From Model Training to Production Deployment
                 </p>
-                <p className="text-white content-p w-[88%] py-8">
+                <p className="text-foreground content-p w-[88%] py-8">
                   UnifyAI provides a complete AI development ecosystem, allowing
                   businesses to build, test, optimize, and deploy AI/ML models seamlessly.
                 </p>
@@ -280,10 +280,10 @@ const WhyUnify = () => {
               </div>
 
               <div ref={addToContentRefs} className="step-block absolute top-10 left-0">
-                <p className="text-[2.6vw] text-white font-head leading-[1.2]">
+                <p className="text-[2.6vw] text-foreground font-head leading-[1.2]">
                   Multi-Model AI Support
                 </p>
-                <p className="text-white content-p w-[88%] py-8">
+                <p className="text-foreground content-p w-[88%] py-8">
                   UnifyAI provides a complete AI development ecosystem, allowing
                   businesses to build, test, optimize, and deploy AI/ML models seamlessly.
                 </p>
@@ -291,10 +291,10 @@ const WhyUnify = () => {
               </div>
 
               <div ref={addToContentRefs} className="step-block absolute top-10 left-0">
-                <p className="text-[2.6vw] text-white font-head leading-[1.2]">
+                <p className="text-[2.6vw] text-foreground font-head leading-[1.2]">
                   Seamless Enterprise Integration
                 </p>
-                <p className="text-white content-p w-[88%] py-8">
+                <p className="text-foreground content-p w-[88%] py-8">
                   UnifyAI provides a complete AI development ecosystem, allowing
                   businesses to build, test, optimize, and deploy AI/ML models seamlessly.
                 </p>
@@ -302,10 +302,10 @@ const WhyUnify = () => {
               </div>
 
               <div ref={addToContentRefs} className="step-block absolute top-10 left-0">
-                <p className="text-[2.6vw] text-white font-head leading-[1.2]">
+                <p className="text-[2.6vw] text-foreground font-head leading-[1.2]">
                   Scalable Infrastructure
                 </p>
-                <p className="text-white content-p w-[88%] py-8">
+                <p className="text-foreground content-p w-[88%] py-8">
                   UnifyAI provides a complete AI development ecosystem, allowing
                   businesses to build, test, optimize, and deploy AI/ML models seamlessly.
                 </p>
@@ -314,9 +314,9 @@ const WhyUnify = () => {
             </div>
           </div>
           {/* Skip Button triggers scroll to the last snap */}
-          <div className="mt-10 flex justify-center absolute left-1/2 -translate-x-1/2 bottom-30">
+          <div className="mt-10 flex justify-center absolute right-10 bottom-20">
             <button
-              className="px-6 py-2 bg-white hover:bg-gray-200 rounded-full text-background font-light hover:scale-95 text-[1.2vw] transition duration-500"
+              className="px-6 py-2 rounded-full text-foreground font-light hover:scale-95 text-[1vw] transition duration-500"
               onClick={handleSkip}
             >
               Skip
