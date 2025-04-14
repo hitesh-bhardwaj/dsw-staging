@@ -38,7 +38,7 @@ const WhyUnify = () => {
     timelineRef.current = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: "10% 5%",
+        start: "10% 10%",
         end: "+=3000",
         scrub: 1,
         pin: true,

@@ -62,7 +62,7 @@ const UnifyAi = () => {
   });
 
   return (
-    <section className="w-screen h-full relative mt-[-30vh] z-[1] pointer-events-none" id="unifyAi">
+    <section className="w-screen h-full relative mt-[-10vh] z-[1] pointer-events-none" id="unifyAi">
       <div className="w-full flex items-center justify-center overflow-hidden h-screen" id="logo-container">
         <div className="logo-wrapper">
           <svg width="310" height="91" viewBox="0 0 310 91" fill="none" xmlns="http://www.w3.org/2000/svg">
