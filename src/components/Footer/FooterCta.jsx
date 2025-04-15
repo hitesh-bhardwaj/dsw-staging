@@ -7,7 +7,6 @@ import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
-
 const FooterCTA = () => {
     const containerRef = useRef(null);
     const mouseX = useMotionValue(0);
@@ -15,21 +14,21 @@ const FooterCTA = () => {
 
     const smoothX = useSpring(mouseX, { damping: 20, stiffness: 100 });
     const smoothY = useSpring(mouseY, { damping: 20, stiffness: 100 });
-    useEffect(()=>{
-        const ctx = gsap.context(()=>{
-             gsap.to(".scrolling",{
-                opacity:0,
-                scrollTrigger:{
-                    trigger:"#footer",
-                    start:"top 70%",
-                    end:"5% 70%",
+    useEffect(() => {
+        const ctx = gsap.context(() => {
+            gsap.to(".scrolling", {
+                opacity: 0,
+                scrollTrigger: {
+                    trigger: "#footer",
+                    start: "top 70%",
+                    end: "5% 70%",
                     // markers:true,
-                    scrub:true
+                    scrub: true
                 }
-             })
+            })
         })
-        return()=>ctx.revert()
-    },[])
+        return () => ctx.revert()
+    }, [])
 
     useEffect(() => {
         const container = containerRef.current;
@@ -62,8 +61,7 @@ const FooterCTA = () => {
 
     const image1X = useTransform(smoothX, (v) => v * 20);
     const image1Y = useTransform(smoothY, (v) => v * 20);
-    const image2X = useTransform(smoothX, (v) => v * -15);
-    const image2Y = useTransform(smoothY, (v) => v * -15);
+
     return (
         <div ref={containerRef} className="px-20 flex items-center justify-between h-[80vh] w-screen overflow-hidden">
             <div className="w-1/2">
@@ -71,22 +69,22 @@ const FooterCTA = () => {
                 <p data-para-anim className="text-white-300 w-4/5 mb-12">Discover how UnifyAI can accelerate your AI/ML and GenAI initiatives with seamless deployment, scalability, and security.</p>
                 <div className="flex gap-6">
                     <div className="fadeup">
-                    <PrimaryButton text="Book a Demo" href="#" />
+                        <PrimaryButton text="Book a Demo" href="#" />
                     </div>
                     <div className="fadeup">
-                    <WhiteButton text="Schedule a Call" href="#" />
+                        <WhiteButton text="Schedule a Call" href="#" />
                     </div>
                 </div>
             </div>
             <div className="relative w-1/2 h-[50vw]">
-                <div 
+                <div
                     className="absolute top-1/2 -translate-y-1/2 right-0 -z-10"
-                    
-                    >
+
+                >
                     <svg className="w-[95%] ml-auto" width="778" height="778" viewBox="0 0 778 778" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="389.094" cy="388.916" r="388.781" stroke="url(#paint0_linear_232_8167)" strokeOpacity="0.5" strokeWidth="0.25" className="circle-1" />
                         <circle cx="389.094" cy="388.915" r="302.668" stroke="url(#paint1_linear_232_8167)" strokeOpacity="0.5" strokeWidth="0.25" className="circle-2" />
-                        <circle cx="389.095" cy="389.237" r="210.959" stroke="url(#paint2_linear_232_8167)" strokeOpacity="0.5" strokeWidth="0.25" className="circle-3"/>
+                        <circle cx="389.095" cy="389.237" r="210.959" stroke="url(#paint2_linear_232_8167)" strokeOpacity="0.5" strokeWidth="0.25" className="circle-3" />
                         <defs>
                             <linearGradient id="paint0_linear_232_8167" x1="0.188477" y1="27.2433" x2="781.305" y2="30.8303" gradientUnits="userSpaceOnUse">
                                 <stop stopColor="white" />
@@ -111,10 +109,10 @@ const FooterCTA = () => {
                 </motion.div>
 
                 <motion.div
-                    style={{ x: image1X, y: image1Y}}
+                    style={{ x: image1X, y: image1Y }}
                     className="absolute  w-[40%] bottom-[10%] left-[45%] rounded-2xl  border border-white/30 overflow-hidden "
                 >
-                    <Image src={Image2} alt="Image2" loading="lazy" placeholder="blur" className="object-cover"/>
+                    <Image src={Image2} alt="Image2" loading="lazy" placeholder="blur" className="object-cover" />
                 </motion.div>
             </div>
         </div>

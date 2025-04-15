@@ -4,7 +4,6 @@ import Clients from "@/components/Homepage/Clients";
 import Connects from "@/components/Homepage/Connects";
 import FAQs from "@/components/Homepage/FAQs";
 import { fadeIn, fadeUp, headingAnim, lineAnim, paraAnim } from "@/components/gsapAnimations";
-// import Hero from "@/components/Homepage/Hero";
 import Insuraince from "@/components/Homepage/Insuraince";
 import Layout from "@/components/Layout";
 import Security from "@/components/Homepage/Security";
@@ -37,12 +36,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Loader/>
+      <Loader />
       <Layout>
-        {/* <Hero /> */}
-
-        <Hero/>
-        
+        <Hero />
         <TurbochargeG />
         <UnifyAi />
         <WhyUnify />

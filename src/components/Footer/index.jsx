@@ -22,20 +22,8 @@ const Footer = () => {
                 start: "top 60%",
                 end:"bottom 60%",
                 scrub: 0.25,
-                // markers:true, 
             }
         })
-        // gsap.from(".footer-content",{
-        //     opacity:0,
-        //     delay:1,
-        //     scrollTrigger:{
-        //         trigger:".footer-content",
-        //         start:"10% 70%",
-        //         end:"20% 50%",
-        //         // markers:true,
-        //         scrub:true
-        //     }
-        // })
     })
 
     return (
@@ -87,7 +75,7 @@ const Footer = () => {
                                 <ul className="flex gap-4">
                                     {SocialLinks.map((link, index) => (
                                         <li key={index} className="group">
-                                            <Link href={link.href} aria-label={link.label} className="rounded-full  block p-2.5 border overflow-hidden bg-white/20  group-hover:bg-white transition-all duration-500 ease group-hover:scale-[0.95]">
+                                            <Link href={link.href} aria-label={link.label} className="rounded-full  block p-2.5 border overflow-hidden bg-black/10  group-hover:bg-white transition-all duration-500 ease group-hover:scale-[0.95]">
                                                 <div className="w-5 h-5 flex items-center justify-center text-white group-hover:text-black transition-all duration-500 ease " dangerouslySetInnerHTML={{__html: link.icon}}/>
                                             </Link>
                                         </li>

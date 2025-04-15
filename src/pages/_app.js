@@ -32,17 +32,13 @@ const neumontreal = localFont({
 });
 
 export default function App({ Component, pageProps }) {
- 
+
   useEffect(() => {
     // Scroll to top on reload
     if (typeof window !== "undefined") {
-      // Let Lenis take control
-      requestAnimationFrame(() => {
         window.scrollTo(0, 0);
-      });
     }
   }, []);
-
 
   return (
     <>
