@@ -23,7 +23,7 @@ const BlogCard = ({ title, date, img }) => {
           <p className='text-[1.145vw] font-medium text-[#E8E8E8]'>{date}</p>
         </div>
         <div
-          className={`h-13 w-13 absolute top-6 right-15 rounded-full flex items-center justify-center transition-all duration-700 border  border-white/50 text-white  group-hover:text-black group-hover:bg-white ease`}
+          className={`h-13 w-13 absolute top-6 right-6 rounded-full flex items-center justify-center transition-all duration-700 border  border-white/50 text-white  group-hover:text-black group-hover:bg-white ease`}
         >
           <svg
             width="15"
@@ -87,11 +87,11 @@ const Blogs = () => {
             slidesPerView={1.8}
             className="mySwiper swiper-container"
             onSwiper={(swiper) => (swiperRef.current = swiper)}
-            spaceBetween={60}
+            spaceBetween={50}
             speed={1000}
           >
             {BlogsData.map((blog) => (
-              <SwiperSlide className='w-[26vw] h-full'>
+              <SwiperSlide className='w-[26vw] h-full pr-1'>
                 <BlogCard
                   key={blog.id}
                   title={blog.title}
