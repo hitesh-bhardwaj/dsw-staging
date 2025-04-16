@@ -98,7 +98,7 @@ body {
 }
 
 .buttonSplit .single-letter {
-  transition: transform 1.2s var(--default-ease);
+  transition: transform 1s var(--default-ease);
 }
 
 .buttonSplit:hover .single-letter {
@@ -167,12 +167,29 @@ body {
     opacity: 0;
   }
 }
+@keyframes connectripple {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
 
 .circle-1,
 .circle-2,
 .circle-3 {
   transform-origin: center;
   animation: ripple 5s linear infinite;
+}
+.connect-circle-1,
+.connect-circle-2,
+.connect-circle-3 {
+  transform-origin: center;
+  animation: connectripple 3s linear infinite;
 }
 /* 
 .circle-2 {
@@ -198,8 +215,8 @@ body {
 }
 
 .string-line svg path {
-  stroke-width: 0.5px;
-  stroke: rgba(255, 255, 255, 0.202);
+  stroke-width: 1px;
+  stroke: rgba(255, 255, 255, 0.117);
   fill: none;
 }
 .box {
@@ -226,4 +243,20 @@ body {
   stroke-width: 1px;
   stroke: white;
   fill: none;
+}
+
+.faq-lines{
+  --beforeScaleX: 1;
+}
+.faq-lines::after {
+  content: '';
+  font-size: 0.6em;
+   position: absolute;
+   width: 100%;
+   height: 0.5px;
+   bottom: 0;
+   left: 0;
+   background: #cacaca52;
+   transform: scaleX(var(--beforeScaleX));
+  /* transform: scale( var(--beforeScale) ); */
 }

@@ -47,6 +47,7 @@ const Loader = () => {
       gsap.to(".loader-gradient", {
         yPercent: -10,
         duration: 2,
+        delay:0.2,
         opacity: 1
       })
     })
@@ -79,7 +80,7 @@ const Loader = () => {
           </div>
         </div>
       </div>
-      <div className="loader-gradient opacity-20 relative z-[1] h-screen translate-y-[10%]">
+      <div className="loader-gradient opacity-0 relative z-[1] h-screen translate-y-[10%]">
         <div
           className="w-screen h-[120vh] absolute bottom-[23%] left-0 right-0 z-[-2]"
         >

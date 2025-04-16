@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Connects = () => {
   const sectionRef = useRef(null);
-  const [entered, setEntered] = useState(null);
+ 
   const circle1 = useRef(null);
   const circle2 = useRef(null);
   const circle3 = useRef(null);
@@ -55,9 +55,6 @@ const Connects = () => {
           opacity: 1,
           ease: "power3.inout",
 
-          onComplete: () => {
-            setEntered(null);
-          },
         },
         "-=0.7"
       );
@@ -67,55 +64,7 @@ const Connects = () => {
     };
   }, []);
 
-  useEffect(() => {
-    if (entered) {
-    
-      gsap.fromTo(
-        circle3.current,
-        { scale: 0.2, opacity: 0 },
-        { scale: 1, duration: 1.2, opacity: 1, ease: "power3.inout" },
-        
-      )
-      gsap.fromTo(
-          circle4.current,
-          { scale: 0.2, opacity: 0 },
-          { scale: 1, duration: 1.2, opacity: 1, ease: "power3.inout" },
-          
-        )
-        gsap.fromTo(
-          circle5.current,
-          { scale: 0.2, opacity: 0 },
-          {
-            scale: 1,
-            duration: 1.2,
-            opacity: 1,
-            ease: "power3.inout",
-
-            onComplete: () => {
-              setEntered(null);
-            },
-          },
-          
-        )
-        gsap.fromTo(
-          circle1.current,
-          { scale: 0 },
-          { scale: 1, duration: 1,delay:0.1, ease: "power3.inout" },
-          
-        )
-        gsap.fromTo(
-          circle2.current,
-          { scale: 0 },
-          { scale: 1, duration: 1, ease: "power3.inout" },
-          
-        // "-0.1"
-        );
-
-      // return () => {
-      //   tl.kill();
-      // };
-    }
-  }, [entered]);
+  
 
   return (
     <section
@@ -161,7 +110,6 @@ const Connects = () => {
           </div>
           <div
             className="relative flex items-center justify-center w-[20vw] h-[20vw] "
-            onMouseEnter={() => setEntered(true)}
           >
             <div
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-stone-800/60 h-[15vw] w-[15vw] z-[-1] origin-center"
@@ -205,7 +153,7 @@ const Connects = () => {
       <div></div>
       <div className="h-screen w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/3 z-[-1] flex items-center justify-center">
         <div className="relative w-full h-full flex items-center justify-center">
-          <div className="absolute" ref={circle3}>
+          <div className="absolute connect-circle-1" ref={circle3} >
             <svg
               width="620"
               height="620"
@@ -237,7 +185,7 @@ const Connects = () => {
             </svg>
           </div>
 
-          <div className="absolute" ref={circle4}>
+          <div className="absolute connect-circle-2" ref={circle4}>
             <svg
               width="951"
               height="951"
@@ -269,7 +217,7 @@ const Connects = () => {
             </svg>
           </div>
 
-          <div className="absolute" ref={circle5}>
+          <div className="absolute connect-circle-3" ref={circle5}>
             <svg
               width="1301"
               height="1301"

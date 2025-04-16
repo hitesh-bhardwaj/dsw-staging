@@ -50,11 +50,12 @@ const UnifyAi = () => {
         y: 2350,
         scale: 120,
         duration: 3,
+        ease: "power3.out"
       })
       .from(".logo-background-content", {
         opacity: 0,
-        duration: 3,
-        delay: -0.5,
+        duration: 2,
+        delay: -1,
         ease: "none",
       });
     });

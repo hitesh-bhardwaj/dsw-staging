@@ -11,21 +11,6 @@ import {useLenis} from "lenis/react"
 
 const lineCount = 4;
 
-// const AnimatedLine = ({ delay }) => (
-//   <motion.div
-//     initial={{ scaleY: 0 }}
-//     animate={{ scaleY: 1, transition: { duration: 1.2, delay } }}
-//     className="w-[0.1px] h-full bg-white/15 origin-top overflow-y-hidden"
-//   >
-//     <motion.span
-//       initial={{ y: 0 }}
-//       animate={{ y: "48vw" }}
-//       transition={{ duration: 1.2, delay, repeat: Infinity, repeatDelay: 2 + delay }}
-//       className="block w-full h-3 bg-white blur-[1px]"
-//     /> 
-//   </motion.div>
-// );
-
 const Hero = () => {
   const lenis = useLenis()
   const heading = useRef(null);
@@ -53,15 +38,11 @@ const Hero = () => {
       ease: "power3.out"
     });
   }, []);
+  
   useEffect(() => {
     const ctx = gsap.context(() => {
       const lineDraws = document.querySelectorAll(".hero-lineDraw");
-      lineDraws.forEach((lineDraw) => {
-        gsap.from(lineDraw, {
-          scrollTrigger: {
-            trigger: lineDraw,
-            start: "top 80%",
-          },
+        gsap.from(lineDraws, {
           scaleX: 0,
           transformOrigin: "left",
           duration: 2,
@@ -70,7 +51,6 @@ const Hero = () => {
           delay:5,
           ease: "power3.out",
         });
-      });
     })
     return () => ctx.revert()
   }, []);

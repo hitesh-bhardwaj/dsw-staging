@@ -60,15 +60,7 @@ const TurbochargeG = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // const tl = gsap.timeline({
-      //   scrollTrigger: {
-      //     trigger: "#turbo",
-      //     scrub: 1,
-      //     pin: true,
-      //     start: "top top",
-      //     end: "+=1200 bottom",
-      //   },
-      // });
+   
       const bl = gsap.timeline({
         scrollTrigger: {
           trigger: "#turbo",
@@ -102,10 +94,12 @@ const TurbochargeG = () => {
       bl.from(".turbo-img", {
         opacity: 0,
         duration: 0.5,
+      
+      
       });
       bl.from(".img-1", {
         yPercent: -40,
-        xPercent: -55,
+        xPercent: -75,
         delay: -0.5,
         duration: 1,
       })
@@ -131,7 +125,7 @@ const TurbochargeG = () => {
           ".img-4",
           {
             yPercent: -45,
-            xPercent: 60,
+            xPercent: 75,
             transformOrigin: "right center",
             duration: 1,
           },
