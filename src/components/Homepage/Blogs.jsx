@@ -7,14 +7,13 @@ import PrimaryButton from '../Button/PrimaryButton';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { NextButton, PreviousButton } from '../Button/SliderButtons';
+
 gsap.registerPlugin(ScrollTrigger);
-
-
 
 const BlogCard = ({ title, date, img }) => {
   return (
     <>
-      <div className='rounded-3xl group border-[0.25px] border-stone-600 pb-4 bg-white/5 w-[27vw] space-y-8 overflow-hidden group cursor-pointer under-multi-parent'>
+      <div className='rounded-3xl group border-[0.25px] border-stone-600 pb-4 bg-white/5 space-y-8 overflow-hidden group cursor-pointer under-multi-parent'>
         <div className='w-full h-full overflow-hidden rounded-3xl '>
           <Image src={img} width={531} height={510} alt='blog-1' className='object-cover h-[20vw] w-[31vw] group-hover:scale-[1.1] transition-all duration-500 ease' />
         </div>
@@ -83,15 +82,24 @@ const Blogs = () => {
             <PrimaryButton text={"Know More"} href={"#"} />
           </div>
         </div>
-        <div className='w-[55%] text-white ' >
-          <Swiper slidesPerView={1.8}
-            className="mySwiper swiper-container" onSwiper={(swiper) => (swiperRef.current = swiper)}>
-            <SwiperSlide><BlogCard img={"/assets/images/blog-1.png"} title={"How Generative AI is Revolutionizing Insurance"} date={"6 March, 2025"} /></SwiperSlide>
-            <SwiperSlide><BlogCard img={"/assets/images/blog-2.png"} title={"Best Practices for AI Deployment in Regulated Industries"} date={"6 March, 2025"} /></SwiperSlide>
-            <SwiperSlide><BlogCard img={"/assets/images/blog-1.png"} title={"How Generative AI is Revolutionizing Insurance"} date={"6 March, 2025"} /></SwiperSlide>
-            <SwiperSlide><BlogCard img={"/assets/images/blog-2.png"} title={"Best Practices for AI Deployment in Regulated Industries"} date={"6 March, 2025"} /></SwiperSlide>
-            <SwiperSlide><BlogCard img={"/assets/images/blog-1.png"} title={"How Generative AI is Revolutionizing Insurance"} date={"6 March, 2025"} /></SwiperSlide>
-            <SwiperSlide><BlogCard img={"/assets/images/blog-2.png"} title={"Best Practices for AI Deployment in Regulated Industries"} date={"6 March, 2025"} /></SwiperSlide>
+        <div className='w-[50%] text-white'>
+          <Swiper
+            slidesPerView={1.8}
+            className="mySwiper swiper-container"
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
+            spaceBetween={60}
+            speed={1000}
+          >
+            {BlogsData.map((blog) => (
+              <SwiperSlide className='w-[26vw] h-full'>
+                <BlogCard
+                  key={blog.id}
+                  title={blog.title}
+                  img={blog.img}
+                  date={blog.date}
+                />
+              </SwiperSlide>
+            ))}
           </Swiper>
 
           <div className='flex gap-6 mt-6'>
@@ -105,4 +113,43 @@ const Blogs = () => {
   )
 }
 
-export default Blogs
+export default Blogs;
+
+const BlogsData = [
+  {
+    id: 1,
+    title: "How Generative AI is Revolutionizing Insurance",
+    date: "6 March, 2025",
+    img: "/assets/images/blog-1.png",
+  },
+  {
+    id: 2,
+    title: "Best Practices for AI Deployment in Regulated Industries",
+    date: "6 March, 2025",
+    img: "/assets/images/blog-2.png",
+  },
+  {
+    id: 3,
+    title: "How Generative AI is Revolutionizing Insurance",
+    date: "6 March, 2025",
+    img: "/assets/images/blog-1.png",
+  },
+  {
+    id: 4,
+    title: "Best Practices for AI Deployment in Regulated Industries",
+    date: "6 March, 2025",
+    img: "/assets/images/blog-2.png",
+  },
+  {
+    id: 5,
+    title: "How Generative AI is Revolutionizing Insurance",
+    date: "6 March, 2025",
+    img: "/assets/images/blog-1.png",
+  },
+  {
+    id: 6,
+    title: "Best Practices for AI Deployment in Regulated Industries",
+    date: "6 March, 2025",
+    img: "/assets/images/blog-2.png",
+  }
+]
