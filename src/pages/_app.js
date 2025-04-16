@@ -5,7 +5,6 @@ import localFont from "next/font/local";
 import "lenis/dist/lenis.css";
 import LenisSmoothScroll from "@/components/LenisSmoothScroll";
 
-
 const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-body",
@@ -34,10 +33,16 @@ const neumontreal = localFont({
 export default function App({ Component, pageProps }) {
 
   useEffect(() => {
-    // Scroll to top on reload
-    if (typeof window !== "undefined") {
-        window.scrollTo(0, 0);
-    }
+    window.scrollTo(0, 0);
+  
+    const handleBeforeUnload = () => {
+      window.scrollTo(0, 0);
+    };
+  
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
   }, []);
 
   return (
