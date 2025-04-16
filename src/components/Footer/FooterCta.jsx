@@ -105,14 +105,14 @@ const FooterCTA = () => {
                     style={{ x: image1X, y: image1Y }}
                     className="absolute w-[45%] top-[15%] left-[20%] rounded-2xl border border-white/30 overflow-hidden"
                 >
-                    <Image src={Image1} alt="Image1" loading="lazy" placeholder="blur" />
+                    <Image src={Image1} alt="Image1" loading="lazy" placeholder="blur" className="w-full h-full object-cover" />
                 </motion.div>
 
                 <motion.div
                     style={{ x: image1X, y: image1Y }}
                     className="absolute  w-[40%] bottom-[10%] left-[45%] rounded-2xl  border border-white/30 overflow-hidden "
                 >
-                    <Image src={Image2} alt="Image2" loading="lazy" placeholder="blur" className="object-cover" />
+                    <Image src={Image2} alt="Image2" loading="lazy" placeholder="blur" className="w-full h-full object-cover" />
                 </motion.div>
             </div>
         </div>

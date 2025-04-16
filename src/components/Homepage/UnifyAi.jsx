@@ -41,21 +41,22 @@ const UnifyAi = () => {
           trigger: "#unifyAi",
           start: "top top",
           end: "bottom top",
-          scrub: 0.5,
+          scrub: 0.25,
           pin: true,
         },
       });
 
       tl.to(".logo-wrapper", {
-        y: 2350,
-        scale: 120,
+        y: 2450,
+        x:-250,
+        scale: 125,
         duration: 3,
         ease: "power3.out"
       })
       .from(".logo-background-content", {
         opacity: 0,
-        duration: 2,
-        delay: -1,
+        duration: 1,
+        delay: -2,
         ease: "none",
       });
     });

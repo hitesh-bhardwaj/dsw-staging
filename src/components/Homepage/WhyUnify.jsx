@@ -39,7 +39,7 @@ const WhyUnify = () => {
       scrollTrigger: {
         trigger: sectionRef.current,
         start: "10% 10%",
-        end: "+=3000",
+        end: "+=2000",
         scrub: 1,
         pin: true,
         // Example snap configuration.
