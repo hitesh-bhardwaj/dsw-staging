@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Accordion, AccordionItem } from "@heroui/accordion";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 const data = [
   {
@@ -50,29 +50,30 @@ const Icon = ({ isOpen }) => {
 };
 
 const FAQs = () => {
-  useEffect(()=>{
-    const faqAfter = document.querySelectorAll(".faq-lines")
-    
-    const ctx = gsap.context(()=>{
-      gsap.to(faqAfter,{
-        '--beforescaleX':1,
-        duration:1,
-        scrollTrigger:{
-          trigger:faqAfter,
-          start:"top 70%",
-          // markers:true,
-          stagger:0.4
 
-        }
-      })
-    })
-  return()=>ctx.revert()
-  },[])
+  useEffect(() => {
+    const faqAfters = document.querySelectorAll(".faq-lines");
+    const ctx = gsap.context(() => {
+      faqAfters.forEach((faqAfter) => {
+        gsap.from(faqAfter, {
+          "--beforeScaleX": 0,
+          duration: 1,
+          scrollTrigger: {
+            trigger: faqAfter,
+            start: "top 70%",
+            // markers:true,
+            stagger: 1,
+          },
+        });
+      });
+    });
+    return () => ctx.revert();
+  }, []);
+  
   const itemClasses = {
-    base: "py-5 w-full px-4  relative faq-lines ",
+    base: "py-5 w-full px-4  relative faq-lines",
     title: "font-medium text-[1.145vw] font-body text-[#E8E8E8]",
-    trigger:
-      "px-2 py-0 rounded-full h-14 flex items-center justify-between w-full",
+    trigger: "px-2 py-0 rounded-full h-14 flex items-center justify-between w-full",
     content: "text-[1.145vw] py-4 px-2 text-[#CACACA] w-5/6 font-body ",
   };
 
