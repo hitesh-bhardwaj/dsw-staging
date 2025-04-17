@@ -4,9 +4,13 @@ import PrimaryButton from "../Button/PrimaryButton";
 import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { Links, NavLink } from "./NavLink";
-
+import WhiteButton from "../Button/WhiteButton";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger)
 const Header = () => {
   const [isHidden, setIsHidden] = useState(false);
+  const [unify , setUnify] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const headerRef = useRef();
   useEffect(() => {
@@ -29,6 +33,34 @@ const Header = () => {
     };
   }, [lastScrollY]);
 
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+  
+    const unifyEnter = ScrollTrigger.create({
+      trigger: "#unifyAi",
+      start: "top top",
+    
+      onEnter: () => setUnify(true),
+      onEnterBack: () => setUnify(true),
+      onLeaveBack:()=>setUnify(false)
+    });
+  
+    const unifyLeave = ScrollTrigger.create({
+      trigger: "#WhyUnify",
+      start: "top bottom",
+      end:"+3500 top",
+      onEnter:()=>setUnify(true),
+      onEnterBack: () => setUnify(true),
+      onLeave:()=>setUnify(false)
+    });
+  
+    return () => {
+      unifyEnter.kill();
+      unifyLeave.kill();
+    };
+  }, []);
+ 
+
   return (
     <>
       <motion.header
@@ -43,7 +75,7 @@ const Header = () => {
               height={67}
               width={132}
               alt="dsw-logo"
-              className="w-[7vw] h-[5vw] object-contain"
+              className="w-[7vw] h-[5vw] object-contain dsw-logo"
             />
           </Link>
           <div className="border rounded-4xl bg-stone-900/30 backdrop-blur-sm border-white/20 ml-[4vw]">
@@ -56,7 +88,9 @@ const Header = () => {
             </ul>
           </div>
           <div>
-            <PrimaryButton text={"Book a Demo"} href={"#"} />
+           
+            <PrimaryButton text={"Book a Demo"} href={"#"} className="primary-button" unify={unify} />
+            
           </div>
         </div>
       </motion.header>

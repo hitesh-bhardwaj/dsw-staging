@@ -45,6 +45,24 @@ const UnifyAi = () => {
           pin: true,
         },
       });
+      ScrollTrigger.create({
+        trigger: "#unifyAi",
+        start: "top top",
+        end: "+4200 top",
+        // markers:true,
+        onEnter: () => {
+          gsap.to(".dsw-logo", { filter: "brightness(6)", duration: 0 });
+        },
+        onLeave: () => {
+          gsap.to(".dsw-logo", { filter: "brightness(1)", duration: 0 });
+        },
+        onEnterBack: () => {
+          gsap.to(".dsw-logo", { filter: "brightness(6)", duration: 0});
+        },
+        onLeaveBack: () => {
+          gsap.to(".dsw-logo", { filter: "brightness(1)", duration: 0 });
+        }
+      });
 
       tl.to(".logo-wrapper", {
         y: 2540,

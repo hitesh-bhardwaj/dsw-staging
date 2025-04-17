@@ -155,6 +155,7 @@ const WhyUnify = () => {
     <section
       className="h-full w-screen relative pb-[15vw] z-[10]"
       ref={sectionRef}
+      id="WhyUnify"
     >
       {/* Gradient Background Layer */}
       <div className="absolute top-0 left-0 h-full w-screen z-0 pointer-events-none bg-linear-to-r from-primary-1 to-primary-2 gradientClassBackground">
