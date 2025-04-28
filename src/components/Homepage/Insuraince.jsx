@@ -29,7 +29,7 @@ const Insuraince = () => {
                     },
                     {
                         scaleX: 1,
-                        duration: 3.5,
+                        duration: 1,
                         ease: 'power2.out',
                         onComplete: () => {
                             gsap.to(span, {
@@ -38,7 +38,7 @@ const Insuraince = () => {
                             });
                         },
                     },
-                    i * 3
+                    i * 0.5
                 );
 
                 tl.fromTo(
@@ -53,7 +53,7 @@ const Insuraince = () => {
                         duration: 1.2,
                         ease: 'power2.out',
                     },
-                    i * 3
+                    i * 0.5
                 );
             });
         }, sectionRef);
@@ -110,7 +110,7 @@ const Card = ({ data, spanRef }) => {
                     ref={spanRef}
                     className="absolute top-0 left-0 h-full bg-primary-1 w-full scale-x-0 origin-left"
                 />
-                 <span
+                <span
                     className="absolute top-0 left-0 h-full bg-primary-1 w-full scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500"
                 />
             </div>
