@@ -49,9 +49,9 @@ const Header = () => {
       trigger: "#WhyUnify",
       start: "top bottom",
       end:"+3500 top",
-      onEnter:()=>setUnify(true),
-      onEnterBack: () => setUnify(true),
-      onLeave:()=>setUnify(false)
+      // onEnter:()=>setUnify(true),
+      // onEnterBack: () => setUnify(true),
+      // onLeave:()=>setUnify(false)
     });
   
     return () => {
@@ -89,7 +89,7 @@ const Header = () => {
           </div>
           <div>
            
-            <PrimaryButton text={"Book a Demo"} href={"#"} className="primary-button" unify={unify} />
+            <PrimaryButton text={"Book a Demo"} href={"#"} className="primary-button" />
             
           </div>
         </div>

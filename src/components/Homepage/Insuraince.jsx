@@ -62,7 +62,7 @@ const Insuraince = () => {
     }, []);
 
     return (
-        <section className="w-screen h-full pb-[10vw] overflow-hidden" ref={sectionRef}>
+        <section className="w-screen h-full pb-[10vw] pt-[5vw] overflow-hidden" ref={sectionRef}>
             <div className="w-full pt-0 pb-15 space-y-20 px-20">
                 <div className="text-center space-y-2 w-fit mx-auto">
                     <h3 className="bg-linear-to-r from-primary-1 to-primary-2 bg-clip-text text-transparent text-[5.2vw] font-medium font-head">

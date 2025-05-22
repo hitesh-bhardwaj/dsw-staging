@@ -4,6 +4,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin";
 import WhiteButton from "../Button/WhiteButton";
+import PrimaryButton from "../Button/PrimaryButton";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -53,7 +54,7 @@ const WhyUnify = () => {
           );
           svgCircleRefs.current.forEach((circle, i) => {
             gsap.to(circle, {
-              fill: i === activeIndex ? "#FFFFFF" : "#EF5F0E",
+              fill: i === activeIndex ?  "#f16b0d" :"#FFFFFF" ,
               duration: 0.3,
             });
           });
@@ -71,7 +72,7 @@ const WhyUnify = () => {
     });
     gsap.set(contentRefs.current[0], { opacity: 1, y: 0, zIndex: 1 });
     svgCircleRefs.current.forEach((circle, i) => {
-      gsap.set(circle, { fill: i === 0 ? "#FFFFFF" : "#EF5F0E" });
+      gsap.set(circle, { fill: i === 0 ? "#FFFFFF" : "#f16b0d" });
     });
 
     for (let i = 1; i < contentRefs.current.length; i++) {
@@ -153,12 +154,12 @@ const WhyUnify = () => {
 
   return (
     <section
-      className="h-full w-screen relative pb-[15vw] z-[10]"
+      className="h-full w-screen relative  bg-white z-[10]"
       ref={sectionRef}
       id="WhyUnify"
     >
       {/* Gradient Background Layer */}
-      <div className="absolute top-0 left-0 h-full w-screen z-0 pointer-events-none bg-linear-to-r from-primary-1 to-primary-2 gradientClassBackground">
+      {/* <div className="absolute top-0 left-0 h-full w-screen z-0 pointer-events-none bg-white !text-black gradientClassBackground">
         <Image
           src="/assets/images/homepage/black-svg.svg"
           alt="black svg section break"
@@ -166,11 +167,11 @@ const WhyUnify = () => {
           height={500}
           className="absolute bottom-[-1px] left-0 right-0 z-10"
         />
-      </div>
+      </div> */}
 
       <div className="flex flex-col items-center w-full py-30 space-y-30 px-10 relative z-[2]">
         <div className="space-y-24 w-full">
-          <h3 className="text-[5.2vw] text-foreground text-center font-light headingAnim">
+          <h3 className="text-[5.2vw] text-primary-1 text-center font-light headingAnim">
             Why Choose UnifyAI?
           </h3>
 
@@ -190,7 +191,7 @@ const WhyUnify = () => {
                     y1="7.56641"
                     x2="8.08082"
                     y2="310.975"
-                    stroke="#E8E8E8"
+                    stroke="#939393"
                     strokeOpacity="0.46"
                     strokeWidth="1"
                   />
@@ -199,7 +200,7 @@ const WhyUnify = () => {
                     y1="7.56641"
                     x2="8.08082"
                     y2="310.975"
-                    stroke="white"
+                    stroke="#f16b0d"
                     strokeWidth="1"
                     ref={progressLineRef}
                   />
@@ -207,37 +208,37 @@ const WhyUnify = () => {
                     cx="7.5808"
                     cy="7.56615"
                     r="6.5681"
-                    fill="#EF5F0E"
-                    stroke="#E8E8E8"
+                    fill="#f16b0d"
+                    stroke="#f16b0d"
                     ref={addToCircleRefs}
                   />
                   <circle
                     cx="7.5808"
                     cy="108.702"
                     r="7.0681"
-                    fill="#EF5F0E"
-                    stroke="#E8E8E8"
+                    fill="#f16b0d"
+                    stroke="#f16b0d"
                     ref={addToCircleRefs}
                   />
                   <circle
                     cx="7.5808"
                     cy="209.838"
                     r="7.0681"
-                    fill="#EF5F0E"
-                    stroke="#E8E8E8"
+                    fill="#f16b0d"
+                    stroke="#f16b0d"
                     ref={addToCircleRefs}
                   />
                   <circle
                     cx="7.5808"
                     cy="310.975"
                     r="7.0681"
-                    fill="#EF5F0E"
-                    stroke="#E8E8E8"
+                    fill="#f16b0d"
+                    stroke="#f16b0d"
                     ref={addToCircleRefs}
                   />
                 </svg>
               </div>
-              <div className="text-foreground space-y-14 content-p font-light">
+              <div className="text-black space-y-14 content-p font-light">
                 <p>End-to-End AI Lifecycle Management</p>
                 <p>Multi-Model AI Support</p>
                 <p>Seamless Enterprise Integration</p>
@@ -270,54 +271,55 @@ const WhyUnify = () => {
             {/* Right: Content Blocks */}
             <div className="w-[40vw] relative">
               <div ref={addToContentRefs} className="step-block absolute top-0 left-0">
-                <p className="text-[2.6vw] text-foreground font-head leading-[1.2]">
+                <p className="text-[2.6vw] text-black font-head leading-[1.2]">
                   End-to-End AI Lifecycle Management - From Model Training to Production Deployment
                 </p>
-                <p className="text-foreground content-p w-[88%] py-8">
+                <p className="text-black content-p w-[88%] py-8">
                   UnifyAI provides a complete AI development ecosystem, allowing
                   businesses to build, test, optimize, and deploy AI/ML models seamlessly.
                 </p>
-                <WhiteButton circleColor={"bg-white hover:bg-[#070707]"} text="Know More" href="#" className="border-white border text-white bg-transparent " />
+                
+                <WhiteButton circleColor={"bg-primary-1 group-hover:!bg-primary-1"} text="Know More" href="#" className="border-primary-1 border text-primary-1 bg-transparent hover:text-primary-1 hover:bg-transparent" />
               </div>
 
               <div ref={addToContentRefs} className="step-block absolute top-10 left-0">
-                <p className="text-[2.6vw] text-foreground font-head leading-[1.2]">
+                <p className="text-[2.6vw] text-black font-head leading-[1.2]">
                   Multi-Model AI Support
                 </p>
-                <p className="text-foreground content-p w-[88%] py-8">
+                <p className="text-black content-p w-[88%] py-8">
                   UnifyAI provides a complete AI development ecosystem, allowing
                   businesses to build, test, optimize, and deploy AI/ML models seamlessly.
                 </p>
-                <WhiteButton circleColor={"bg-white"} text="Know More" href="#" className="border-white border text-white bg-transparent" />
+                <WhiteButton circleColor={"bg-primary-1 group-hover:!bg-primary-1"} text="Know More" href="#" className="border-primary-1 border text-primary-1 bg-transparent hover:text-primary-1 hover:bg-transparent" />
               </div>
 
               <div ref={addToContentRefs} className="step-block absolute top-10 left-0">
-                <p className="text-[2.6vw] text-foreground font-head leading-[1.2]">
+                <p className="text-[2.6vw] text-black font-head leading-[1.2]">
                   Seamless Enterprise Integration
                 </p>
-                <p className="text-foreground content-p w-[88%] py-8">
+                <p className="text-black content-p w-[88%] py-8">
                   UnifyAI provides a complete AI development ecosystem, allowing
                   businesses to build, test, optimize, and deploy AI/ML models seamlessly.
                 </p>
-                <WhiteButton circleColor={"bg-white"} text="Know More" href="#" className="border-white border text-white bg-transparent" />
+                <WhiteButton circleColor={"bg-primary-1 group-hover:!bg-primary-1"} text="Know More" href="#" className="border-primary-1 border text-primary-1 bg-transparent hover:text-primary-1 hover:bg-transparent" />
               </div>
 
               <div ref={addToContentRefs} className="step-block absolute top-10 left-0">
-                <p className="text-[2.6vw] text-foreground font-head leading-[1.2]">
+                <p className="text-[2.6vw] text-black font-head leading-[1.2]">
                   Scalable Infrastructure
                 </p>
-                <p className="text-foreground content-p w-[88%] py-8">
+                <p className="text-black content-p w-[88%] py-8">
                   UnifyAI provides a complete AI development ecosystem, allowing
                   businesses to build, test, optimize, and deploy AI/ML models seamlessly.
                 </p>
-                <WhiteButton circleColor={"bg-white"} text="Start Free Trial" href="#" className="border-white border text-white bg-transparent" />
+                <WhiteButton circleColor={"bg-primary-1 group-hover:!bg-primary-1"} text="Start Free Trial" href="#" className="border-primary-1 border text-primary-1 bg-transparent hover:text-primary-1 hover:bg-transparent" />
               </div>
             </div>
           </div>
           {/* Skip Button triggers scroll to the last snap */}
           <div className="mt-10 flex justify-center absolute right-10 bottom-50">
             <button
-              className="px-6 py-2 rounded-full flex items-center cursor-pointer gap-2 text-foreground font-light hover:scale-95 text-[1vw] transition duration-500"
+              className="px-6 py-2 rounded-full flex items-center cursor-pointer gap-2 text-black font-light hover:scale-95 text-[1vw] transition duration-500"
               onClick={handleSkip}
             >
               Skip
